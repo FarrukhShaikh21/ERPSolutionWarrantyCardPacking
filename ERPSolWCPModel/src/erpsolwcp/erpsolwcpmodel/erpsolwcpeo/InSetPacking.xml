@@ -221,6 +221,13 @@
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING"
     PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="InSpbox"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc.InSpbox"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc.InSetPacking"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkInSetPacking"
     PrimaryKey="true">

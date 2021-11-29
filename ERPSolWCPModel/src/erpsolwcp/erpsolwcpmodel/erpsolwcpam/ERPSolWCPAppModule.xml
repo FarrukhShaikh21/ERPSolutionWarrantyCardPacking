@@ -8,12 +8,6 @@
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
-    Name="InSetPackingView1"
+    Name="InSetPackingCRUD"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"/>
-  <ViewUsage
-    Name="InSpboxView1"
-    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView"/>
-  <ViewUsage
-    Name="InSpdetlView1"
-    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView"/>
 </AppModule>

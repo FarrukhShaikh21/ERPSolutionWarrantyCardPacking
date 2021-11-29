@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InSetPackingInSpBoxPackingSeqAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="InSetPacking"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InSetPacking"/>
+      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.PkInSetPacking"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Packingseq"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="InSpbox"
+    Cardinality="-1"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InSpbox"/>
+      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.fk_InSpbox"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Packingseq"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

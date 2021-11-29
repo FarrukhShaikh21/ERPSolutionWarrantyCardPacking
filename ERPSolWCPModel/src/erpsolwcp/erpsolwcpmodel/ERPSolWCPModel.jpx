@@ -22,11 +22,27 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="erpsolwcpassoc"
+    PackageName="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="erpsolwcpeo"
     PackageName="erpsolwcp.erpsolwcpmodel.erpsolwcpeo"
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="erpsolwcplink"
+    PackageName="erpsolwcp.erpsolwcpmodel.erpsolwcplink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee
