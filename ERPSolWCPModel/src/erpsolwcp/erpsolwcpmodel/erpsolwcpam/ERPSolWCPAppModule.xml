@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ERPSolWCPAppModule"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="InSetPackingView1"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"/>
+  <ViewUsage
+    Name="InSpboxView1"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView"/>
+  <ViewUsage
+    Name="InSpdetlView1"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView"/>
+</AppModule>
