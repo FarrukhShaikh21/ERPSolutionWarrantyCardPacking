@@ -156,6 +156,13 @@
     AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc.InSpbox"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InSpdetl"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxInSpDetailSpboxSeqAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxInSpDetailSpboxSeqAssoc.InSpdetl"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxInSpDetailSpboxSeqAssoc.InSpbox"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkInSpbox"
     PrimaryKey="true">

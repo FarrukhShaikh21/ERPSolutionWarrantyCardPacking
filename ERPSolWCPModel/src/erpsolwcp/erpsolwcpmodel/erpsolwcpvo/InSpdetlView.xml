@@ -131,4 +131,10 @@
     EntityAttrName="Spdetlseq"
     EntityUsage="InSpdetl"
     AliasName="SPDETLSEQ"/>
+  <ViewLinkAccessor
+    Name="InSpboxView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxInSpDetailSpboxSeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

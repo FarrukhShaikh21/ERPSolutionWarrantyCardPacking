@@ -107,4 +107,9 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InSpdetlView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxInSpDetailSpboxSeqLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

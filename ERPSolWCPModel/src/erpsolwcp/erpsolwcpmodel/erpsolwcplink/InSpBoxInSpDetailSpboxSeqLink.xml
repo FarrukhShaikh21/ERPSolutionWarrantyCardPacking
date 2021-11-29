@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InSpBoxInSpDetailSpboxSeqLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxInSpDetailSpboxSeqAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxInSpDetailSpboxSeqLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="InSpboxView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="InSpboxView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView.Spboxseq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="InSpdetlView"
+    Cardinality="-1"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="InSpdetlView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView.Spboxseq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

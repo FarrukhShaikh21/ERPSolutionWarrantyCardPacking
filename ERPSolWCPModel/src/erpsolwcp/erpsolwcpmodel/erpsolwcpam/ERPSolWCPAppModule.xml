@@ -10,4 +10,22 @@
   <ViewUsage
     Name="InSetPackingCRUD"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"/>
+  <ViewUsage
+    Name="InSpboxDetCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView"/>
+  <ViewUsage
+    Name="InSpdetlDetCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView"/>
+  <ViewLinkUsage
+    Name="InSetPackingInSpBoxPackingSeqLink1"
+    ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
+    SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSetPackingCRUD"
+    DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpboxDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InSpBoxInSpDetailSpboxSeqLink1"
+    ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxInSpDetailSpboxSeqLink"
+    SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpboxDetCRUD"
+    DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpdetlDetCRUD"
+    Reversed="false"/>
 </AppModule>
