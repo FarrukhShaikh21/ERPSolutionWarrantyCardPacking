@@ -184,8 +184,7 @@
                                         required="#{bindings.Remarks.hints.mandatory}"
                                         columns="#{bindings.Remarks.hints.displayWidth}"
                                         maximumLength="#{bindings.Remarks.hints.precision}"
-                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it8" simple="true"
-                                        contentStyle="width:100%">
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2" readOnly="true">
                             <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
                         </af:gridCell>

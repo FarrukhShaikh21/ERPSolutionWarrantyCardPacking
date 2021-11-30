@@ -45,5 +45,10 @@
         <Item Value="Ptype"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
