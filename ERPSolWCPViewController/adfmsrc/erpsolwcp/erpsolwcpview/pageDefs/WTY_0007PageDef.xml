@@ -97,6 +97,11 @@
         <Item Value="Boxno"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtTotalBox">
+      <AttrNames>
+        <Item Value="txtTotalBox"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtTotalTransactionIMEI">
       <AttrNames>
         <Item Value="txtTotalTransactionIMEI"/>

@@ -201,6 +201,21 @@
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtTotalBox"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InSpboxView.count("Boxno")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="InSpboxView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

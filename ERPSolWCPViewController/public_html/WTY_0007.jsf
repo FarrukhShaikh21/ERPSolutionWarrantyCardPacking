@@ -168,17 +168,16 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center"/>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
-                          <af:inputText value="#{bindings.txtTotalTransactionIMEI.inputValue==null?0:bindings.txtTotalTransactionIMEI.inputValue}"
-                                        label="#{bindings.txtTotalTransactionIMEI.hints.label}"
-                                        required="#{bindings.txtTotalTransactionIMEI.hints.mandatory}"
-                                        columns="#{bindings.txtTotalTransactionIMEI.hints.displayWidth}"
-                                        maximumLength="#{bindings.txtTotalTransactionIMEI.hints.precision}"
-                                        shortDesc="#{bindings.txtTotalTransactionIMEI.hints.tooltip}" id="it9"
-                                        simple="true" readOnly="true" partialTriggers="pc1:b8 pc2:b11 pc2:b10">
-                            <f:validator binding="#{bindings.txtTotalTransactionIMEI.validator}"/>
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.txtTotalTransactionIMEI.format}"/>
-                          </af:inputText>
+                          <af:outputText value="Total Box :" id="ot5"/>
+                          <af:outputText value="#{bindings.txtTotalBox.inputValue}"
+                                         shortDesc="#{bindings.txtTotalBox.hints.tooltip}" id="ot2"
+                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalBox.format}"/>
+                          </af:outputText>
+                          <af:spacer width="10" height="10" id="s2"/>
+                          <af:outputText value="Total IMEI :" id="ot4"/>
+                          <af:outputText value="#{bindings.txtTotalTransactionIMEI.inputValue}" id="ot3"
+                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5"/>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
@@ -242,7 +241,7 @@
                         <af:panelBox text="Box" id="pb2" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc1" featuresOff="viewMenu detach" styleClass="AFStretchWidth"
-                                              partialTriggers="it5 it7">
+                                              partialTriggers="::it7 ::it5">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar">
                               <af:toolbar id="t4">
