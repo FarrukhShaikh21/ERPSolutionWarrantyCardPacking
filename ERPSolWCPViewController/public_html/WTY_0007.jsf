@@ -216,17 +216,10 @@
                 </af:gridCell>
               </af:gridRow>
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
                   <af:panelGridLayout id="pgl6">
                     <af:gridRow id="gr13" marginTop="5px" marginBottom="5px">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
-                        <af:inputText value="#{bindings.Boxno.inputValue}" label="#{bindings.Boxno.hints.label}"
-                                      required="#{bindings.Boxno.hints.mandatory}"
-                                      columns="#{bindings.Boxno.hints.displayWidth}"
-                                      maximumLength="#{bindings.Boxno.hints.precision}"
-                                      shortDesc="#{bindings.Boxno.hints.tooltip}" id="it8" rendered="false">
-                          <f:validator binding="#{bindings.Boxno.validator}"/>
-                        </af:inputText>
                         <af:inputText label="Scan Box Here" id="it5" autoSubmit="true"
                                       value="#{bindings.BoxNo.inputValue}" partialTriggers="it5"
                                       contentStyle="text-transform:uppercase"/>
@@ -277,7 +270,7 @@
                       <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21">
                         <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
-                          <af:panelCollection id="pc2" featuresOff="viewMenu detach" partialTriggers="it5 it7">
+                          <af:panelCollection id="pc2" featuresOff="viewMenu detach">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar">
                               <af:toolbar id="t5">

@@ -12,6 +12,7 @@
               id="InSpdetlDetCRUDIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="VWScanImeiBoxRO" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
               id="VWScanImeiBoxROIterator"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
   </executables>
   <bindings>
     <action IterBinding="InSetPackingCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>

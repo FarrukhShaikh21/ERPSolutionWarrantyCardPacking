@@ -96,10 +96,13 @@ public class VWScanImeiBoxQVORowImpl extends ViewRowImpl {
      * @param value value to set the  BoxNo
      */
     public void setBoxNo(String value) {
+        /*
         if (value==null) {
             return;
-       }
+       }*/
+        System.out.println("hello");
         value=value.toUpperCase();
+        System.out.println("hello-2");
         ViewObject ERPSolvo=getDBTransaction().getRootApplicationModule().findViewObject("InSpboxDetCRUD");
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("Boxno", value);
