@@ -126,14 +126,20 @@
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr6">
                         <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.Ptype.hints.label}" id="ol3"/>
+                          <af:outputLabel value="#{bindings.txtItemName.hints.label}" id="ol7"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="stretch">
-                          <af:selectOneChoice label="#{bindings.Ptype.hints.label}" value="#{bindings.Ptype.inputValue}" id="soc1"
-                                              simple="true">
-                            <af:selectItem label="Fresh" value="F" id="si1"/>
-                            <af:selectItem label="selectItem 1" id="si2"/>
-                          </af:selectOneChoice>
+                          <af:inputComboboxListOfValues id="txtItemNameId"
+                                                        popupTitle="Search and Select: #{bindings.txtItemName.hints.label}"
+                                                        value="#{bindings.txtItemName.inputValue}"
+                                                        label="#{bindings.txtItemName.hints.label}"
+                                                        model="#{bindings.txtItemName.listOfValuesModel}"
+                                                        required="#{bindings.txtItemName.hints.mandatory}"
+                                                        columns="#{bindings.txtItemName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtItemName.hints.tooltip}" simple="true"
+                                                        contentStyle="width:100%">
+                            <f:validator binding="#{bindings.txtItemName.validator}"/>
+                          </af:inputComboboxListOfValues>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Expdate.hints.label}" id="ol6"/>
@@ -151,16 +157,14 @@
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr7">
                         <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.ManualRefNo.hints.label}" id="ol12"/>
+                          <af:outputLabel value="#{bindings.Ptype.hints.label}" id="ol3"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle">
-                          <af:inputText value="#{bindings.ManualRefNo.inputValue}" simple="true"
-                                        required="#{bindings.ManualRefNo.hints.mandatory}"
-                                        columns="#{bindings.ManualRefNo.hints.displayWidth}"
-                                        maximumLength="#{bindings.ManualRefNo.hints.precision}"
-                                        shortDesc="#{bindings.ManualRefNo.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.ManualRefNo.validator}"/>
-                          </af:inputText>
+                          <af:selectOneChoice label="#{bindings.Ptype.hints.label}" value="#{bindings.Ptype.inputValue}"
+                                              id="soc1" simple="true" contentStyle="width:100%">
+                            <af:selectItem label="Fresh" value="F" id="si1"/>
+                            <af:selectItem label="selectItem 1" id="si2"/>
+                          </af:selectOneChoice>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Catid.label}" id="ol8"/>

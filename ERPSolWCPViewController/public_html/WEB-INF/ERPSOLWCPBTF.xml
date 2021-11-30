@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPSOLWCPBTF">
+    <default-activity>doERPSolWCPSessionGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>ERPSolWCPPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <task-flow-return id="ERPSOL-RETURN-FROM-WCP">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-WCP</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPSolWCPSessionGlobals">
+      <method>#{pageFlowScope.ERPSolWCPPageFlowBean.doSetERPSolWCPSessionGlobals}</method>
+    </method-call>
+    <method-call id="ExeSolWCPTransaction">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_0007">
+      <page>/WTY_0007.jsf</page>
+    </view>
+    <view id="ERPSolWCPMain">
+      <page>/ERPSolWCPMain.jsf</page>
+    </view>
+    <method-call id="methodCall1"></method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-WCP</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-WCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>doERPSolWCPSessionGlobals</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ExeSolWCPTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>methodCall1</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ACT-WTY-0007</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>ExeSolWCPTransaction</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ERPSolWCPMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

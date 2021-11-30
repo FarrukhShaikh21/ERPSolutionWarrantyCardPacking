@@ -50,5 +50,6 @@
         <Item Value="Remarks"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="InSetPackingCRUDIterator" StaticList="false" Uses="LovtxtItemName" id="txtItemName"/>
   </bindings>
 </pageDefinition>

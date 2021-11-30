@@ -3,15 +3,24 @@
              SeparateXMLFiles="false" Package="erpsolwcp.erpsolwcpview" ClientType="Generic">
   <pageMap>
     <page path="/WTY_0007.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0007PageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ExeSolWCPTransaction"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="ERPSolWCPAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>
