@@ -179,7 +179,7 @@
                                         required="#{bindings.Remarks.hints.mandatory}"
                                         columns="#{bindings.Remarks.hints.displayWidth}"
                                         maximumLength="#{bindings.Remarks.hints.precision}"
-                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2" readOnly="true"
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
                                         simple="true">
                             <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
@@ -209,8 +209,16 @@
                   <af:panelGridLayout id="pgl6">
                     <af:gridRow id="gr13" marginTop="5px" marginBottom="5px">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
+                        <af:inputText value="#{bindings.Boxno.inputValue}" label="#{bindings.Boxno.hints.label}"
+                                      required="#{bindings.Boxno.hints.mandatory}"
+                                      columns="#{bindings.Boxno.hints.displayWidth}"
+                                      maximumLength="#{bindings.Boxno.hints.precision}"
+                                      shortDesc="#{bindings.Boxno.hints.tooltip}" id="it8" rendered="false">
+                          <f:validator binding="#{bindings.Boxno.validator}"/>
+                        </af:inputText>
                         <af:inputText label="Scan Box Here" id="it5" autoSubmit="true"
-                                      value="#{bindings.BoxNo.inputValue}" partialTriggers="it5"/>
+                                      value="#{bindings.BoxNo.inputValue}" partialTriggers="it5"
+                                      contentStyle="text-transform:uppercase"/>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
                         <af:inputText label="Scan IMEI Here" id="it7" autoSubmit="true"
@@ -219,51 +227,77 @@
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
                       <af:gridCell marginStart="5px" width="30%" id="gc20" halign="stretch" valign="stretch">
-                        <af:panelBox text="Box" id="pb2" showDisclosure="false" partialTriggers="it5">
+                        <af:panelBox text="Box" id="pb2" showDisclosure="false">
                           <f:facet name="toolbar"/>
-                          <af:table value="#{bindings.InSpboxDetCRUD.collectionModel}" var="row"
-                                    rows="#{bindings.InSpboxDetCRUD.rangeSize}"
-                                    emptyText="#{bindings.InSpboxDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                    rowBandingInterval="0"
-                                    selectedRowKeys="#{bindings.InSpboxDetCRUD.collectionModel.selectedRow}"
-                                    selectionListener="#{bindings.InSpboxDetCRUD.collectionModel.makeCurrent}"
-                                    rowSelection="single" fetchSize="#{bindings.InSpboxDetCRUD.rangeSize}" id="t2"
-                                    columnStretching="last">
-                            <af:column headerText="#{bindings.InSpboxDetCRUD.hints.Boxno.label}" id="c1" width="200"
-                                       minimumWidth="12">
-                              <af:inputText value="#{row.bindings.Boxno.inputValue}"
-                                            label="#{bindings.InSpboxDetCRUD.hints.Boxno.label}"
-                                            required="#{bindings.InSpboxDetCRUD.hints.Boxno.mandatory}"
-                                            columns="#{bindings.InSpboxDetCRUD.hints.Boxno.displayWidth}"
-                                            maximumLength="#{bindings.InSpboxDetCRUD.hints.Boxno.precision}"
-                                            shortDesc="#{bindings.InSpboxDetCRUD.hints.Boxno.tooltip}" id="it1">
-                                <f:validator binding="#{row.bindings.Boxno.validator}"/>
-                              </af:inputText>
-                            </af:column>
-                          </af:table>
+                          <af:panelCollection id="pc1" featuresOff="viewMenu detach" styleClass="AFStretchWidth"
+                                              partialTriggers="it5 it7">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                              <af:toolbar id="t4">
+                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Box"
+                                           disabled="#{!bindings.Delete1.enabled}" id="b8"/>
+                              </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.InSpboxDetCRUD.collectionModel}" var="row"
+                                      rows="#{bindings.InSpboxDetCRUD.rangeSize}"
+                                      emptyText="#{bindings.InSpboxDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.InSpboxDetCRUD.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.InSpboxDetCRUD.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.InSpboxDetCRUD.rangeSize}" id="t2"
+                                      columnStretching="last" partialTriggers="::b8" autoHeightRows="10"
+                                      scrollPolicy="page">
+                              <af:column id="c1" width="200" minimumWidth="12">
+                                <af:inputText value="#{row.bindings.Boxno.inputValue}"
+                                              label="#{bindings.InSpboxDetCRUD.hints.Boxno.label}"
+                                              required="#{bindings.InSpboxDetCRUD.hints.Boxno.mandatory}"
+                                              columns="#{bindings.InSpboxDetCRUD.hints.Boxno.displayWidth}"
+                                              maximumLength="#{bindings.InSpboxDetCRUD.hints.Boxno.precision}"
+                                              shortDesc="#{bindings.InSpboxDetCRUD.hints.Boxno.tooltip}" id="it1"
+                                              contentStyle="text-transform:uppercase">
+                                  <f:validator binding="#{row.bindings.Boxno.validator}"/>
+                                </af:inputText>
+                              </af:column>
+                            </af:table>
+                          </af:panelCollection>
                         </af:panelBox>
                       </af:gridCell>
                       <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21">
-                        <af:panelBox text="IMEI" id="pb3" showDisclosure="false" partialTriggers="it5">
+                        <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
-                          <af:table value="#{bindings.InSpdetlDetCRUD.collectionModel}" var="row"
-                                    rows="#{bindings.InSpdetlDetCRUD.rangeSize}"
-                                    emptyText="#{bindings.InSpdetlDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                    rowBandingInterval="0"
-                                    selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
-                                    selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
-                                    rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t3">
-                            <af:column headerText="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}" id="c2" width="200">
-                              <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
-                                            label="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}"
-                                            required="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.mandatory}"
-                                            columns="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.displayWidth}"
-                                            maximumLength="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.precision}"
-                                            shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="it3">
-                                <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
-                              </af:inputText>
-                            </af:column>
-                          </af:table>
+                          <af:panelCollection id="pc2" featuresOff="viewMenu detach" partialTriggers="it5 it7">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                              <af:toolbar id="t5">
+                                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add IMEI"
+                                           disabled="#{!bindings.CreateInsert1.enabled}" id="b11"/>
+                                <af:button actionListener="#{bindings.Delete2.execute}" text="Delete IMEI"
+                                           disabled="#{!bindings.Delete2.enabled}" id="b10"/>
+                              </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.InSpdetlDetCRUD.collectionModel}" var="row"
+                                      rows="#{bindings.InSpdetlDetCRUD.rangeSize}"
+                                      emptyText="#{bindings.InSpdetlDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t3"
+                                      partialTriggers="::b10 ::b11" scrollPolicy="page" autoHeightRows="10">
+                              <af:column id="c2" width="200">
+                                <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
+                                              label="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}"
+                                              required="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.mandatory}"
+                                              columns="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.displayWidth}"
+                                              maximumLength="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.precision}"
+                                              shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="it3"
+                                              contentStyle="width:100%">
+                                  <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
+                                </af:inputText>
+                              </af:column>
+                            </af:table>
+                          </af:panelCollection>
                         </af:panelBox>
                       </af:gridCell>
                     </af:gridRow>

@@ -88,5 +88,14 @@
         <Item Value="Imei"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="InSpboxDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="InSpdetlDetCRUDIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="InSpdetlDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="InSpboxDetCRUDIterator" id="Boxno">
+      <AttrNames>
+        <Item Value="Boxno"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

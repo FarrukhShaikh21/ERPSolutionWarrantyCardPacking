@@ -1,5 +1,6 @@
 package erpsolwcp.erpsolwcpmodel.erpsolwcpeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
@@ -414,7 +415,8 @@ public class InSpdetlImpl extends ERPSolGlobalsEntityImpl {
      */
     protected void create(AttributeList attributeList) {
         setERPSolPKColumnName("Spdetlseq");
-        setERPSolPKSeqName("IN_SPDETL_SEQ");        
+        setERPSolPKSeqName("IN_SPDETL_SEQ");    
+        setStoreid(ERPSolGlobClassModel.doGetUserStoreCode());
         super.create(attributeList);
     }
 

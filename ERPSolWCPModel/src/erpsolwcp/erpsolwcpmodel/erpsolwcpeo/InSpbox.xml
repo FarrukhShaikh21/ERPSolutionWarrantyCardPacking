@@ -19,7 +19,6 @@
   <Attribute
     Name="Pckdetlid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="24"
     ColumnName="PCKDETLID"
     SQLType="VARCHAR"
@@ -45,7 +44,6 @@
   </Attribute>
   <Attribute
     Name="Pckid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="PCKID"
     SQLType="VARCHAR"
@@ -102,7 +100,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SPBOX">
+    TableName="IN_SPBOX"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -136,7 +135,7 @@
     Name="TotalImei"
     ColumnName="TOTAL_IMEI"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPBOX"/>
   <Attribute
@@ -151,6 +150,15 @@
   <Attribute
     Name="Packingseq"
     ColumnName="PACKINGSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="IN_SPBOX"/>
+  <Attribute
+    Name="Lineno"
+    Precision="5"
+    Scale="0"
+    ColumnName="LINENO"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"

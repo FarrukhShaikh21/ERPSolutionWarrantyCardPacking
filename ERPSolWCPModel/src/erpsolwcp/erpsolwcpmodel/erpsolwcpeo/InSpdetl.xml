@@ -19,7 +19,6 @@
   <Attribute
     Name="Pckdetlid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="25"
     ColumnName="PCKDETLID"
     SQLType="VARCHAR"

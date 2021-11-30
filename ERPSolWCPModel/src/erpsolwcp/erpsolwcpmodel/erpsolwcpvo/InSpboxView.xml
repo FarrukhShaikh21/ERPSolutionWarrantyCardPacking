@@ -101,6 +101,15 @@
     EntityAttrName="Packingseq"
     EntityUsage="InSpbox"
     AliasName="PACKINGSEQ"/>
+  <ViewAttribute
+    Name="Lineno"
+    PrecisionRule="true"
+    EntityAttrName="Lineno"
+    EntityUsage="InSpbox"
+    AliasName="LINENO">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[getRowSet().getRowCount()+1]]></TransientExpression>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="InSetPackingView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

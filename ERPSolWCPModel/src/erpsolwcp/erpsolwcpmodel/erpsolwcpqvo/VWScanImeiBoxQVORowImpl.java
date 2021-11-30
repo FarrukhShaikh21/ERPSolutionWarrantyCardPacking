@@ -77,7 +77,8 @@ public class VWScanImeiBoxQVORowImpl extends ViewRowImpl {
         ERPsolrow.setAttribute("ImeiNo", value);
         ERPSolvo.insertRow(ERPsolrow);
         ERPSolvo.setCurrentRow(ERPsolrow);
-        ERPSolvo.executeQuery();
+//        ERPSolvo.executeQuery();
+        
 //        setAttributeInternal(BOXNO, value);
            
     }
@@ -95,12 +96,16 @@ public class VWScanImeiBoxQVORowImpl extends ViewRowImpl {
      * @param value value to set the  BoxNo
      */
     public void setBoxNo(String value) {
+        if (value==null) {
+            return;
+       }
+        value=value.toUpperCase();
         ViewObject ERPSolvo=getDBTransaction().getRootApplicationModule().findViewObject("InSpboxDetCRUD");
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("Boxno", value);
         ERPSolvo.insertRow(ERPsolrow);
         ERPSolvo.setCurrentRow(ERPsolrow);
-        ERPSolvo.executeQuery();
+//        ERPSolvo.executeQuery();
 //        setAttributeInternal(BOXNO, value);
     }
 }

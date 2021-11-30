@@ -1,5 +1,6 @@
 package erpsolwcp.erpsolwcpmodel.erpsolwcpeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
@@ -34,6 +35,7 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
         TotalImei,
         Spboxseq,
         Packingseq,
+        Lineno,
         InSetPacking,
         InSpdetl;
         private static AttributesEnum[] vals = null;
@@ -58,6 +60,8 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int PCKDETLID = AttributesEnum.Pckdetlid.index();
     public static final int BOXNO = AttributesEnum.Boxno.index();
     public static final int PCKID = AttributesEnum.Pckid.index();
@@ -71,6 +75,7 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
     public static final int TOTALIMEI = AttributesEnum.TotalImei.index();
     public static final int SPBOXSEQ = AttributesEnum.Spboxseq.index();
     public static final int PACKINGSEQ = AttributesEnum.Packingseq.index();
+    public static final int LINENO = AttributesEnum.Lineno.index();
     public static final int INSETPACKING = AttributesEnum.InSetPacking.index();
     public static final int INSPDETL = AttributesEnum.InSpdetl.index();
 
@@ -79,6 +84,14 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
      */
     public InSpboxImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox");
+    }
+
 
     /**
      * Gets the attribute value for Pckdetlid, using the alias name Pckdetlid.
@@ -109,7 +122,7 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
      * @param value value to set the Boxno
      */
     public void setBoxno(String value) {
-        setAttributeInternal(BOXNO, value);
+        setAttributeInternal(BOXNO, value==null?null:value.toUpperCase());
     }
 
     /**
@@ -244,15 +257,15 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for TotalImei, using the alias name TotalImei.
      * @return the value of TotalImei
      */
-    public BigDecimal getTotalImei() {
-        return (BigDecimal) getAttributeInternal(TOTALIMEI);
+    public Integer getTotalImei() {
+        return (Integer) getAttributeInternal(TOTALIMEI);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for TotalImei.
      * @param value value to set the TotalImei
      */
-    public void setTotalImei(BigDecimal value) {
+    public void setTotalImei(Integer value) {
         setAttributeInternal(TOTALIMEI, value);
     }
 
@@ -288,6 +301,23 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(PACKINGSEQ, value);
     }
 
+
+    /**
+     * Gets the attribute value for Lineno, using the alias name Lineno.
+     * @return the value of Lineno
+     */
+    public Integer getLineno() {
+        return (Integer) getAttributeInternal(LINENO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Lineno.
+     * @param value value to set the Lineno
+     */
+    public void setLineno(Integer value) {
+        setAttributeInternal(LINENO, value);
+    }
+
     /**
      * @return the associated entity InSetPackingImpl.
      */
@@ -309,6 +339,7 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
         return (RowIterator) getAttributeInternal(INSPDETL);
     }
 
+
     /**
      * @param spboxseq key constituent
 
@@ -316,13 +347,6 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer spboxseq) {
         return new Key(new Object[] { spboxseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox");
     }
 
     /**
@@ -341,6 +365,7 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
    
     if (operation==DML_INSERT) {
          populateAttributeAsChanged(PCKID ,getInSetPacking().getAttribute("Pckid"));   
+         populateAttributeAsChanged(PCKDETLID ,getInSetPacking().getAttribute("Pckid")+"-"+getLineno()); 
        }   
         
         super.doDML(operation, e);
@@ -354,7 +379,9 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
     protected void create(AttributeList attributeList) {
         setERPSolPKColumnName("Spboxseq");
         setERPSolPKSeqName("IN_SPBOX_SEQ");
-        
+        setStoreid(ERPSolGlobClassModel.doGetUserStoreCode());
+//        
+//        setERPISGenertePK("NO");
         super.create(attributeList);
     }   
 }
