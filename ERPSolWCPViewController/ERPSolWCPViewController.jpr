@@ -173,6 +173,25 @@
          <string v="ERPSolutionWarrantyCardPacking_ERPSolWCPViewController_webapp"/>
       </list>
    </hash>
+   <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <hash n="runConfigurationDefinitions">
+         <hash n="Default">
+            <value n="custom" v="false"/>
+            <value n="name" v="Default"/>
+            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
+               <hash n="inputParameterValues">
+                  <value n="P_ADF_USER_LOCATIONCODE" v="K22"/>
+                  <value n="P_ADF_USER_REGIONCODE" v="S"/>
+                  <value n="P_ADF_USER_STORECODE" v="900"/>
+                  <value n="P_ADF_USERCODE" v="ORACLE"/>
+               </hash>
+               <value n="taskFlowId" v="ERPSOLWCPBTF"/>
+               <value n="unboundedTaskFlow" v="false"/>
+            </hash>
+            <url n="targetURL" path="public_html/WEB-INF/ERPSOLWCPBTF.xml"/>
+         </hash>
+      </hash>
+   </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>

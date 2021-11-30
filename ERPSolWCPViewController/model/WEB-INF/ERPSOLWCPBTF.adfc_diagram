@@ -51,7 +51,7 @@
       <property
          name="fromOutcome">ACT-ERPSOL-RETURN-FROM-WCP</property>
       <property
-         name="sdm:polyPoints">R50,533.87103,69.44824,740.1291,191.8965,L50</property>
+         name="sdm:polyPoints">R50,534.3549,69.44824,739.64514,191.89648,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall7">
@@ -74,7 +74,7 @@
       <property
          name="fromOutcome">ACT-ERP-GOTO-WCP-MAIN</property>
       <property
-         name="sdm:polyPoints">L50,435.12897,251.24707,333.22247,328.09766,R50</property>
+         name="sdm:polyPoints">L50,439.0,251.24707,329.35156,328.09766,R50</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -97,9 +97,9 @@
       from="MethodCall12"
       to="View9">
       <property
-         name="fromOutcome">ACT-WTY-0007</property>
+         name="fromOutcome">ERP-ACT-WTY-0007</property>
       <property
-         name="sdm:polyPoints">L50,640.129,364.94824,445.371,426.44824,R50</property>
+         name="sdm:polyPoints">L50,644.0,364.94824,441.5,426.44824,R50</property>
    </ControlFlowCase>
    <View
       id="View11">
@@ -119,9 +119,9 @@
    <MethodCall
       id="MethodCall12">
       <property
-         name="activityId">methodCall1</property>
+         name="activityId">doERPGotoWCPActivity</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>methodCall1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>doERPGotoWCPActivity&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -137,6 +137,25 @@
       <property
          name="fromOutcome">ACT-ERP-GOTO-WCP-MAIN</property>
       <property
-         name="sdm:polyPoints">B50,288.3515,385.96863,259.0117,420.57727,T50</property>
+         name="sdm:polyPoints">B50,288.35156,382.09766,259.01172,424.44824,T50</property>
+   </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule13">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">279.29883</property>
+      <property
+         name="x">844.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="WildcardControlFlowRule13"
+      to="MethodCall12">
+      <property
+         name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
+      <property
+         name="sdm:polyPoints">L50,808.0,279.44824,726.0,364.94824,R50</property>
    </ControlFlowCase>
 </SDM>
