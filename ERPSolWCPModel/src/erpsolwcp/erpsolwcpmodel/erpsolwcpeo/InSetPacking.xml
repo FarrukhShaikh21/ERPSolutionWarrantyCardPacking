@@ -108,7 +108,16 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="IN_SET_PACKING"/>
+    TableName="IN_SET_PACKING">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Purchdate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Expdate"
     IsNotNull="true"
@@ -116,7 +125,16 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="IN_SET_PACKING"/>
+    TableName="IN_SET_PACKING">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Expdate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Posted"
     IsNotNull="true"
@@ -239,6 +257,30 @@
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING"
     PrimaryKey="true"/>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.Description]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="InSpbox"
     Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc"

@@ -40,6 +40,7 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
         AllowedWpr,
         PrintInc,
         Packingseq,
+        txtItemName,
         InSpbox,
         InItems;
         private static AttributesEnum[] vals = null;
@@ -85,6 +86,7 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLOWEDWPR = AttributesEnum.AllowedWpr.index();
     public static final int PRINTINC = AttributesEnum.PrintInc.index();
     public static final int PACKINGSEQ = AttributesEnum.Packingseq.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int INSPBOX = AttributesEnum.InSpbox.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
@@ -404,6 +406,22 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setPackingseq(Integer value) {
         setAttributeInternal(PACKINGSEQ, value);
+    }
+
+    /**
+     * Gets the attribute value for txtItemName, using the alias name txtItemName.
+     * @return the value of txtItemName
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtItemName.
+     * @param value value to set the txtItemName
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
     }
 
     /**

@@ -30,5 +30,20 @@
         <Item Value="Pdate"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Purchdate">
+      <AttrNames>
+        <Item Value="Purchdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Expdate">
+      <AttrNames>
+        <Item Value="Expdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Ptype">
+      <AttrNames>
+        <Item Value="Ptype"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtItemName"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtItemName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ItemRefId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="InSetPacking"
     Entity="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking"/>
@@ -142,6 +170,22 @@
     EntityAttrName="Packingseq"
     EntityUsage="InSetPacking"
     AliasName="PACKINGSEQ"/>
+  <ViewAttribute
+    Name="txtItemName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="InSetPacking"
+    AliasName="TXT_ITEM_NAME"
+    LOVName="LovtxtItemName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="InSpboxView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

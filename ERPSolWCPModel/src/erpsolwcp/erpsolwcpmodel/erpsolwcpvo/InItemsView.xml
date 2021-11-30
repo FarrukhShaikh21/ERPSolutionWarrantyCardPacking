@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+    RowLevelBinds="true"/>
   <EntityUsage
     Name="InItems"
     Entity="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InItems"/>
@@ -715,6 +719,56 @@
     EntityAttrName="ItemCost"
     EntityUsage="InItems"
     AliasName="ITEM_COST"/>
+  <ViewCriteria
+    Name="InItemsViewFindVC"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InItemsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ItemRefId"
+        ViewAttribute="ItemRefId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ModelNo"
+        ViewAttribute="ModelNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="InSetPackingView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InItemsInSetPackingItemIdLink"
