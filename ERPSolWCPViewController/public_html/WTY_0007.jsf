@@ -167,7 +167,19 @@
                           </af:selectOneChoice>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center"/>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle"/>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
+                          <af:inputText value="#{bindings.txtTotalTransactionIMEI.inputValue==null?0:bindings.txtTotalTransactionIMEI.inputValue}"
+                                        label="#{bindings.txtTotalTransactionIMEI.hints.label}"
+                                        required="#{bindings.txtTotalTransactionIMEI.hints.mandatory}"
+                                        columns="#{bindings.txtTotalTransactionIMEI.hints.displayWidth}"
+                                        maximumLength="#{bindings.txtTotalTransactionIMEI.hints.precision}"
+                                        shortDesc="#{bindings.txtTotalTransactionIMEI.hints.tooltip}" id="it9"
+                                        simple="true" readOnly="true" partialTriggers="pc1:b8 pc2:b11 pc2:b10">
+                            <f:validator binding="#{bindings.txtTotalTransactionIMEI.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.txtTotalTransactionIMEI.format}"/>
+                          </af:inputText>
+                        </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
                         <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center">

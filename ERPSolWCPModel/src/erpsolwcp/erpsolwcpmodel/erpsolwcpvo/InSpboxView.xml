@@ -110,6 +110,21 @@
     <TransientExpression
       trustMode="untrusted"><![CDATA[getRowSet().getRowCount()+1]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtTotalImei"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InSpdetlView.count("ImeiNo")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="InSetPackingView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

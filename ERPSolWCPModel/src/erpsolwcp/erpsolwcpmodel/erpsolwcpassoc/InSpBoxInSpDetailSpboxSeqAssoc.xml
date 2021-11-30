@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InSpbox"/>
@@ -28,7 +29,8 @@
   <AssociationEnd
     Name="InSpdetl"
     Cardinality="-1"
-    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl">
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InSpdetl"/>
