@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="IN_SET_PACKING"
   AliasName="InSetPacking"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingImpl">
+  <DesignTime>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Pckid"
     IsUnique="true"
@@ -81,15 +87,26 @@
     IsNotNull="true"
     ColumnName="PDATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="IN_SET_PACKING"/>
+    TableName="IN_SET_PACKING">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Pdate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Purchdate"
     IsNotNull="true"
     ColumnName="PURCHDATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING"/>
   <Attribute
@@ -97,7 +114,7 @@
     IsNotNull="true"
     ColumnName="EXPDATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING"/>
   <Attribute
@@ -108,7 +125,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -141,7 +159,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING"/>
   <Attribute
@@ -160,7 +178,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING"/>
   <Attribute
@@ -217,7 +235,7 @@
     IsNotNull="true"
     ColumnName="PACKINGSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING"
     PrimaryKey="true"/>
@@ -228,6 +246,13 @@
     AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc.InSetPacking"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="InItems"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingItemIdAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingItemIdAssoc.InItems"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingItemIdAssoc.InSetPacking"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkInSetPacking"
     PrimaryKey="true">
@@ -270,4 +295,19 @@
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Locationid"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_InSetPacking">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKIN_ITEMS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_IN_SET_PACKING"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Itemid"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </Entity>

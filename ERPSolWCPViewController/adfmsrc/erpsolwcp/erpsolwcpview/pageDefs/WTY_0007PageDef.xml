@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0007PageDef"
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InSetPackingCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSetPackingCRUDIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <action IterBinding="InSetPackingCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InSetPackingCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InSetPackingCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Pckid">
+      <AttrNames>
+        <Item Value="Pckid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Pdate">
+      <AttrNames>
+        <Item Value="Pdate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

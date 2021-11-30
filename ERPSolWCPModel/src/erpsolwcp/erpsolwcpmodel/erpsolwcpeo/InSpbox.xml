@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="IN_SPBOX"
   AliasName="InSpbox"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Pckdetlid"
     IsUnique="true"
@@ -66,7 +72,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SPBOX"/>
   <Attribute
@@ -85,7 +91,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SPBOX"/>
   <Attribute
@@ -138,7 +144,7 @@
     IsNotNull="true"
     ColumnName="SPBOXSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPBOX"
     PrimaryKey="true"/>
@@ -146,7 +152,7 @@
     Name="Packingseq"
     ColumnName="PACKINGSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPBOX"/>
   <AccessorAttribute
