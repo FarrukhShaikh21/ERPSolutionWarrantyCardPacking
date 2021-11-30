@@ -46,6 +46,14 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="erpsolwcpqvo"
+    PackageName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="erpsolwcpvo"
     PackageName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo"
     ObjectType="JboPackage">

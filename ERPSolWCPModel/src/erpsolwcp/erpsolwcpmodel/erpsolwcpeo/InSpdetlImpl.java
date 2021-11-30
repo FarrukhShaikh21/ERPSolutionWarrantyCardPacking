@@ -1,5 +1,7 @@
 package erpsolwcp.erpsolwcpmodel.erpsolwcpeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
+
 import java.math.BigDecimal;
 
 import oracle.jbo.AttributeList;
@@ -14,7 +16,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class InSpdetlImpl extends EntityImpl {
+public class InSpdetlImpl extends ERPSolGlobalsEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -60,6 +62,7 @@ public class InSpdetlImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int PCKDETLID = AttributesEnum.Pckdetlid.index();
     public static final int IMEINO = AttributesEnum.ImeiNo.index();
     public static final int CODE = AttributesEnum.Code.index();
@@ -84,6 +87,13 @@ public class InSpdetlImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public InSpdetlImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl");
     }
 
     /**
@@ -388,6 +398,7 @@ public class InSpdetlImpl extends EntityImpl {
         setAttributeInternal(INSPBOX, value);
     }
 
+
     /**
      * @param spdetlseq key constituent
 
@@ -398,17 +409,12 @@ public class InSpdetlImpl extends EntityImpl {
     }
 
     /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl");
-    }
-
-    /**
      * Add attribute defaulting logic in this method.
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
+        setERPSolPKColumnName("Spdetlseq");
+        setERPSolPKSeqName("IN_SPDETL_SEQ");        
         super.create(attributeList);
     }
 

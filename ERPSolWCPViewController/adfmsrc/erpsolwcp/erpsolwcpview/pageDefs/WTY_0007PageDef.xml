@@ -6,6 +6,12 @@
     <variableIterator id="variables"/>
     <iterator Binds="InSetPackingCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
               id="InSetPackingCRUDIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="InSpboxDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpboxDetCRUDIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="InSpdetlDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpdetlDetCRUDIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="VWScanImeiBoxRO" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="VWScanImeiBoxROIterator"/>
   </executables>
   <bindings>
     <action IterBinding="InSetPackingCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
@@ -51,5 +57,36 @@
       </AttrNames>
     </attributeValues>
     <listOfValues IterBinding="InSetPackingCRUDIterator" StaticList="false" Uses="LovtxtItemName" id="txtItemName"/>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InSetPackingCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="InSpboxDetCRUDIterator" id="InSpboxDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView" Name="InSpboxDetCRUD0">
+        <AttrNames>
+          <Item Value="Boxno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InSpdetlDetCRUDIterator" id="InSpdetlDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView" Name="InSpdetlDetCRUD0">
+        <AttrNames>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="VWScanImeiBoxROIterator" id="BoxNo">
+      <AttrNames>
+        <Item Value="BoxNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VWScanImeiBoxROIterator" id="Imei">
+      <AttrNames>
+        <Item Value="Imei"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

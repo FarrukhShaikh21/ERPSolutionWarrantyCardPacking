@@ -19,7 +19,6 @@
   <Attribute
     Name="Pckid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="15"
     ColumnName="PCKID"
     SQLType="VARCHAR"
@@ -51,7 +50,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="S">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -252,7 +252,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

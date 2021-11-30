@@ -16,6 +16,9 @@
   <ViewUsage
     Name="InSpdetlDetCRUD"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView"/>
+  <ViewUsage
+    Name="VWScanImeiBoxRO"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWScanImeiBoxQVO"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
