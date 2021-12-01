@@ -216,6 +216,14 @@
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtPerBoxImei"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtPerBoxImei"
+    EntityUsage="InSetPacking"
+    AliasName="TXT_PER_BOX_IMEI"/>
   <ViewLinkAccessor
     Name="InSpboxView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

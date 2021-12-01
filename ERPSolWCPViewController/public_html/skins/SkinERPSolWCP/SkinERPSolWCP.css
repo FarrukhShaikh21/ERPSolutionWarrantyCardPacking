@@ -53,9 +53,19 @@ af|inputComboboxListOfValues::content{
     font-weight: bold;
 }
 
+af|selectOneChoice::content{
+    height:25px;
+    font-weight: bold;
+    font-family: Verdana;
+}
 .ERPSolFormEntryAreaHeader{
     background-color:#84bbe6
 }
 .ERPSolFormEntryAreaFont{
 font-size:large;color:white;font-family:verdana
+}
+af|panelLabelAndMessage::label{
+     font-weight: bold;
+    color: black;
+    font-weight: bold;   
 }

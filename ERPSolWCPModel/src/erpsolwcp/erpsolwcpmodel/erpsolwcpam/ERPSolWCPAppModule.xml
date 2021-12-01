@@ -19,6 +19,9 @@
   <ViewUsage
     Name="VWScanImeiBoxRO"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWScanImeiBoxQVO"/>
+  <ViewUsage
+    Name="InItemsAutoSuggestRO"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

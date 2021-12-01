@@ -79,11 +79,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="VWScanImeiBoxROIterator" id="BoxNo">
-      <AttrNames>
-        <Item Value="BoxNo"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VWScanImeiBoxROIterator" id="Imei">
       <AttrNames>
         <Item Value="Imei"/>
@@ -106,6 +101,21 @@
     <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtTotalTransactionIMEI">
       <AttrNames>
         <Item Value="txtTotalTransactionIMEI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSpboxDetCRUDIterator" id="txtTotalImei">
+      <AttrNames>
+        <Item Value="txtTotalImei"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VWScanImeiBoxROIterator" id="BoxNo">
+      <AttrNames>
+        <Item Value="BoxNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtPerBoxImei">
+      <AttrNames>
+        <Item Value="txtPerBoxImei"/>
       </AttrNames>
     </attributeValues>
   </bindings>

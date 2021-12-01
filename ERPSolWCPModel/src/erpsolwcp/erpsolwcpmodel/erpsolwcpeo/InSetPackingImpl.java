@@ -41,6 +41,7 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
         PrintInc,
         Packingseq,
         txtItemName,
+        txtPerBoxImei,
         InSpbox,
         InItems;
         private static AttributesEnum[] vals = null;
@@ -87,6 +88,7 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
     public static final int PRINTINC = AttributesEnum.PrintInc.index();
     public static final int PACKINGSEQ = AttributesEnum.Packingseq.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int TXTPERBOXIMEI = AttributesEnum.txtPerBoxImei.index();
     public static final int INSPBOX = AttributesEnum.InSpbox.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
@@ -422,6 +424,22 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtItemName(String value) {
         setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtPerBoxImei, using the alias name txtPerBoxImei.
+     * @return the value of txtPerBoxImei
+     */
+    public Integer gettxtPerBoxImei() {
+        return (Integer) getAttributeInternal(TXTPERBOXIMEI);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPerBoxImei.
+     * @param value value to set the txtPerBoxImei
+     */
+    public void settxtPerBoxImei(Integer value) {
+        setAttributeInternal(TXTPERBOXIMEI, value);
     }
 
     /**

@@ -89,7 +89,7 @@
                           <af:inputDate value="#{bindings.Pdate.inputValue}"
                                         required="#{bindings.Pdate.hints.mandatory}"
                                         columns="#{bindings.Pdate.hints.displayWidth}"
-                                        shortDesc="#{bindings.Pdate.hints.tooltip}" id="id2">
+                                        shortDesc="#{bindings.Pdate.hints.tooltip}" id="id2" simple="true">
                             <f:validator binding="#{bindings.Pdate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.Pdate.format}"/>
                           </af:inputDate>
@@ -137,8 +137,9 @@
                                                         required="#{bindings.txtItemName.hints.mandatory}"
                                                         columns="#{bindings.txtItemName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtItemName.hints.tooltip}" simple="true"
-                                                        contentStyle="width:100%">
+                                                        contentStyle="width:100%" autoSubmit="true">
                             <f:validator binding="#{bindings.txtItemName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
@@ -161,23 +162,47 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle">
                           <af:selectOneChoice label="#{bindings.Ptype.hints.label}" value="#{bindings.Ptype.inputValue}"
-                                              id="soc1" simple="true" contentStyle="width:100%">
+                                              id="soc1" simple="true" contentStyle="width:150px">
                             <af:selectItem label="Fresh" value="F" id="si1"/>
-                            <af:selectItem label="selectItem 1" id="si2"/>
                           </af:selectOneChoice>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center"/>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
-                          <af:outputText value="Total Box :" id="ot5"/>
-                          <af:outputText value="#{bindings.txtTotalBox.inputValue}"
-                                         shortDesc="#{bindings.txtTotalBox.hints.tooltip}" id="ot2"
-                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5">
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalBox.format}"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center">
+                          <af:outputText value="#{bindings.txtTotalImei.inputValue}"
+                                         shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
+                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5" clientComponent="true"
+                                         inlineStyle="color:white">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                           </af:outputText>
-                          <af:spacer width="10" height="10" id="s2"/>
-                          <af:outputText value="Total IMEI :" id="ot4"/>
-                          <af:outputText value="#{bindings.txtTotalTransactionIMEI.inputValue}" id="ot3"
-                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
+                          <af:panelGroupLayout id="pgl7" layout="vertical">
+                            <af:panelGroupLayout id="pgl10" layout="horizontal">
+                              <af:outputText value="Per Box:" id="ot9" inlineStyle="font-weight:bold"/>
+                              <af:outputText value="#{bindings.txtPerBoxImei.inputValue}"
+                                             shortDesc="#{bindings.txtPerBoxImei.hints.tooltip}" id="ot8"
+                                             clientComponent="true" inlineStyle="font-weight:bold">
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.txtPerBoxImei.format}"/>
+                              </af:outputText>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <af:panelGroupLayout id="pgl8" layout="horizontal">
+                              <af:outputText value="Total Box Scanned: " id="ot4" inlineStyle="font-weight:bold"/>
+                              <af:spacer width="10" height="10" id="s3"/>
+                              <af:outputText value="#{bindings.txtTotalBox.inputValue}"
+                                             shortDesc="#{bindings.txtTotalBox.hints.tooltip}" id="ot2"
+                                             partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5"
+                                             inlineStyle="font-weight:bold">
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalBox.format}"/>
+                              </af:outputText>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl9" layout="horizontal">
+                              <af:outputText value="Total IMEI Scanned: " id="ot5" inlineStyle="font-weight:bold"/>
+                              <af:spacer width="10" height="10" id="s4"/>
+                              <af:outputText value="#{bindings.txtTotalTransactionIMEI.inputValue}" id="ot3"
+                                             partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5" clientComponent="true"
+                                             inlineStyle="font-weight:bold"/>
+                            </af:panelGroupLayout>
+                          </af:panelGroupLayout>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
@@ -190,8 +215,7 @@
                                         required="#{bindings.Remarks.hints.mandatory}"
                                         columns="#{bindings.Remarks.hints.displayWidth}"
                                         maximumLength="#{bindings.Remarks.hints.precision}"
-                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
-                                        simple="true">
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2" simple="true">
                             <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -220,13 +244,29 @@
                   <af:panelGridLayout id="pgl6">
                     <af:gridRow id="gr13" marginTop="5px" marginBottom="5px">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
-                        <af:inputText label="Scan Box Here" id="it5" autoSubmit="true"
-                                      value="#{bindings.BoxNo.inputValue}" partialTriggers="it5"
-                                      contentStyle="text-transform:uppercase"/>
+                        <af:inputText value="#{bindings.BoxNo.inputValue}" simple="true"
+                                      required="#{bindings.BoxNo.hints.mandatory}"
+                                      columns="#{bindings.BoxNo.hints.displayWidth}"
+                                      maximumLength="#{bindings.BoxNo.hints.precision}"
+                                      shortDesc="#{bindings.BoxNo.hints.tooltip}" id="it8" rendered="false">
+                          <f:validator binding="#{bindings.BoxNo.validator}"/>
+                        </af:inputText>
+                        <af:panelLabelAndMessage label="Scan Box Here" id="plam1">
+                          <af:inputText id="it5" contentStyle="text-transform:uppercase"
+                                        clientComponent="true" autoSubmit="true" simple="true" label='pt1:it7'
+                                        partialTriggers="it5" value="#{bindings.BoxNo.inputValue}">
+                            <af:clientListener method="jserpKeyNextItemLOV" type="keyPress"/>
+                          </af:inputText>
+                        </af:panelLabelAndMessage>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
-                        <af:inputText label="Scan IMEI Here" id="it7" autoSubmit="true"
-                                      value="#{bindings.Imei.inputValue}" partialTriggers="it7"/>
+                        <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2">
+                          <af:inputText label="pt1:it5" id="it7" autoSubmit="true"
+                                        value="#{bindings.Imei.inputValue}" partialTriggers="it7"
+                                        clientComponent="true" simple="true">
+                            <af:clientListener type="keyPress" method="jserpKeyNextItemBoxNo"/>
+                          </af:inputText>
+                        </af:panelLabelAndMessage>
                       </af:gridCell>
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
@@ -315,16 +355,35 @@
       </af:pageTemplate>
     </af:form>
     <f:facet name="metaContainer">
-      <af:resource type="javascript">function jserpcontrolEnterKey(erpevt) {
-
+      <af:resource type="javascript">
+    function jserpKeyNextItemLOV(erpevt) {
       var _keyCode = erpevt.getKeyCode();
       //check for Enter Key
       if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
-          var comp = erpevt.getSource();
-          AdfCustomEvent.queue(comp, "ERPEnterEvent", {erpvalue:comp.getSubmittedValue()}, true);
-          erpevt.cancel();
+        comp = AdfPage.PAGE.findComponent('pt1:it7');
+        comp.focus();          
+        erpevt.cancel();
+    }
+    }
+   function jserpKeyNextItemBoxNo(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+         sum=AdfPage.PAGE.findComponent('pt1:ot7').getValue();
+        perbox=AdfPage.PAGE.findComponent('pt1:ot8').getValue();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+     
+     
+//        alert(sum+1 +' '+perbox)
+        
+    if(sum+1==perbox){
+        comp = AdfPage.PAGE.findComponent('pt1:it5');
+        comp.focus();          
+        erpevt.cancel();
+        }
+    }
       }
-   }</af:resource>
+   
+   </af:resource>
     </f:facet>
   </af:document>
 </f:view>

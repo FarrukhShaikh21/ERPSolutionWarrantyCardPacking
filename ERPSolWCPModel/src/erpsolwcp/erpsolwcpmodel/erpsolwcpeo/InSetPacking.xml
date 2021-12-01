@@ -93,7 +93,6 @@
   </Attribute>
   <Attribute
     Name="Pdate"
-    IsNotNull="true"
     ColumnName="PDATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
@@ -286,6 +285,31 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtPerBoxImei"
+    ColumnName="TXT_PER_BOX_IMEI"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.Perbox==null?20:InItems?.Perbox]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.txtPerBoxImei_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

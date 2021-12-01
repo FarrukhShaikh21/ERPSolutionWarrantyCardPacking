@@ -1,4 +1,5 @@
 package erpsolwcp.erpsolwcpview.erpsolwcpclass;
+
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 
 import erpsolglob.erpsolglobview.erpclass.ERPSolGlobalViewBean;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
@@ -32,10 +34,15 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
+import oracle.adf.view.rich.render.ClientEvent;
+
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
+
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
 
 public class ERPSolWCPBean {
     public ERPSolWCPBean() {
@@ -174,7 +181,7 @@ public class ERPSolWCPBean {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO"," UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10);
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO"," UPPER(CONCAT(Productid,Description))", "Description", "Productid", 10);
         return ResultList;
         
     }   
@@ -399,5 +406,25 @@ public class ERPSolWCPBean {
            
         return "ACT-BACK-FROM-REBATE-IMEI";
     }
+    
+    public void doERPSolFocusNextField(ClientEvent ce) {
+        System.out.println("hello");
+        UIComponent rcb = ce.getComponent();
+           System.out.println("hello-1");
+        String focusOn = (String)rcb.getAttributes().get("erpNextUIC");
+           System.out.println("hello-3>>"+ focusOn);
+        String script="comp = AdfPage.PAGE.findComponentByAbsoluteId('"+focusOn+"');" + " comp.focus();";
+        writeJavaScriptToClient(script);
+       }
+
+
+    private void writeJavaScriptToClient(String script) {
+            FacesContext fctx = FacesContext.getCurrentInstance();
+            ExtendedRenderKitService erks = null;
+            erks = Service.getRenderKitService(fctx, ExtendedRenderKitService.class);
+            erks.addScript(fctx, script);
+        }
+    
+    
       
 }
