@@ -185,9 +185,9 @@ public class ERPSolWCPBean {
         return ResultList;
         
     }   
-    public void doERPSolDialogConfirm(DialogEvent erpsolde) {
+    public void doERPSolWarrantyCard(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
-            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSaleOrder");
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseWarrantyCard");
             binding.execute();
         }
     }

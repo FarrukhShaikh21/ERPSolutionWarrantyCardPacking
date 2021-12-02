@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.Pckid.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSoRebatelDialogConfirm}" type="yesNo">
+                   dialogListener="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolWarrantyCard}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -37,6 +37,9 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.doSuperviseWarrantyCard.execute}"
+                                   text="doSuperviseWarrantyCard"
+                                   disabled="#{!bindings.doSuperviseWarrantyCard.enabled}" id="b12" rendered="false"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                                    disabled="#{!bindings.Delete.enabled}" id="b7"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
