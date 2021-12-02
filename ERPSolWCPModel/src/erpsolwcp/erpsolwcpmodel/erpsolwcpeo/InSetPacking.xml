@@ -19,7 +19,7 @@
   <Attribute
     Name="Pckid"
     IsUnique="true"
-    Precision="15"
+    Precision="20"
     ColumnName="PCKID"
     SQLType="VARCHAR"
     Type="java.lang.String"
