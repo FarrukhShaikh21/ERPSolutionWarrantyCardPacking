@@ -67,6 +67,23 @@
         <to-string/>
       </outcome>
     </method-call>
+    <method-call id="RollbackBeforeFormWCP">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="RollbackWCP">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -99,7 +116,28 @@
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__8">
         <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>RollbackBeforeFormWCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>RollbackBeforeFormWCP</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
         <to-activity-id>doERPGotoWCPActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>RollbackWCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>RollbackWCP</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

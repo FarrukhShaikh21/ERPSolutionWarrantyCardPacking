@@ -6,6 +6,10 @@
     <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ExeSolWCPTransaction"
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"/>
     <page path="/ERPSolWCPMain.jsf" usageId="erpsolwcp_erpsolwcpview_ERPSolWCPMainPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@RollbackBeforeFormWCP"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@RollbackWCP"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
@@ -13,6 +17,10 @@
           path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"/>
     <page id="erpsolwcp_erpsolwcpview_ERPSolWCPMainPageDef"
           path="erpsolwcp.erpsolwcpview.pageDefs.ERPSolWCPMainPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef1"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"
