@@ -84,6 +84,12 @@
         <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="RollbackCloseFormWCP">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-CLOSE-FORM-WCP</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -138,6 +144,20 @@
       <control-flow-case id="__22">
         <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
         <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WCP</from-outcome>
+        <to-activity-id>RollbackCloseFormWCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>RollbackCloseFormWCP</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WCP</from-outcome>
+        <to-activity-id>ERPSolWCPMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

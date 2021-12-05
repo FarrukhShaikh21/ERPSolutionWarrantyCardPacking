@@ -40,6 +40,7 @@
                         <af:button actionListener="#{bindings.doSuperviseWarrantyCard.execute}"
                                    text="doSuperviseWarrantyCard"
                                    disabled="#{!bindings.doSuperviseWarrantyCard.enabled}" id="b12" rendered="false"/>
+                        <af:button text="Close Form" id="b13"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                                    disabled="#{!bindings.Delete.enabled}" id="b7"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"

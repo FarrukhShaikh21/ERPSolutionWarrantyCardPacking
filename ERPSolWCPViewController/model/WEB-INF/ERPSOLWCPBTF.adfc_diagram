@@ -238,4 +238,46 @@
       <property
          name="sdm:polyPoints">L50,277.5,128.09766,211.0,109.896484,R50</property>
    </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule22">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">356.29883</property>
+      <property
+         name="x">15.0</property>
+   </WildcardControlFlowRule>
+   <MethodCall
+      id="MethodCall23">
+      <property
+         name="activityId">RollbackCloseFormWCP</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollbackCloseFormWCP&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">499.44824</property>
+      <property
+         name="x">81.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase24"
+      from="WildcardControlFlowRule22"
+      to="MethodCall23">
+      <property
+         name="fromOutcome">ACT-ERP-CLOSE-FORM-WCP</property>
+      <property
+         name="sdm:polyPoints">B50,15.0,398.94824,81.5,445.09766,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase25"
+      from="MethodCall23"
+      to="View11">
+      <property
+         name="fromOutcome">ACT-ERP-CLOSE-FORM-WCP</property>
+      <property
+         name="sdm:polyPoints">R50,122.5,499.09766,218.01172,478.44824,L50</property>
+   </ControlFlowCase>
 </SDM>
