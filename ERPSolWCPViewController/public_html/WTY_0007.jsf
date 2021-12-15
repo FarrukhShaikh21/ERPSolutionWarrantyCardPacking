@@ -40,7 +40,8 @@
                         <af:button actionListener="#{bindings.doSuperviseWarrantyCard.execute}"
                                    text="doSuperviseWarrantyCard"
                                    disabled="#{!bindings.doSuperviseWarrantyCard.enabled}" id="b12" rendered="false"/>
-                        <af:button text="Close Form" id="b13"/>
+                        <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
+                                   iconPosition="top"/>
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"

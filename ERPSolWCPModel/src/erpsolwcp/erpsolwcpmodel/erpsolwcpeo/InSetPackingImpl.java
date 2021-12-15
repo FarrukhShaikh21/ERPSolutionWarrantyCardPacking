@@ -506,8 +506,9 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-     
+        System.out.println("in set pack insert main");
         if (operation==DML_INSERT) {
+            System.out.println("in set pack insert");
             String pkValue=" packing_id('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getPdate()+"','YYYY-MM-DD'))";
             String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
             populateAttributeAsChanged(PCKID, result);

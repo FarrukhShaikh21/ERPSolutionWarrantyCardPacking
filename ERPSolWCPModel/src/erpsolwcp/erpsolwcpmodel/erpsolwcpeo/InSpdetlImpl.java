@@ -441,7 +441,10 @@ public class InSpdetlImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        System.out.println("in sp det");
         if (operation==DML_INSERT) {
+            System.out.println("indpdet");
+           System.out.println("in sp det-in"+getInSpbox().getAttribute("Pckdetlid"));
             populateAttributeAsChanged(PCKDETLID, getInSpbox().getAttribute("Pckdetlid"));
        }
         super.doDML(operation, e);

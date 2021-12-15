@@ -18,6 +18,8 @@
   ClientProxyName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.client.InSetPackingViewClient">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_objectSuperClassName"
+      Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsViewObjectImpl"/>
   </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"

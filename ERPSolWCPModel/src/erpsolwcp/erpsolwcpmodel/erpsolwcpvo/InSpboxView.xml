@@ -106,10 +106,7 @@
     PrecisionRule="true"
     EntityAttrName="Lineno"
     EntityUsage="InSpbox"
-    AliasName="LINENO">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[getRowSet().getRowCount()+1]]></TransientExpression>
-  </ViewAttribute>
+    AliasName="LINENO"/>
   <ViewAttribute
     Name="txtTotalImei"
     IsUpdateable="false"

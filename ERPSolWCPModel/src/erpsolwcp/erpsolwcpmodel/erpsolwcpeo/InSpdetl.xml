@@ -255,6 +255,7 @@
       <Attr Name="_referencedKey" Value="PK_IN_SPBOX"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_IN_SPDETL"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.Spboxseq"/>

@@ -362,10 +362,19 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-   
+   System.out.println("in sp box");
     if (operation==DML_INSERT) {
-         populateAttributeAsChanged(PCKID ,getInSetPacking().getAttribute("Pckid"));   
-         populateAttributeAsChanged(PCKDETLID ,getInSetPacking().getAttribute("Pckid")+"-"+getLineno()); 
+           System.out.println("in sp box-in");
+           populateAttributeAsChanged(PCKID ,getInSetPacking().getAttribute("Pckid")); 
+           
+           String pkValue="FUNC_GET_MAX_ID('IN_SPBOX WHERE PCKID=''"+getInSetPacking().getAttribute("Pckid")+"''','LINENO')";
+           System.out.println("this is c");
+           System.out.println(pkValue + "pk value");
+           System.out.println("this is d");
+           String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+           populateAttributeAsChanged(LINENO, result);  
+           populateAttributeAsChanged(PCKDETLID ,getInSetPacking().getAttribute("Pckid")+"-"+getLineno());  
+         
        }   
         
         super.doDML(operation, e);

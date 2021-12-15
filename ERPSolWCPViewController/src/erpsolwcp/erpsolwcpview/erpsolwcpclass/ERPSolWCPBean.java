@@ -37,6 +37,7 @@ import oracle.adf.view.rich.event.DialogEvent;
 import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.jbo.ApplicationModule;
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
@@ -61,14 +62,20 @@ public class ERPSolWCPBean {
     RichInputText ERPSolImeiBoxText;
     RichInputText ERPSolRebateImeiBoxText;
     String ERPSolImeiString;
+    String ERPSolReportName;
     
     public void doSetERPSolWCPSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
+        System.out.println("glob user code"+getERPSolStrUserCode());
+        if (getERPSolStrUserCode().length()==0) {
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Users Defaults are not defined properly. Please Check"));
+           throw new JboException("Users Defaults are not defined properly. Please Check");
+        }
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_CODE", getERPSolStrUserCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_REGION", getERPSolStrUserRegionCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_LOCATION", getERPSolStrUserLocationCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_STORE", getERPSolStrUserStoreCode());
-        ADFContext.getCurrent().getPageFlowScope().put("GLOB_COMPANY_CODE", 2);
+        ADFContext.getCurrent().getPageFlowScope().put("GLOB_COMPANY_CODE", "D");
     }
 
 
@@ -418,13 +425,57 @@ public class ERPSolWCPBean {
        }
 
 
+    public String doERPSolExecuteWCPReport() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSetPackingCRUDIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOWCP");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOWCP", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOWCP", "select PATH PATH FROM SYSTEM a where a.PROJECTID='WTY' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"RPT_PACKING";
+        
+    
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+//        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+        AttributeBinding ERPPackingid        =(AttributeBinding)ERPSolbc.getControlBinding("Pckid");
+        String reportParameter="";
+//        reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="&P_PACKID="+ERPPackingid.getInputValue();
+    //        reportParameter+="&P_STOREID_ID="+(ERPStoreid.getInputValue()==null?"":ERPStoreid.getInputValue());
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
     private void writeJavaScriptToClient(String script) {
             FacesContext fctx = FacesContext.getCurrentInstance();
             ExtendedRenderKitService erks = null;
             erks = Service.getRenderKitService(fctx, ExtendedRenderKitService.class);
             erks.addScript(fctx, script);
         }
-    
-    
-      
+
+    public void doErpSolOpenReportTab(String url) {
+    ExtendedRenderKitService erks =
+    Service.getRenderKitService(FacesContext.getCurrentInstance(), ExtendedRenderKitService.class);
+    StringBuilder strb = new StringBuilder("window.open('" + url + "');");
+    erks.addScript(FacesContext.getCurrentInstance(), strb.toString());
+    }        
 }

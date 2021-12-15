@@ -2,6 +2,8 @@ package erpsolwcp.erpsolwcpmodel.erpsolwcpvo;
 
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsViewObjectImpl;
+
 import erpsolwcp.erpsolwcpmodel.erpsolwcpvo.common.InSetPackingView;
 
 import java.sql.CallableStatement;
@@ -17,7 +19,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class InSetPackingViewImpl extends ViewObjectImpl implements InSetPackingView {
+public class InSetPackingViewImpl extends ERPSolGlobalsViewObjectImpl implements InSetPackingView {
     /**
      * This is the default constructor (do not remove).
      */
