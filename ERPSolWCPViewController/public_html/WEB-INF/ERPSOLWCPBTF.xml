@@ -90,6 +90,12 @@
         <fixed-outcome>ACT-ERP-CLOSE-FORM-WCP</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ERPSolExecuteWithParamsSetup">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -101,7 +107,7 @@
       <from-activity-id>doERPSolWCPSessionGlobals</from-activity-id>
       <control-flow-case id="__7">
         <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
-        <to-activity-id>ExeSolWCPTransaction</to-activity-id>
+        <to-activity-id>ERPSolExecuteWithParamsSetup</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
@@ -158,6 +164,13 @@
       <control-flow-case id="__26">
         <from-outcome>ACT-ERP-CLOSE-FORM-WCP</from-outcome>
         <to-activity-id>ERPSolWCPMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>ERPSolExecuteWithParamsSetup</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ExeSolWCPTransaction</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

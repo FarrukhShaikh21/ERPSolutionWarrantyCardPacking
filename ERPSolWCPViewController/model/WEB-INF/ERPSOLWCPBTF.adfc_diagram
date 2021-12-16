@@ -70,11 +70,11 @@
       islink="true"
       id="ControlFlowCase8"
       from="MethodCall5"
-      to="MethodCall7">
+      to="MethodCall26">
       <property
          name="fromOutcome">ACT-ERP-GOTO-WCP-MAIN</property>
       <property
-         name="sdm:polyPoints">L50,439.0,251.24707,329.35156,328.09766,R50</property>
+         name="sdm:polyPoints">L50,439.0,251.24707,224.35156,256.24707,R46</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -279,5 +279,28 @@
          name="fromOutcome">ACT-ERP-CLOSE-FORM-WCP</property>
       <property
          name="sdm:polyPoints">R50,122.5,499.09766,218.01172,478.44824,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall26">
+      <property
+         name="activityId">ERPSolExecuteWithParamsSetup</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolExecuteWithParamsSetup&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">260.09766</property>
+      <property
+         name="x">183.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase27"
+      from="MethodCall26"
+      to="MethodCall7">
+      <property
+         name="fromOutcome">ACT-ERP-GOTO-WCP-MAIN</property>
+      <property
+         name="sdm:polyPoints">R54,224.35156,263.24707,247.35156,328.09766,L50</property>
    </ControlFlowCase>
 </SDM>

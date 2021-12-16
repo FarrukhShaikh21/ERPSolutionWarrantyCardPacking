@@ -18,7 +18,6 @@
             <f:facet name="toolbar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
-            <af:spacer width="10" height="10" id="s1"/>
             <af:panelGridLayout id="pgl3">
               <af:gridRow id="gr3">
                 <af:gridCell id="gc5" halign="stretch" valign="middle" styleClass="ERPSolFormEntryAreaHeader">
@@ -73,7 +72,7 @@
                       </af:toolbar>
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
-                      <af:gridRow marginTop="5px" height="auto" id="gr4">
+                      <af:gridRow marginTop="5px" height="30px" id="gr4">
                         <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Pckid.hints.label}" id="ol5"/>
                         </af:gridCell>
@@ -106,7 +105,7 @@
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr5">
+                      <af:gridRow marginTop="5px" height="30px" id="gr5">
                         <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Locationid.hints.label}" id="ol4"/>
                         </af:gridCell>
@@ -135,7 +134,7 @@
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr6">
+                      <af:gridRow marginTop="5px" height="30px" id="gr6">
                         <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.txtItemName.hints.label}" id="ol7"/>
                         </af:gridCell>
@@ -167,7 +166,7 @@
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr7">
+                      <af:gridRow marginTop="5px" height="30px" id="gr7">
                         <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Ptype.hints.label}" id="ol3"/>
                         </af:gridCell>
@@ -216,7 +215,7 @@
                           </af:panelGroupLayout>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                      <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr9">
                         <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
                         </af:gridCell>
@@ -280,7 +279,7 @@
                         </af:panelLabelAndMessage>
                       </af:gridCell>
                     </af:gridRow>
-                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                    <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr8">
                       <af:gridCell marginStart="5px" width="30%" id="gc20" halign="stretch" valign="stretch">
                         <af:panelBox text="Box" id="pb2" showDisclosure="false">
                           <f:facet name="toolbar"/>
@@ -318,7 +317,8 @@
                           </af:panelCollection>
                         </af:panelBox>
                       </af:gridCell>
-                      <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21">
+                      <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21" halign="stretch"
+                                   valign="stretch">
                         <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc2" featuresOff="viewMenu detach">
