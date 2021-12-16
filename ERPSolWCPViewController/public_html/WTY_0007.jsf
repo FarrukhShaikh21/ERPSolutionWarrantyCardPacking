@@ -18,6 +18,10 @@
             <f:facet name="toolbar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>
+            <af:inputText label="Label 2" id="it9" simple="true"
+                          valueChangeListener="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolIMEIVce}" autoSubmit="true"
+                          binding="#{pageFlowScope.ERPSolWCPPageFlowBean.rip}" rows="1" partialTriggers="it9"
+                          maximumLength="15" rendered="false"/>                          
             <af:panelGridLayout id="pgl3">
               <af:gridRow id="gr3">
                 <af:gridCell id="gc5" halign="stretch" valign="middle" styleClass="ERPSolFormEntryAreaHeader">
@@ -43,6 +47,10 @@
                                    iconPosition="top" action="ACT-ERP-CLOSE-FORM-WCP"/>
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
                                    action="ACT-ERP-SEARCH-WTY-0007"/>
+                        <af:button text="Print" id="b7"
+                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}"
+                                   icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
+                                   partialSubmit="true"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
                                    iconPosition="top" icon="#{resource['images:imgPrevious.png']}"/>
@@ -56,12 +64,11 @@
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6" disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   id="b6"
                                    icon="#{resource['images:imgUndo.png']}" iconPosition="top">
                           <af:resetActionListener/>
                         </af:button>
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}"
                                    icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
@@ -180,7 +187,7 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center">
                           <af:outputText value="#{bindings.txtTotalImei.inputValue}"
                                          shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
-                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5" clientComponent="true"
+                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5 it100" clientComponent="true"
                                          inlineStyle="color:white">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                           </af:outputText>
@@ -237,7 +244,7 @@
                 </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>
-            <af:panelGridLayout id="pgl1">
+            <af:panelGridLayout id="pgl100">
               <af:gridRow id="gr10">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc28"
                              styleClass="ERPSolFormEntryAreaHeader" halign="stretch" valign="stretch">
@@ -266,18 +273,26 @@
                         <af:panelLabelAndMessage label="Scan Box Here" id="plam1">
                           <af:inputText id="it5" contentStyle="text-transform:uppercase"
                                         clientComponent="true" autoSubmit="true" simple="true" label='pt1:it7'
-                                        partialTriggers="it5" value="#{bindings.BoxNo.inputValue}">
+                                        partialTriggers="it5" value="#{bindings.BoxNo.inputValue}"
+                                        disabled="#{bindings.Posted.inputValue=='Y'}">
                             <af:clientListener method="jserpKeyNextItemLOV" type="keyPress"/>
                           </af:inputText>
                         </af:panelLabelAndMessage>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
-                        <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2">
-                          <af:inputText label="pt1:it5" id="it7" autoSubmit="true"
-                                        value="#{bindings.Imei.inputValue}" partialTriggers="it7"
-                                        clientComponent="true" simple="true">
-                            <af:clientListener type="keyPress" method="jserpKeyNextItemBoxNo"/>
+                        <af:panelGroupLayout id="pgl1">
+                          <af:inputText id="it100" clientComponent="true" placeholder="Scan IMEI Here"
+                                        disabled="#{bindings.Posted.inputValue=='Y'}">
+                            <af:clientListener method="handleEnterEvent" type="keyPress"/>
+                            <af:serverListener type="EnterEvent"
+                                               method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
+                            <af:clientListener method="jserpKeyNextItemBoxNo" type="keyPress"/>
                           </af:inputText>
+                        </af:panelGroupLayout>
+                        <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2" rendered="false">
+                          <af:inputText label="pt1:it5" id="it7" autoSubmit="true"
+                                        value="#{bindings.Imei.inputValue}" simple="true" columns="15"
+                                        partialTriggers="it7" autoComplete="on" usage="text" maximumLength="15"/>
                         </af:panelLabelAndMessage>
                       </af:gridCell>
                     </af:gridRow>
@@ -291,7 +306,7 @@
                             <f:facet name="toolbar">
                               <af:toolbar id="t4">
                                 <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Box"
-                                           disabled="#{!bindings.Delete1.enabled}" id="b8"/>
+                                           disabled="#{bindings.Posted.inputValue=='Y'}" id="b8"/>
                               </af:toolbar>
                             </f:facet>
                             <f:facet name="statusbar"/>
@@ -322,14 +337,14 @@
                       <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21" halign="stretch">
                         <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
-                          <af:panelCollection id="pc2" featuresOff="viewMenu detach">
+                          <af:panelCollection id="pc2" featuresOff="viewMenu detach" partialTriggers="::it100">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar">
                               <af:toolbar id="t5">
                                 <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add IMEI"
-                                           disabled="#{!bindings.CreateInsert1.enabled}" id="b11"/>
+                                           disabled="#{bindings.Posted.inputValue=='Y'}" id="b11"/>
                                 <af:button actionListener="#{bindings.Delete2.execute}" text="Delete IMEI"
-                                           disabled="#{!bindings.Delete2.enabled}" id="b10"/>
+                                           disabled="#{bindings.Posted.inputValue=='Y'}" id="b10"/>
                               </af:toolbar>
                             </f:facet>
                             <f:facet name="statusbar"/>
@@ -348,7 +363,7 @@
                                               columns="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.displayWidth}"
                                               maximumLength="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.precision}"
                                               shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="it3"
-                                              contentStyle="width:100%">
+                                              contentStyle="width:100%" disabled="#{bindings.Posted.inputValue=='Y'}">
                                   <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
                                 </af:inputText>
                               </af:column>
@@ -372,7 +387,7 @@
       var _keyCode = erpevt.getKeyCode();
       //check for Enter Key
       if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
-        comp = AdfPage.PAGE.findComponent('pt1:it7');
+        comp = AdfPage.PAGE.findComponent('pt1:it100');
         comp.focus();          
         erpevt.cancel();
     }
@@ -394,6 +409,25 @@
         }
     }
       }
+
+function handleEnterEvent(evt) {
+
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterEvent", {fvalue:comp.getSubmittedValue()}, false);
+
+          evt.cancel();
+          comp.setValue(null);
+
+      }
+
+   }
    
    </af:resource>
     </f:facet>

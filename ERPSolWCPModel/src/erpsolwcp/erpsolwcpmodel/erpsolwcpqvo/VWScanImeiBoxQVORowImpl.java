@@ -70,13 +70,16 @@ public class VWScanImeiBoxQVORowImpl extends ViewRowImpl {
      * @param value value to set the  Imei
      */
     public void setImei(String value) {
+        System.out.println(value);
 //        setAttributeInternal(IMEI, value);
-  
+         
         ViewObject ERPSolvo=getDBTransaction().getRootApplicationModule().findViewObject("InSpdetlDetCRUD");
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("ImeiNo", value);
         ERPSolvo.insertRow(ERPsolrow);
-        ERPSolvo.setCurrentRow(ERPsolrow);
+
+//        ERPSolvo.setCurrentRow(ERPsolrow);
+        
 //        ERPSolvo.executeQuery();
         
 //        setAttributeInternal(BOXNO, value);

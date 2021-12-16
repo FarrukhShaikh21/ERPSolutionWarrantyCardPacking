@@ -11,7 +11,7 @@
     <iterator Binds="InSpdetlDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
               id="InSpdetlDetCRUDIterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="VWScanImeiBoxRO" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
-              id="VWScanImeiBoxROIterator"/>
+              id="VWScanImeiBoxROIterator" ChangeEventPolicy="push" CacheResults="false"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
   </executables>
   <bindings>

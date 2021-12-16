@@ -15,7 +15,6 @@
     Source="true"
     Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox"
     LockLevel="NONE"
-    CascadeDelete="true"
     DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>

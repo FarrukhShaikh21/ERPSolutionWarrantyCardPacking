@@ -372,7 +372,7 @@ public class InSpboxImpl extends ERPSolGlobalsEntityImpl {
            System.out.println(pkValue + "pk value");
            System.out.println("this is d");
            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
-           populateAttributeAsChanged(LINENO, result);  
+           populateAttributeAsChanged(LINENO, Integer.parseInt(result));  
            populateAttributeAsChanged(PCKDETLID ,getInSetPacking().getAttribute("Pckid")+"-"+getLineno());  
          
        }   

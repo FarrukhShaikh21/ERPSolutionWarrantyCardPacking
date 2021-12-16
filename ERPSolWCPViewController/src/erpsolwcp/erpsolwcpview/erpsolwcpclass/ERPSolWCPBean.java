@@ -63,7 +63,7 @@ public class ERPSolWCPBean {
     RichInputText ERPSolRebateImeiBoxText;
     String ERPSolImeiString;
     String ERPSolReportName;
-    
+    RichInputText rip;
     public void doSetERPSolWCPSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -451,7 +451,7 @@ public class ERPSolWCPBean {
         AttributeBinding ERPPackingid        =(AttributeBinding)ERPSolbc.getControlBinding("Pckid");
         String reportParameter="";
 //        reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
-        reportParameter+="&P_PACKID="+ERPPackingid.getInputValue();
+        reportParameter+="&VPCKID="+ERPPackingid.getInputValue();
     //        reportParameter+="&P_STOREID_ID="+(ERPStoreid.getInputValue()==null?"":ERPStoreid.getInputValue());
         reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
         
@@ -478,4 +478,28 @@ public class ERPSolWCPBean {
     StringBuilder strb = new StringBuilder("window.open('" + url + "');");
     erks.addScript(FacesContext.getCurrentInstance(), strb.toString());
     }        
+    public void ERPSolIMEIVce(ValueChangeEvent vce) {
+        System.out.println(vce.getNewValue());
+        getRip().setValue(null);
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(getRip());
+    }
+
+    public void setRip(RichInputText rip) {
+        this.rip = rip;
+    }
+
+    public RichInputText getRip() {
+        return rip;
+    }
+
+    public void handleEnterEvent(ClientEvent ce) {
+    String message = (String) ce.getParameters().get("fvalue");
+    System.out.println(message);
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpdetlDetCRUDIterator");
+        ViewObject ERPSolvo=ib.getViewObject();
+        Row ERPsolrow=ERPSolvo.createRow();
+        ERPsolrow.setAttribute("ImeiNo", message);
+        ERPSolvo.insertRow(ERPsolrow);
+    }    
 }

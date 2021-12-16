@@ -15,11 +15,13 @@
   PageIterMode="Full"
   ComponentClass="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingViewImpl"
   ComponentInterface="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.common.InSetPackingView"
-  ClientProxyName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.client.InSetPackingViewClient">
+  ClientProxyName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.client.InSetPackingViewClient"
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingViewRowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_objectSuperClassName"
       Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsViewObjectImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
