@@ -30,7 +30,7 @@
                   </af:panelGridLayout>
                 </af:gridCell>
               </af:gridRow>
-              <af:gridRow height="auto" id="gr2" marginTop="10px">
+              <af:gridRow height="auto" id="gr2">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="stretch">
                   <af:panelBox id="pb1" showDisclosure="false"
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
@@ -282,7 +282,7 @@
                       </af:gridCell>
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr8">
-                      <af:gridCell marginStart="5px" width="30%" id="gc20" halign="stretch" valign="stretch">
+                      <af:gridCell marginStart="5px" width="30%" id="gc20" halign="stretch">
                         <af:panelBox text="Box" id="pb2" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc1" featuresOff="viewMenu detach" styleClass="AFStretchWidth"
@@ -319,8 +319,7 @@
                           </af:panelCollection>
                         </af:panelBox>
                       </af:gridCell>
-                      <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21" halign="stretch"
-                                   valign="stretch">
+                      <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21" halign="stretch">
                         <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc2" featuresOff="viewMenu detach">
