@@ -184,8 +184,9 @@
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                           </af:outputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
-                          <af:panelGroupLayout id="pgl7" layout="vertical">
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle"
+                                     halign="center">
+                          <af:panelGroupLayout id="pgl7" layout="vertical" halign="center">
                             <af:panelGroupLayout id="pgl10" layout="horizontal">
                               <af:outputText value="Per Box:" id="ot9" inlineStyle="font-weight:bold"/>
                               <af:outputText value="#{bindings.txtPerBoxImei.inputValue}"
