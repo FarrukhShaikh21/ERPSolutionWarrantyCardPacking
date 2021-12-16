@@ -96,6 +96,9 @@
         <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="WTY_0007_SEARCH">
+      <page>/WTY_0007_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -171,6 +174,20 @@
       <control-flow-case id="__28">
         <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
         <to-activity-id>ExeSolWCPTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id>WTY_0007</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>ACT-ERP-SEARCH-WTY-0007</from-outcome>
+        <to-activity-id>WTY_0007_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>WTY_0007_SEARCH</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>ACT-ERP-BACK-FROM-SEARCH-WCP-0007</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

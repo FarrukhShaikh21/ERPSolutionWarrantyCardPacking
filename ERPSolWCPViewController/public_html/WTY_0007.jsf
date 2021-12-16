@@ -40,8 +40,9 @@
                                    text="doSuperviseWarrantyCard"
                                    disabled="#{!bindings.doSuperviseWarrantyCard.enabled}" id="b12" rendered="false"/>
                         <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
-                                   iconPosition="top"/>
-                        <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                                   iconPosition="top" action="ACT-ERP-CLOSE-FORM-WCP"/>
+                        <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
+                                   action="ACT-ERP-SEARCH-WTY-0007"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
                                    iconPosition="top" icon="#{resource['images:imgPrevious.png']}"/>

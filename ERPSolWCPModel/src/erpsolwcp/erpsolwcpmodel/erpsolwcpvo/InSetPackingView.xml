@@ -25,6 +25,10 @@
     Name="AccInItemsView"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInItemsView"
@@ -46,6 +50,24 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
       <Item Value="ItemRefId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPosted"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Posted"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -115,7 +137,15 @@
     PrecisionRule="true"
     EntityAttrName="Posted"
     EntityUsage="InSetPacking"
-    AliasName="POSTED"/>
+    AliasName="POSTED"
+    LOVName="LovPosted">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Postedby"
     PrecisionRule="true"
@@ -208,6 +238,14 @@
       trustMode="untrusted"><![CDATA[InSpboxView.sum("txtTotalImei")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView.txtTotalTransactionIMEI_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="txtTotalBox"
@@ -232,6 +270,81 @@
     EntityAttrName="txtPerBoxImei"
     EntityUsage="InSetPacking"
     AliasName="TXT_PER_BOX_IMEI"/>
+  <ViewCriteria
+    Name="InSetPackingViewFindVC"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InSetPackingViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Pckid"
+        ViewAttribute="Pckid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Locationid"
+        ViewAttribute="Locationid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Pdate"
+        ViewAttribute="Pdate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InItemsView"
+        ViewAttribute="InItemsView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="InItemsViewNestedCriteria"
+          ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="InItemsViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="ModelNo"
+              ViewAttribute="ModelNo"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="InSpboxView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
@@ -253,4 +366,8 @@
         Type="void"/>
     </Method>
   </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

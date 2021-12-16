@@ -14,6 +14,7 @@
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef11"/>
     <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ERPSolExecuteWithParamsSetup"
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"/>
+    <page path="/WTY_0007_SEARCH.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0007_SEARCHPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
@@ -29,6 +30,8 @@
           path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef11"/>
     <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"
           path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0007_SEARCHPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007_SEARCHPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"

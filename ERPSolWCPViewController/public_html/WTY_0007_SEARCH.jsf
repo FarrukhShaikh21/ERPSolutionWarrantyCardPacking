@@ -2,6 +2,126 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="WTY_0007_SEARCH.jsf" id="d1">
-        <af:form id="f1"></af:form>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="Warranty Card Packing Search" id="ph2">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button text="Back To Packing Form" id="b1" action="ACT-ERP-BACK-FROM-SEARCH-WCP-0007"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.InSetPackingViewFindVCQuery.queryDescriptor}"
+                              model="#{bindings.InSetPackingViewFindVCQuery.queryModel}"
+                              queryListener="#{bindings.InSetPackingViewFindVCQuery.processQuery}"
+                              queryOperationListener="#{bindings.InSetPackingViewFindVCQuery.processQueryOperation}"
+                              resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false"/>
+                    <af:table value="#{bindings.InSetPackingCRUD.collectionModel}" var="row"
+                              rows="#{bindings.InSetPackingCRUD.rangeSize}"
+                              emptyText="#{bindings.InSetPackingCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.InSetPackingCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.InSetPackingCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.InSetPackingCRUD.rangeSize}"
+                              filterModel="#{bindings.InSetPackingViewFindVCQuery.queryDescriptor}"
+                              queryListener="#{bindings.InSetPackingViewFindVCQuery.processQuery}" filterVisible="true"
+                              varStatus="vs" id="resId1" scrollPolicy="page" autoHeightRows="15"
+                              styleClass="AFStretchWidth">
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Pckid.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.Pckid.label}" id="resId1c1">
+                            <af:link text="#{row.Pckid}" id="l1" action="ACT-ERP-BACK-FROM-SEARCH-WCP-0007"
+                                     partialSubmit="true"/>
+                            <af:outputText value="#{row.Pckid}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.Pckid.tooltip}" id="ot1"
+                                           rendered="false"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Locationid.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.Locationid.label}" id="resId1c2">
+                            <af:outputText value="#{row.Locationid}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.Locationid.tooltip}" id="ot2"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.InSetPackingCRUD.hints.txtItemName.label}" filterable="true"
+                                   id="resId1c3" width="200">
+                            <af:outputText value="#{row.txtItemName}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.txtItemName.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Pdate.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.Pdate.label}" id="resId1c4">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.InSetPackingViewFindVCQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Pdate.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.InSetPackingCRUD.hints.Pdate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.Pdate}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.Pdate.tooltip}" id="ot4">
+                                <af:convertDateTime pattern="#{bindings.InSetPackingCRUD.hints.Pdate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Purchdate.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.Purchdate.label}" id="resId1c5">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.InSetPackingViewFindVCQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Purchdate.value}"
+                                              id="id2">
+                                    <af:convertDateTime pattern="#{bindings.InSetPackingCRUD.hints.Purchdate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.Purchdate}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.Purchdate.tooltip}" id="ot5">
+                                <af:convertDateTime pattern="#{bindings.InSetPackingCRUD.hints.Purchdate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Expdate.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.Expdate.label}" id="resId1c6">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.InSetPackingViewFindVCQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Expdate.value}"
+                                              id="id3">
+                                    <af:convertDateTime pattern="#{bindings.InSetPackingCRUD.hints.Expdate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.Expdate}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.Expdate.tooltip}" id="ot6">
+                                <af:convertDateTime pattern="#{bindings.InSetPackingCRUD.hints.Expdate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.txtTotalBox.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.txtTotalBox.label}" id="resId1c7">
+                            <af:outputText value="#{row.txtTotalBox}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.txtTotalBox.tooltip}" id="ot7">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.InSetPackingCRUD.hints.txtTotalBox.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.txtTotalTransactionIMEI.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.txtTotalTransactionIMEI.label}"
+                                   id="resId1c8">
+                            <af:outputText value="#{row.txtTotalTransactionIMEI}"
+                                           shortDesc="#{bindings.InSetPackingCRUD.hints.txtTotalTransactionIMEI.tooltip}"
+                                           id="ot8">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.InSetPackingCRUD.hints.txtTotalTransactionIMEI.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Posted.name}" filterable="true"
+                                   headerText="#{bindings.InSetPackingCRUD.hints.Posted.label}" id="resId1c9">
+                            <af:selectOneChoice value="#{row.bindings.Posted.inputValue}"
+                                                label="#{row.bindings.Posted.label}"
+                                                required="#{bindings.InSetPackingCRUD.hints.Posted.mandatory}"
+                                                shortDesc="#{bindings.InSetPackingCRUD.hints.Posted.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Posted.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Posted.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:panelHeader>
+        </af:form>
     </af:document>
 </f:view>

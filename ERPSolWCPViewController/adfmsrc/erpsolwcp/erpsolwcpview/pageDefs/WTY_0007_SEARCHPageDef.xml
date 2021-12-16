@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0007_SEARCHPageDef"
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InSetPackingCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSetPackingCRUDIterator"/>
+    <searchRegion Criteria="InSetPackingViewFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="InSetPackingCRUDIterator" id="InSetPackingViewFindVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InSetPackingCRUDIterator" id="InSetPackingCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView" Name="InSetPackingCRUD0">
+        <AttrNames>
+          <Item Value="Pckid"/>
+          <Item Value="Locationid"/>
+          <Item Value="txtItemName"/>
+          <Item Value="Pdate"/>
+          <Item Value="Purchdate"/>
+          <Item Value="Expdate"/>
+          <Item Value="txtTotalBox"/>
+          <Item Value="txtTotalTransactionIMEI"/>
+          <Item Value="Posted"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
