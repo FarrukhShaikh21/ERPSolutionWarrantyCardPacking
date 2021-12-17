@@ -111,6 +111,7 @@ public class VWScanImeiBoxQVORowImpl extends ViewRowImpl {
         ERPsolrow.setAttribute("Boxno", value);
         ERPSolvo.insertRow(ERPsolrow);
         ERPSolvo.setCurrentRow(ERPsolrow);
+        getDBTransaction().commit();
 //        ERPSolvo.executeQuery();
 //        setAttributeInternal(BOXNO, value);
     }

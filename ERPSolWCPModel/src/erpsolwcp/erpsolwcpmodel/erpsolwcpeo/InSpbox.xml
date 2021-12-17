@@ -214,7 +214,6 @@
       <Attr Name="_referencedKey" Value="PK_IN_SET_PACKING"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_IN_SPBOX"/>
-      <Attr Name="_isCascadeDelete" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Packingseq"/>

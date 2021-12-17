@@ -81,7 +81,7 @@
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
                       <af:gridRow marginTop="5px" height="30px" id="gr4">
-                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle">
                           <af:outputLabel value="#{bindings.Pckid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
@@ -89,9 +89,14 @@
                                         required="#{bindings.Pckid.hints.mandatory}"
                                         columns="#{bindings.Pckid.hints.displayWidth}"
                                         maximumLength="#{bindings.Pckid.hints.precision}"
-                                        shortDesc="#{bindings.Pckid.hints.tooltip}" id="it12" readOnly="true">
+                                        shortDesc="#{bindings.Pckid.hints.tooltip}" id="it12" readOnly="true"
+                                        partialTriggers="it5">
                             <f:validator binding="#{bindings.Pckid.validator}"/>
                           </af:inputText>
+                          <af:selectOneChoice label="#{bindings.Ptype.hints.label}" value="#{bindings.Ptype.inputValue}"
+                                              id="soc1" simple="true" contentStyle="width:150px" rendered="false">
+                            <af:selectItem label="Fresh" value="F" id="si1"/>
+                          </af:selectOneChoice>
                           <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
                                         required="#{bindings.Posted.hints.mandatory}"
                                         columns="#{bindings.Posted.hints.displayWidth}"
@@ -100,7 +105,7 @@
                             <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
+                        <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle">
                           <af:outputLabel value="#{bindings.Pdate.hints.label}" id="ol10"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
@@ -114,7 +119,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="30px" id="gr5">
-                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle">
                           <af:outputLabel value="#{bindings.Locationid.hints.label}" id="ol4"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
@@ -128,25 +133,40 @@
                             <f:validator binding="#{bindings.Locationid.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
                           <af:outputLabel value="#{bindings.Purchdate.hints.label}" id="ol1"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
-                                     valign="middle">
-                          <af:inputDate value="#{bindings.Purchdate.inputValue}"
-                                        required="#{bindings.Purchdate.hints.mandatory}"
-                                        columns="#{bindings.Purchdate.hints.displayWidth}"
-                                        shortDesc="#{bindings.Purchdate.hints.tooltip}" id="id1" simple="true">
-                            <f:validator binding="#{bindings.Purchdate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.Purchdate.format}"/>
-                          </af:inputDate>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11"
+                                     valign="middle" halign="stretch">
+                          <af:panelGroupLayout id="pgl11" layout="horizontal">
+                            <af:inputDate value="#{bindings.Purchdate.inputValue}"
+                                          required="#{bindings.Purchdate.hints.mandatory}"
+                                          columns="#{bindings.Purchdate.hints.displayWidth}"
+                                          shortDesc="#{bindings.Purchdate.hints.tooltip}" id="id1" simple="true"
+                                          autoSubmit="true">
+                              <f:validator binding="#{bindings.Purchdate.validator}"/>
+                              <af:convertDateTime pattern="#{bindings.Purchdate.format}"/>
+                            </af:inputDate>
+                            <af:outputLabel value="WTY End Date" id="ol3"/>
+                            <af:inputDate value="#{bindings.Expdate.inputValue}"
+                                          required="#{bindings.Expdate.hints.mandatory}"
+                                          columns="#{bindings.Expdate.hints.displayWidth}"
+                                          shortDesc="#{bindings.Expdate.hints.tooltip}" id="id3" simple="true"
+                                          autoSubmit="true">
+                              <f:validator binding="#{bindings.Expdate.validator}"/>
+                              <af:convertDateTime pattern="#{bindings.Expdate.format}"/>
+                            </af:inputDate>
+                            <f:facet name="separator">
+                              <af:spacer width="10" height="10" id="s1"/>
+                            </f:facet>
+                          </af:panelGroupLayout>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="30px" id="gr6">
-                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle">
                           <af:outputLabel value="#{bindings.txtItemName.hints.label}" id="ol7"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="stretch">
+                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
                           <af:inputComboboxListOfValues id="txtItemNameId"
                                                         popupTitle="Search and Select: #{bindings.txtItemName.hints.label}"
                                                         value="#{bindings.txtItemName.inputValue}"
@@ -160,41 +180,19 @@
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.Expdate.hints.label}" id="ol6"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle">
+                          <af:spacer width="10" height="10" id="s5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
                                      halign="stretch">
-                          <af:inputDate value="#{bindings.Expdate.inputValue}"
-                                        required="#{bindings.Expdate.hints.mandatory}"
-                                        columns="#{bindings.Expdate.hints.displayWidth}"
-                                        shortDesc="#{bindings.Expdate.hints.tooltip}" id="id3" simple="true">
-                            <f:validator binding="#{bindings.Expdate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.Expdate.format}"/>
-                          </af:inputDate>
-                        </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="30px" id="gr7">
-                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.Ptype.hints.label}" id="ol3"/>
-                        </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle">
-                          <af:selectOneChoice label="#{bindings.Ptype.hints.label}" value="#{bindings.Ptype.inputValue}"
-                                              id="soc1" simple="true" contentStyle="width:150px">
-                            <af:selectItem label="Fresh" value="F" id="si1"/>
-                          </af:selectOneChoice>
-                        </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center">
-                          <af:outputText value="#{bindings.txtTotalImei.inputValue}"
-                                         shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
-                                         partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5 it100" clientComponent="true"
-                                         inlineStyle="color:white">
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
-                          </af:outputText>
-                        </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle"
-                                     halign="center">
-                          <af:panelGroupLayout id="pgl7" layout="vertical" halign="center">
+                          <af:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="bottom">
+                            <af:spacer width="10" height="10" id="s7"/>
+                            <af:outputText value="#{bindings.txtTotalImei.inputValue}"
+                                           shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
+                                           partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5 it100" clientComponent="true"
+                                           inlineStyle="color:white">
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
+                            </af:outputText>
                             <af:panelGroupLayout id="pgl10" layout="horizontal">
                               <af:outputText value="Per Box:" id="ot9" inlineStyle="font-weight:bold"/>
                               <af:outputText value="#{bindings.txtPerBoxImei.inputValue}"
@@ -225,16 +223,17 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
-                                     halign="stretch">
+                                     halign="stretch" valign="middle">
                           <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
                                         required="#{bindings.Remarks.hints.mandatory}"
                                         columns="#{bindings.Remarks.hints.displayWidth}"
                                         maximumLength="#{bindings.Remarks.hints.precision}"
-                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2" simple="true">
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2" simple="true"
+                                        autoSubmit="true">
                             <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -249,7 +248,7 @@
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc28"
                              styleClass="ERPSolFormEntryAreaHeader" halign="stretch" valign="stretch">
                   <af:panelGridLayout id="pgl2">
-                    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr12">
+                    <af:gridRow height="20px" id="gr12">
                       <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26" halign="stretch"
                                    valign="stretch">
                         <af:outputText value="Detail Information" id="ot6" styleClass="ERPSolFormEntryAreaFont"/>
@@ -261,7 +260,7 @@
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
                   <af:panelGridLayout id="pgl6">
-                    <af:gridRow id="gr13" marginTop="5px" marginBottom="5px">
+                    <af:gridRow id="gr13">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
                         <af:inputText value="#{bindings.BoxNo.inputValue}" simple="true"
                                       required="#{bindings.BoxNo.hints.mandatory}"
@@ -270,14 +269,13 @@
                                       shortDesc="#{bindings.BoxNo.hints.tooltip}" id="it8" rendered="false">
                           <f:validator binding="#{bindings.BoxNo.validator}"/>
                         </af:inputText>
-                        <af:panelLabelAndMessage label="Scan Box Here" id="plam1">
-                          <af:inputText id="it5" contentStyle="text-transform:uppercase"
-                                        clientComponent="true" autoSubmit="true" simple="true" label='pt1:it7'
-                                        partialTriggers="it5" value="#{bindings.BoxNo.inputValue}"
-                                        disabled="#{bindings.Posted.inputValue=='Y'}">
-                            <af:clientListener method="jserpKeyNextItemLOV" type="keyPress"/>
-                          </af:inputText>
-                        </af:panelLabelAndMessage>
+                        <af:inputText id="it5" contentStyle="text-transform:uppercase" clientComponent="true"
+                                      autoSubmit="true" simple="true" label="pt1:it7" partialTriggers="it5"
+                                      value="#{bindings.BoxNo.inputValue}"
+                                      disabled="#{bindings.Posted.inputValue=='Y'}" placeholder="Scan Box Here">
+                          <af:clientListener method="jserpKeyNextItemLOV" type="keyPress"/>
+                        </af:inputText>
+                        <af:panelLabelAndMessage label="Scan Box Here" id="plam1" rendered="false"/>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
                         <af:panelGroupLayout id="pgl1">
@@ -297,7 +295,7 @@
                       </af:gridCell>
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr8">
-                      <af:gridCell marginStart="5px" width="30%" id="gc20" halign="stretch">
+                      <af:gridCell marginStart="5px" width="25%" id="gc20" halign="stretch">
                         <af:panelBox text="Box" id="pb2" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc1" featuresOff="viewMenu detach" styleClass="AFStretchWidth"
@@ -318,7 +316,7 @@
                                       selectionListener="#{bindings.InSpboxDetCRUD.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.InSpboxDetCRUD.rangeSize}" id="t2"
                                       columnStretching="last" partialTriggers="::b8" autoHeightRows="10"
-                                      scrollPolicy="page">
+                                      scrollPolicy="page" horizontalGridVisible="false" verticalGridVisible="false">
                               <af:column id="c1" width="200" minimumWidth="12">
                                 <af:inputText value="#{row.bindings.Boxno.inputValue}"
                                               label="#{bindings.InSpboxDetCRUD.hints.Boxno.label}"
@@ -326,7 +324,8 @@
                                               columns="#{bindings.InSpboxDetCRUD.hints.Boxno.displayWidth}"
                                               maximumLength="#{bindings.InSpboxDetCRUD.hints.Boxno.precision}"
                                               shortDesc="#{bindings.InSpboxDetCRUD.hints.Boxno.tooltip}" id="it1"
-                                              contentStyle="text-transform:uppercase">
+                                              contentStyle="text-transform:uppercase"
+                                              disabled="#{bindings.Posted.inputValue=='Y'}">
                                   <f:validator binding="#{row.bindings.Boxno.validator}"/>
                                 </af:inputText>
                               </af:column>
@@ -334,7 +333,7 @@
                           </af:panelCollection>
                         </af:panelBox>
                       </af:gridCell>
-                      <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc21" halign="stretch">
+                      <af:gridCell marginStart="5px" width="75%" marginEnd="5px" id="gc21" halign="stretch">
                         <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc2" featuresOff="viewMenu detach" partialTriggers="::it100">
