@@ -9,7 +9,11 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -40,6 +44,7 @@ import oracle.jbo.ApplicationModule;
 import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.DBTransaction;
 
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
@@ -501,5 +506,86 @@ public class ERPSolWCPBean {
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("ImeiNo", message);
         ERPSolvo.insertRow(ERPsolrow);
-    }    
+    }
+    public static void main(String[] args) throws Exception{
+        System.out.println(new Date().getCurrentDate());
+        String pDate="2021-03-11";
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date UtilDate = new SimpleDateFormat("yyyy-MM-dd").parse(pDate);
+        calendar.setTime(UtilDate);
+        String smonth="";
+        String emonth="";
+        String eday  ="";
+        String eyear="";
+        String syear="";
+        java.util.Date WtyStart;
+       java.util.Date  WtyEnd;
+        Integer day=calendar.get(Calendar.DAY_OF_MONTH);
+        
+       if (day<11) {
+           calendar.add(Calendar.MONTH, 1);
+       }
+       else {
+           calendar.add(Calendar.MONTH, 2);
+       }
+//       calendar.add(Calendar.MONTH, 1);
+       syear=""+calendar.get(Calendar.YEAR);
+       
+       smonth=""+ (calendar.get(Calendar.MONTH)+1);
+       WtyStart=new SimpleDateFormat("yyyy-MM-dd").parse(syear+"-"+smonth+"-01");
+       calendar.add(Calendar.MONTH, 11);
+       eyear=""+(calendar.get(Calendar.YEAR));
+       eday=""+calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+       
+       emonth=""+(calendar.get(Calendar.MONTH)+1);
+       
+       WtyEnd=new SimpleDateFormat("yyyy-MM-dd").parse(eyear+"-"+emonth+"-"+eday);
+       
+     
+       
+       java.sql.Date sqlStartDate = new java.sql.Date(WtyStart.getTime());
+       java.sql.Date sqlEndate = new java.sql.Date(WtyEnd.getTime());
+       
+       Date jboStartDate = new oracle.jbo.domain.Date(sqlStartDate);
+       Date jboEndDate = new oracle.jbo.domain.Date(sqlEndate);
+       
+       System.out.println(jboStartDate);
+       System.out.println(jboEndDate);
+       
+       
+        if (1==1) {
+            return;
+       }
+      
+        if (day<11) {
+            calendar.add(Calendar.MONTH, 1);
+           syear=""+calendar.get(Calendar.YEAR);
+           
+           smonth=""+ (calendar.get(Calendar.MONTH)+1);
+           smonth=""+new SimpleDateFormat("yyyy-MM-dd").parse(syear+"-"+smonth+"-01");
+           calendar.add(Calendar.MONTH, 11);
+           eyear=""+(calendar.get(Calendar.YEAR));
+           eday=""+calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+           
+           emonth=""+(calendar.get(Calendar.MONTH)+1);
+           
+           emonth=""+new SimpleDateFormat("yyyy-MM-dd").parse(eyear+"-"+emonth+"-"+eday); 
+        
+       }
+       else {
+
+            calendar.add(Calendar.MONTH, 2);
+            syear=""+calendar.get(Calendar.YEAR);
+            smonth=""+ (calendar.get(Calendar.MONTH)+1);
+            smonth=""+new SimpleDateFormat("yyyy-MM-dd").parse(syear+"-"+smonth+"-01");
+            calendar.add(Calendar.MONTH, 11);
+            eyear=""+(calendar.get(Calendar.YEAR));
+            eday=""+calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+            emonth=""+(calendar.get(Calendar.MONTH)+1);
+            emonth=""+new SimpleDateFormat("yyyy-MM-dd").parse(eyear+"-"+emonth+"-"+eday);   
+            
+        }
+        System.out.println(smonth);
+       System.out.println(emonth);
+   }
 }

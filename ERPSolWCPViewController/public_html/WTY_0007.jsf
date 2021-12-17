@@ -108,11 +108,12 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle">
                           <af:outputLabel value="#{bindings.Pdate.hints.label}" id="ol10"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7" valign="middle">
                           <af:inputDate value="#{bindings.Pdate.inputValue}"
                                         required="#{bindings.Pdate.hints.mandatory}"
                                         columns="#{bindings.Pdate.hints.displayWidth}"
-                                        shortDesc="#{bindings.Pdate.hints.tooltip}" id="id2" simple="true">
+                                        shortDesc="#{bindings.Pdate.hints.tooltip}" id="id2" simple="true"
+                                        readOnly="true">
                             <f:validator binding="#{bindings.Pdate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.Pdate.format}"/>
                           </af:inputDate>
@@ -138,12 +139,12 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11"
                                      valign="middle" halign="stretch">
-                          <af:panelGroupLayout id="pgl11" layout="horizontal">
+                          <af:panelGroupLayout id="pgl11" layout="horizontal" partialTriggers="txtItemNameId">
                             <af:inputDate value="#{bindings.Purchdate.inputValue}"
                                           required="#{bindings.Purchdate.hints.mandatory}"
                                           columns="#{bindings.Purchdate.hints.displayWidth}"
                                           shortDesc="#{bindings.Purchdate.hints.tooltip}" id="id1" simple="true"
-                                          autoSubmit="true">
+                                          autoSubmit="true" readOnly="true">
                               <f:validator binding="#{bindings.Purchdate.validator}"/>
                               <af:convertDateTime pattern="#{bindings.Purchdate.format}"/>
                             </af:inputDate>
@@ -152,7 +153,7 @@
                                           required="#{bindings.Expdate.hints.mandatory}"
                                           columns="#{bindings.Expdate.hints.displayWidth}"
                                           shortDesc="#{bindings.Expdate.hints.tooltip}" id="id3" simple="true"
-                                          autoSubmit="true">
+                                          autoSubmit="true" readOnly="true">
                               <f:validator binding="#{bindings.Expdate.validator}"/>
                               <af:convertDateTime pattern="#{bindings.Expdate.format}"/>
                             </af:inputDate>

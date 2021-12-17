@@ -2,6 +2,10 @@ package erpsolwcp.erpsolwcpmodel.erpsolwcpvo;
 
 import erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingImpl;
 
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
+
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -505,5 +509,12 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
        }
         return super.isAttributeUpdateable(i);
     }
+    
+    public void ErpSolDoSetStartEndDate(Date pDate) throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date UtilDate=new SimpleDateFormat("yyyy-mm-dddd").parse(pDate.toString());  
+        calendar.setTime(UtilDate);
+    }
+    
 }
 
