@@ -31,7 +31,6 @@
   </Attribute>
   <Attribute
     Name="Boxno"
-    IsNotNull="true"
     Precision="35"
     ColumnName="BOXNO"
     SQLType="VARCHAR"
