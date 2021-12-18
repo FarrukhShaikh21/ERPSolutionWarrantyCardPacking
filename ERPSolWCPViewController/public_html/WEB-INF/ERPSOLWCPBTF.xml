@@ -99,6 +99,9 @@
     <view id="WTY_0007_SEARCH">
       <page>/WTY_0007_SEARCH.jsf</page>
     </view>
+    <view id="WTY_SCAN">
+      <page>/WTY_SCAN.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -182,11 +185,22 @@
         <from-outcome>ACT-ERP-SEARCH-WTY-0007</from-outcome>
         <to-activity-id>WTY_0007_SEARCH</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
+        <to-activity-id>WTY_SCAN</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__33">
       <from-activity-id>WTY_0007_SEARCH</from-activity-id>
       <control-flow-case id="__34">
         <from-outcome>ACT-ERP-BACK-FROM-SEARCH-WCP-0007</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>WTY_SCAN</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN-BACK</from-outcome>
         <to-activity-id>WTY_0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

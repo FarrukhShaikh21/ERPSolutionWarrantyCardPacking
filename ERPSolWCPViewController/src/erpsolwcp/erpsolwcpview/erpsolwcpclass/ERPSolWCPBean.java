@@ -505,11 +505,12 @@ public class ERPSolWCPBean {
 //            return;
 //       }
     System.out.println(message);
+         
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpdetlDetCRUDIterator");
         ViewObject ERPSolvo=ib.getViewObject();
         Row ERPsolrow=ERPSolvo.createRow();
-        ERPsolrow.setAttribute("ImeiNo", message);
+        ERPsolrow.setAttribute("ImeiNo", message); 
       /*  if (ERPSolvo.getRowCount()>0)
         {
             ERPSolvo.first();
@@ -528,9 +529,8 @@ public class ERPSolWCPBean {
 //        ERPSolvo.getApplicationModule().getTransaction().commit();
     }
     
-    public void handleEnterEventBox(ClientEvent ce) {
+    /*public void handleEnterEventBox(ClientEvent ce) {
     String message = (String) ce.getParameters().get("fvalue");
-//        System.out.println(message);
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpboxDetCRUDIterator");
         ViewObject ERPSolvo=ib.getViewObject();
@@ -542,15 +542,14 @@ public class ERPSolWCPBean {
 //        ERPSolvo.getApplicationModule().getTransaction().commit();
         
         
-        /*
+        
         ViewObject ERPSolvo=getDBTransaction().getRootApplicationModule().findViewObject("InSpboxDetCRUD");
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("Boxno", value);
         ERPSolvo.insertRow(ERPsolrow);
         ERPSolvo.setCurrentRow(ERPsolrow);
-        getDBTransaction().commit();*/
-    //        ERPSolvo.getApplicationModule().getTransaction().commit();
-    }
+        getDBTransaction().commit();
+    }*/
     public static void main(String[] args) throws Exception{
         System.out.println(new Date().getCurrentDate());
         String pDate="2021-03-11";

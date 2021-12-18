@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="WTY_SCAN.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="Scan IMEI Here" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+                    <af:inputText label="Label 2" id="it2" simple="true" placeholder="Scan Box Here"/>
+                    <af:inputText label="Label 1" id="it1" simple="true" placeholder="Scan IMEI Here"/>
+                </af:panelGroupLayout>
+                <af:panelSplitter id="ps1" splitterPosition="400">
+                    <f:facet name="first">
+                        <af:table value="#{bindings.InSpboxDetCRUD.collectionModel}" var="row"
+                                  rows="#{bindings.InSpboxDetCRUD.rangeSize}"
+                                  emptyText="#{bindings.InSpboxDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.InSpboxDetCRUD.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.InSpboxDetCRUD.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.InSpboxDetCRUD.rangeSize}" id="t1"
+                                  autoHeightRows="20" scrollPolicy="page" partialTriggers="b1">
+                            <af:column headerText="#{bindings.InSpboxDetCRUD.hints.Boxno.label}" id="c1" width="200"
+                                       displayIndex="-1">
+                                <af:outputText value="#{row.Boxno}"
+                                               shortDesc="#{bindings.InSpboxDetCRUD.hints.Boxno.tooltip}" id="ot1"/>
+                            </af:column>
+                            <af:column id="c2" width="70" displayIndex="-1">
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete.enabled}" id="b1"/>
+                            </af:column>
+                        </af:table>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:table value="#{bindings.InSpdetlDetCRUD.collectionModel}" var="row"
+                                  rows="#{bindings.InSpdetlDetCRUD.rangeSize}"
+                                  emptyText="#{bindings.InSpdetlDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t2"
+                                  scrollPolicy="page" autoHeightRows="20">
+                            <af:column headerText="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}" id="c3" width="150">
+                                <af:outputText value="#{row.ImeiNo}"
+                                               shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="ot2"/>
+                            </af:column>
+                        </af:table>
+                    </f:facet>
+                </af:panelSplitter>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

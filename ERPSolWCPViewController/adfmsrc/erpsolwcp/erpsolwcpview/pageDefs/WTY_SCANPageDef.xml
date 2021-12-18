@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_SCANPageDef"
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InSpboxDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpboxDetCRUDIterator"/>
+    <iterator Binds="InSpdetlDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpdetlDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InSpboxDetCRUDIterator" id="InSpboxDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView" Name="InSpboxDetCRUD0">
+        <AttrNames>
+          <Item Value="Boxno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="InSpboxDetCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="InSpdetlDetCRUDIterator" id="InSpdetlDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView" Name="InSpdetlDetCRUD0">
+        <AttrNames>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
