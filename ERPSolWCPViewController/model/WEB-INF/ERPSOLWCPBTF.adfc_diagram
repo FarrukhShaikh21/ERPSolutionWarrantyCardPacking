@@ -336,7 +336,7 @@
       <property
          name="fromOutcome">ACT-ERP-BACK-FROM-SEARCH-WCP-0007</property>
       <property
-         name="sdm:polyPoints">R46,192.35645,615.94824,393.5,480.44824,B39</property>
+         name="sdm:polyPoints">R54,194.51616,622.94824,397.0,484.12006,B44</property>
    </ControlFlowCase>
    <View
       id="View31">
@@ -349,9 +349,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">683.7988</property>
+         name="y">721.09766</property>
       <property
-         name="x">339.3369</property>
+         name="x">367.3369</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -361,7 +361,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
       <property
-         name="sdm:polyPoints">B61,407.5,486.76407,339.3369,629.44824,T50</property>
+         name="sdm:polyPoints">B56,404.0,486.32083,363.8369,665.9758,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -371,6 +371,6 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN-BACK</property>
       <property
-         name="sdm:polyPoints">T56,342.8369,629.44824,411.0,488.23553,B67</property>
+         name="sdm:polyPoints">T56,370.8369,666.7471,411.0,487.0668,B67</property>
    </ControlFlowCase>
 </SDM>

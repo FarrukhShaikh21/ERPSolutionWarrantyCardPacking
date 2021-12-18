@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="WTY_SCAN.jsf" id="d1">
+    <af:document title="WTY_SCAN.jsf" id="d1" initialFocusId="it5">
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:panelHeader text="Scan IMEI Here" id="ph1">
@@ -10,18 +10,18 @@
                 <f:facet name="toolbar">
                     <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b3"
-                                   icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
-                        <af:button text="Back To Packing" id="b2" action="ACT-ERP-WTY-0007-SCAN-BACK"
-                                   iconPosition="top" icon="#{resource['images:imgExitForm.png']}"/>
+                                   icon="#{resource['images:imgSave.png']}"/>
+                        <af:button text="Back To Packing" id="b2" action="ACT-ERP-WTY-0007-SCAN-BACK" icon="#{resource['images:imgExitForm.png']}"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
-                <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+                <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
                     <af:inputText label="Label 2" id="it5" simple="true" placeholder="Scan Box Here"
                                   clientComponent="true">
-                        <af:clientListener method="d" type="keyPress"/>
-                        <af:serverListener type="EnterEventBox" method="handleEnterEventBox"/>
+                        <af:clientListener method="handleEnterEventBox" type="keyPress"/>
+                        <af:serverListener type="EnterEventBox"
+                                           method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEventBox}"/>
                     </af:inputText>
                     <af:inputText label="Label 1" id="it100" simple="true" placeholder="Scan IMEI Here"
                                   clientComponent="true">
@@ -29,14 +29,14 @@
                         <af:serverListener type="EnterEvent"
                                            method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
                     </af:inputText>
-                    <af:outputText value="outputText1" id="ot3"/>
                     <af:outputText value="#{bindings.txtTotalImei.inputValue}"
-                                   shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7">
+                                   shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
+                                   binding="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolTotalImei}">
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                     </af:outputText>
                     <af:inputText label="Label 3" id="it1" simple="true" readOnly="true"/>
                 </af:panelGroupLayout>
-                <af:panelSplitter id="ps1" splitterPosition="400">
+                <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
                     <f:facet name="first">
                         <af:table value="#{bindings.InSpboxDetCRUD.collectionModel}" var="row"
                                   rows="#{bindings.InSpboxDetCRUD.rangeSize}"
@@ -65,7 +65,7 @@
                                   selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t2"
-                                  scrollPolicy="page" autoHeightRows="20" partialTriggers="b4">
+                                  scrollPolicy="page" autoHeightRows="17" partialTriggers="b4">
                             <af:column headerText="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}" id="c3" width="150">
                                 <af:outputText value="#{row.ImeiNo}"
                                                shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="ot2"/>
@@ -109,7 +109,7 @@
       }
 
 function handleEnterEvent(evt) {
-alert(3)
+//alert(3)
       var _keyCode = evt.getKeyCode();
 
       //check for Enter Key
@@ -128,20 +128,15 @@ alert(3)
    }
 
 function handleEnterEventBox(evt) {
-
       var _keyCode = evt.getKeyCode();
 
       //check for Enter Key
 
       if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
-
           var comp = evt.getSource();
-
           AdfCustomEvent.queue(comp, "EnterEventBox", {fvalue:comp.getSubmittedValue()}, false);
-
           comp.setValue(null);
           evt.cancel();
-
       }
 
    }

@@ -548,15 +548,30 @@ public class ERPSolWCPBean {
     
     
     public void handleEnterEventBox(ClientEvent ce) {
+        System.out.println("box is calling");
     String message = (String) ce.getParameters().get("fvalue");
+           System.out.println("box is calling >"+message);
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+           System.out.println("d");
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpboxDetCRUDIterator");
+           System.out.println("e");
         ViewObject ERPSolvo=ib.getViewObject();
+           System.out.println("f");
         Row ERPsolrow=ERPSolvo.createRow();
+           System.out.println("g");
         ERPsolrow.setAttribute("Boxno", message);
+           System.out.println("h");
         ERPSolvo.insertRow(ERPsolrow);
         OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
         binding.execute();
+        
+           String inputId = "it100"; //here it6 is id for inputtext in1st column.
+           System.out.println("inputid "+inputId);
+           FacesContext facesCtx=FacesContext.getCurrentInstance();
+           ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+           service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+           "comp.focus()");      // javascript method is used
+           
 //        ERPSolvo.getApplicationModule().getTransaction().commit();
         
         
