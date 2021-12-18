@@ -218,6 +218,18 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
+    Name="AltKeyIMEIDet"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="IN_SPDETL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.ImeiNo"/>
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.Spboxseq"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="PkInSpdetl"
     PrimaryKey="true">
     <DesignTime>

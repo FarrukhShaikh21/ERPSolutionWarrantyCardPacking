@@ -199,7 +199,9 @@ public class ERPSolWCPBean {
     }   
     public void doERPSolWarrantyCard(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
-            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseWarrantyCard");
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
+            binding.execute();
+            binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseWarrantyCard");
             binding.execute();
         }
     }
@@ -499,16 +501,55 @@ public class ERPSolWCPBean {
 
     public void handleEnterEvent(ClientEvent ce) {
     String message = (String) ce.getParameters().get("fvalue");
-    if (message.length()<15) {
-            return;
-       }
+//    if (message.length()!=15) {
+//            return;
+//       }
     System.out.println(message);
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpdetlDetCRUDIterator");
         ViewObject ERPSolvo=ib.getViewObject();
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("ImeiNo", message);
+      /*  if (ERPSolvo.getRowCount()>0)
+        {
+            ERPSolvo.first();
+        if (ERPSolvo.first().getAttribute("ImeiNo").equals(message)) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("This IMEI IS Already Scanned"));
+            return;
+        }
+        while(ERPSolvo.hasNext()) {
+            if (ERPSolvo.next().getAttribute("ImeiNo").equals(message)) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("This IMEI IS Already Scanned"));
+                return;
+            } 
+        }
+        }*/
+            
+//        ERPSolvo.getApplicationModule().getTransaction().commit();
+    }
+    
+    public void handleEnterEventBox(ClientEvent ce) {
+    String message = (String) ce.getParameters().get("fvalue");
+//        System.out.println(message);
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpboxDetCRUDIterator");
+        ViewObject ERPSolvo=ib.getViewObject();
+        Row ERPsolrow=ERPSolvo.createRow();
+        ERPsolrow.setAttribute("Boxno", message);
         ERPSolvo.insertRow(ERPsolrow);
+        OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
+        binding.execute();
+//        ERPSolvo.getApplicationModule().getTransaction().commit();
+        
+        
+        /*
+        ViewObject ERPSolvo=getDBTransaction().getRootApplicationModule().findViewObject("InSpboxDetCRUD");
+        Row ERPsolrow=ERPSolvo.createRow();
+        ERPsolrow.setAttribute("Boxno", value);
+        ERPSolvo.insertRow(ERPsolrow);
+        ERPSolvo.setCurrentRow(ERPsolrow);
+        getDBTransaction().commit();*/
+    //        ERPSolvo.getApplicationModule().getTransaction().commit();
     }
     public static void main(String[] args) throws Exception{
         System.out.println(new Date().getCurrentDate());

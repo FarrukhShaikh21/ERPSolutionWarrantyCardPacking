@@ -191,7 +191,7 @@
                             <af:outputText value="#{bindings.txtTotalImei.inputValue}"
                                            shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
                                            partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5 it100" clientComponent="true"
-                                           inlineStyle="color:white">
+                                           inlineStyle="color:black">
                               <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                             </af:outputText>
                             <af:panelGroupLayout id="pgl10" layout="horizontal">
@@ -217,7 +217,7 @@
                               <af:outputText value="Total IMEI Scanned: " id="ot5" inlineStyle="font-weight:bold"/>
                               <af:spacer width="10" height="10" id="s4"/>
                               <af:outputText value="#{bindings.txtTotalTransactionIMEI.inputValue}" id="ot3"
-                                             partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5" clientComponent="true"
+                                             partialTriggers="pc1:b8 pc2:b11 pc2:b10 it7 it5 " clientComponent="true"
                                              inlineStyle="font-weight:bold"/>
                             </af:panelGroupLayout>
                           </af:panelGroupLayout>
@@ -271,22 +271,24 @@
                           <f:validator binding="#{bindings.BoxNo.validator}"/>
                         </af:inputText>
                         <af:inputText id="it5" contentStyle="text-transform:uppercase" clientComponent="true"
-                                      autoSubmit="true" simple="true" label="pt1:it7" partialTriggers="it5"
-                                      value="#{bindings.BoxNo.inputValue}"
+                                      autoSubmit="true" simple="true" label="pt1:it7" partialTriggers="it100"
                                       disabled="#{bindings.Posted.inputValue=='Y'}" placeholder="Scan Box Here">
                           <af:clientListener method="jserpKeyNextItemLOV" type="keyPress"/>
+                          <af:clientListener method="handleEnterEventBox" type="keyPress"/>
+                          <af:serverListener type="EnterEventBox"
+                                             method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEventBox}"/>
                         </af:inputText>
                         <af:panelLabelAndMessage label="Scan Box Here" id="plam1" rendered="false"/>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
                         <af:panelGroupLayout id="pgl1">
-                          <af:inputText id="it100" clientComponent="true" placeholder="Scan IMEI Here"
-                                        disabled="#{bindings.Posted.inputValue=='Y'}" columns="15" maximumLength="15">
+                          <af:inputText id="it100" clientComponent="true" placeholder="Scan IMEI Heree"
+                                        disabled="#{bindings.Posted.inputValue=='Y'}" columns="17" maximumLength="17"
+                                        autoSubmit="true">
                             <af:clientListener method="handleEnterEvent" type="keyPress"/>
                             <af:serverListener type="EnterEvent"
                                                method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
-                            <af:clientListener method="jserpKeyNextItemBoxNo" type="keyPress"/>
-                            <af:convertNumber groupingUsed="false"/>
+                            <af:clientListener method="jserpKeyNextItemBoxNo" type="keyDown"/>
                           </af:inputText>
                         </af:panelGroupLayout>
                         <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2" rendered="false">
@@ -305,7 +307,7 @@
                             <f:facet name="menus"/>
                             <f:facet name="toolbar">
                               <af:toolbar id="t4">
-                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Box"
+                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete BoxX"
                                            disabled="#{bindings.Posted.inputValue=='Y'}" id="b8"/>
                               </af:toolbar>
                             </f:facet>
@@ -327,7 +329,7 @@
                                               maximumLength="#{bindings.InSpboxDetCRUD.hints.Boxno.precision}"
                                               shortDesc="#{bindings.InSpboxDetCRUD.hints.Boxno.tooltip}" id="it1"
                                               contentStyle="text-transform:uppercase"
-                                              disabled="#{bindings.Posted.inputValue=='Y'}">
+                                              disabled="#{bindings.Posted.inputValue=='Y'}" readOnly="true">
                                   <f:validator binding="#{row.bindings.Boxno.validator}"/>
                                 </af:inputText>
                               </af:column>
@@ -336,9 +338,9 @@
                         </af:panelBox>
                       </af:gridCell>
                       <af:gridCell marginStart="5px" width="75%" marginEnd="5px" id="gc21" halign="stretch">
-                        <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb3" showDisclosure="false">
+                        <af:panelBox text="IMEI Of Box (#{bindings.Boxno.inputValue}) Scanned (#{bindings.txtTotalImei.inputValue})" id="pb3" showDisclosure="false">
                           <f:facet name="toolbar"/>
-                          <af:panelCollection id="pc2" featuresOff="viewMenu detach" partialTriggers="::it100">
+                          <af:panelCollection id="pc2" featuresOff="viewMenu detach">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar">
                               <af:toolbar id="t5">
@@ -356,7 +358,7 @@
                                       selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t3"
-                                      partialTriggers="::b10 ::b11" scrollPolicy="page" autoHeightRows="10">
+                                      partialTriggers="::b10 ::b11" scrollPolicy="page" autoHeightRows="12">
                               <af:column id="c2" width="200">
                                 <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
                                               label="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}"
@@ -422,6 +424,25 @@ function handleEnterEvent(evt) {
           var comp = evt.getSource();
 
           AdfCustomEvent.queue(comp, "EnterEvent", {fvalue:comp.getSubmittedValue()}, false);
+
+          evt.cancel();
+          comp.setValue(null);
+
+      }
+
+   }
+
+function handleEnterEventBox(evt) {
+
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterEventBox", {fvalue:comp.getSubmittedValue()}, false);
 
           evt.cancel();
           comp.setValue(null);
