@@ -263,6 +263,10 @@
                   <af:panelGridLayout id="pgl6">
                     <af:gridRow id="gr13">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
+                        <af:button text="Scan BOX/IMEI" id="b15" action="ACT-ERP-WTY-0007-SCAN">
+                          <af:setActionListener from="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolPerBox}"
+                                                to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolPerBox}"/>
+                        </af:button>
                         <af:inputText value="#{bindings.BoxNo.inputValue}" simple="true"
                                       required="#{bindings.BoxNo.hints.mandatory}"
                                       columns="#{bindings.BoxNo.hints.displayWidth}"

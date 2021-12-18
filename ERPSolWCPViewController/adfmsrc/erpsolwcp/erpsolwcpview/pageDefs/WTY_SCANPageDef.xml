@@ -25,5 +25,13 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <action IterBinding="InSpdetlDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="InSpboxDetCRUDIterator" id="txtTotalImei">
+      <AttrNames>
+        <Item Value="txtTotalImei"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

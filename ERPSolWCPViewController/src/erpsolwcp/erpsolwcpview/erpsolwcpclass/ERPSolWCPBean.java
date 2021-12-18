@@ -35,6 +35,7 @@ import oracle.adf.share.ADFContext;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
@@ -69,6 +70,8 @@ public class ERPSolWCPBean {
     String ERPSolImeiString;
     String ERPSolReportName;
     RichInputText rip;
+    RichOutputText ERPSolTotalImei;
+    Integer ERPSolPerBox;
     public void doSetERPSolWCPSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -511,6 +514,21 @@ public class ERPSolWCPBean {
         ViewObject ERPSolvo=ib.getViewObject();
         Row ERPsolrow=ERPSolvo.createRow();
         ERPsolrow.setAttribute("ImeiNo", message); 
+        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolTotalImei());
+        System.out.println(getERPSolTotalImei().getValue()+"gv");
+        System.out.println(getERPSolPerBox()+".getValue()");
+      if(getERPSolTotalImei().getValue().toString().equals(getERPSolPerBox().toString()))
+      {
+          System.out.println("calline");
+        String inputId = "it5"; //here it6 is id for inputtext in1st column.
+        System.out.println("inputid "+inputId);
+        FacesContext facesCtx=FacesContext.getCurrentInstance();
+        ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+        service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+        "comp.focus()");      // javascript method is used
+        }
+    }
+
       /*  if (ERPSolvo.getRowCount()>0)
         {
             ERPSolvo.first();
@@ -527,9 +545,9 @@ public class ERPSolWCPBean {
         }*/
             
 //        ERPSolvo.getApplicationModule().getTransaction().commit();
-    }
     
-    /*public void handleEnterEventBox(ClientEvent ce) {
+    
+    public void handleEnterEventBox(ClientEvent ce) {
     String message = (String) ce.getParameters().get("fvalue");
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpboxDetCRUDIterator");
@@ -543,13 +561,7 @@ public class ERPSolWCPBean {
         
         
         
-        ViewObject ERPSolvo=getDBTransaction().getRootApplicationModule().findViewObject("InSpboxDetCRUD");
-        Row ERPsolrow=ERPSolvo.createRow();
-        ERPsolrow.setAttribute("Boxno", value);
-        ERPSolvo.insertRow(ERPsolrow);
-        ERPSolvo.setCurrentRow(ERPsolrow);
-        getDBTransaction().commit();
-    }*/
+       }
     public static void main(String[] args) throws Exception{
         System.out.println(new Date().getCurrentDate());
         String pDate="2021-03-11";
@@ -631,4 +643,21 @@ public class ERPSolWCPBean {
         System.out.println(smonth);
        System.out.println(emonth);
    }
+
+    public void setERPSolTotalImei(RichOutputText ERPSolTotalImei) {
+        this.ERPSolTotalImei = ERPSolTotalImei;
+    }
+
+    public RichOutputText getERPSolTotalImei() {
+        return ERPSolTotalImei;
+    }
+
+
+    public void setERPSolPerBox(Integer ERPSolPerBox) {
+        this.ERPSolPerBox = ERPSolPerBox;
+    }
+
+    public Integer getERPSolPerBox() {
+        return ERPSolPerBox;
+    }
 }

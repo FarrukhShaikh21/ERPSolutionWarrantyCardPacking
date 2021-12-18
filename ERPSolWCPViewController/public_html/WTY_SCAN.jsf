@@ -7,12 +7,34 @@
             <af:panelHeader text="Scan IMEI Here" id="ph1">
                 <f:facet name="context"/>
                 <f:facet name="menuBar"/>
-                <f:facet name="toolbar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t3">
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b3"
+                                   icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                        <af:button text="Back To Packing" id="b2" action="ACT-ERP-WTY-0007-SCAN-BACK"
+                                   iconPosition="top" icon="#{resource['images:imgExitForm.png']}"/>
+                    </af:toolbar>
+                </f:facet>
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
                 <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
-                    <af:inputText label="Label 2" id="it2" simple="true" placeholder="Scan Box Here"/>
-                    <af:inputText label="Label 1" id="it1" simple="true" placeholder="Scan IMEI Here"/>
+                    <af:inputText label="Label 2" id="it5" simple="true" placeholder="Scan Box Here"
+                                  clientComponent="true">
+                        <af:clientListener method="d" type="keyPress"/>
+                        <af:serverListener type="EnterEventBox" method="handleEnterEventBox"/>
+                    </af:inputText>
+                    <af:inputText label="Label 1" id="it100" simple="true" placeholder="Scan IMEI Here"
+                                  clientComponent="true">
+                        <af:clientListener method="handleEnterEvent" type="keyPress"/>
+                        <af:serverListener type="EnterEvent"
+                                           method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
+                    </af:inputText>
+                    <af:outputText value="outputText1" id="ot3"/>
+                    <af:outputText value="#{bindings.txtTotalImei.inputValue}"
+                                   shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
+                    </af:outputText>
+                    <af:inputText label="Label 3" id="it1" simple="true" readOnly="true"/>
                 </af:panelGroupLayout>
                 <af:panelSplitter id="ps1" splitterPosition="400">
                     <f:facet name="first">
@@ -43,15 +65,88 @@
                                   selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t2"
-                                  scrollPolicy="page" autoHeightRows="20">
+                                  scrollPolicy="page" autoHeightRows="20" partialTriggers="b4">
                             <af:column headerText="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}" id="c3" width="150">
                                 <af:outputText value="#{row.ImeiNo}"
                                                shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column id="c4">
+                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete IMEI"
+                                           disabled="#{!bindings.Delete1.enabled}" id="b4"/>
                             </af:column>
                         </af:table>
                     </f:facet>
                 </af:panelSplitter>
             </af:panelHeader>
         </af:form>
+        <f:facet name="metaContainer">
+          <af:resource type="javascript">
+    function jserpKeyNextItemLOV(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+        comp = AdfPage.PAGE.findComponent('pt1:it100');
+        comp.focus();          
+        erpevt.cancel();
+    }
+    }
+   function jserpKeyNextItemBoxNo(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+         sum=AdfPage.PAGE.findComponent('pt1:ot7').getValue();
+        perbox=AdfPage.PAGE.findComponent('pt1:ot8').getValue();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+     
+     
+//        alert(sum+1 +' '+perbox)
+        
+    if(sum+1==perbox){
+        comp = AdfPage.PAGE.findComponent('pt1:it5');
+        comp.focus();          
+        erpevt.cancel();
+        }
+    }
+      }
+
+function handleEnterEvent(evt) {
+alert(3)
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterEvent", {fvalue:comp.getSubmittedValue()}, false);
+
+          comp.setValue(null);
+          evt.cancel();
+
+      }
+
+   }
+
+function handleEnterEventBox(evt) {
+
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterEventBox", {fvalue:comp.getSubmittedValue()}, false);
+
+          comp.setValue(null);
+          evt.cancel();
+
+      }
+
+   }
+   
+   </af:resource>
+        </f:facet>
     </af:document>
 </f:view>
