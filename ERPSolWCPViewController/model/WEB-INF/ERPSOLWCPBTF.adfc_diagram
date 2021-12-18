@@ -361,7 +361,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
       <property
-         name="sdm:polyPoints">B56,404.0,486.32083,363.8369,665.9758,T44</property>
+         name="sdm:polyPoints">B56,404.0,487.4054,239.0,644.1953,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -372,5 +372,28 @@
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN-BACK</property>
       <property
          name="sdm:polyPoints">T56,370.8369,666.7471,411.0,487.0668,B67</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall34">
+      <property
+         name="activityId">doClearBoxImeiListWTYScanned</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doClearBoxImeiListWTYScanned&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">698.5459</property>
+      <property
+         name="x">239.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall34"
+      to="View31">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
+      <property
+         name="sdm:polyPoints">R50,280.0,698.1953,326.3369,720.7471,L50</property>
    </ControlFlowCase>
 </SDM>

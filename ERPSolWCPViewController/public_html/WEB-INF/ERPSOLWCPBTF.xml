@@ -102,6 +102,12 @@
     <view id="WTY_SCAN">
       <page>/WTY_SCAN.jsf</page>
     </view>
+    <method-call id="doClearBoxImeiListWTYScanned">
+      <method>#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSoldoClearList}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-WTY-0007-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -202,6 +208,13 @@
       <control-flow-case id="__35">
         <from-outcome>ACT-ERP-WTY-0007-SCAN-BACK</from-outcome>
         <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>doClearBoxImeiListWTYScanned</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
+        <to-activity-id>WTY_SCAN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

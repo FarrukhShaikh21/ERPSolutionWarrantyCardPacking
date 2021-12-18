@@ -72,6 +72,9 @@ public class ERPSolWCPBean {
     RichInputText rip;
     RichOutputText ERPSolTotalImei;
     Integer ERPSolPerBox;
+    List<String> ERPSolImeiScanned=new ArrayList<String>();
+    List<String> ERPSolBoxScanned=new ArrayList<String>();
+    
     public void doSetERPSolWCPSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -507,8 +510,18 @@ public class ERPSolWCPBean {
 //    if (message.length()!=15) {
 //            return;
 //       }
-    System.out.println(message);
-         
+//    System.out.println(message);
+    ERPSolImeiScanned.add("0");
+        if(ERPSolImeiScanned.size()>0) {
+            for (int i = 0; i < ERPSolImeiScanned.size(); i++) {
+                if (message.equals(ERPSolImeiScanned.get(i).toString())) {
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("This IMEI Is Already Scanned("+message+")" ));
+                    return;
+               }
+           }
+
+        }
+        ERPSolImeiScanned.add(message);
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpdetlDetCRUDIterator");
         ViewObject ERPSolvo=ib.getViewObject();
@@ -519,13 +532,16 @@ public class ERPSolWCPBean {
         System.out.println(getERPSolPerBox()+".getValue()");
       if(getERPSolTotalImei().getValue().toString().equals(getERPSolPerBox().toString()))
       {
-          System.out.println("calline");
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
+            binding.execute();
+            
         String inputId = "it5"; //here it6 is id for inputtext in1st column.
         System.out.println("inputid "+inputId);
         FacesContext facesCtx=FacesContext.getCurrentInstance();
         ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
         service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
         "comp.focus()");      // javascript method is used
+        
         }
     }
 
@@ -551,6 +567,17 @@ public class ERPSolWCPBean {
         System.out.println("box is calling");
     String message = (String) ce.getParameters().get("fvalue");
            System.out.println("box is calling >"+message);
+           
+           if(ERPSolBoxScanned.size()>0) {
+               for (int i = 0; i < ERPSolBoxScanned.size(); i++) {
+                   if (message.equals(ERPSolBoxScanned.get(i).toString())) {
+                       FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("This BOX Is Already Scanned("+message+")" ));
+                       return;
+                  }
+              }
+
+           }
+           ERPSolBoxScanned.add(message);
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
            System.out.println("d");
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpboxDetCRUDIterator");
@@ -674,5 +701,17 @@ public class ERPSolWCPBean {
 
     public Integer getERPSolPerBox() {
         return ERPSolPerBox;
+    }
+
+    public void setERPSolImeiScanned(List<String> ERPSolImeiScanned) {
+        this.ERPSolImeiScanned = ERPSolImeiScanned;
+    }
+
+    public List<String> getERPSolImeiScanned() {
+        return ERPSolImeiScanned;
+    }
+    public void ERPSoldoClearList() {
+//        getERPSolBoxScanned().clear();
+//        getERPSolImeiScanned().clear();
     }
 }
