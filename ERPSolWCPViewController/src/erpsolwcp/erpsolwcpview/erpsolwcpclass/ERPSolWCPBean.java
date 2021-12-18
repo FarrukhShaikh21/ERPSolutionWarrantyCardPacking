@@ -499,6 +499,9 @@ public class ERPSolWCPBean {
 
     public void handleEnterEvent(ClientEvent ce) {
     String message = (String) ce.getParameters().get("fvalue");
+    if (message.length()<15) {
+            return;
+       }
     System.out.println(message);
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSpdetlDetCRUDIterator");

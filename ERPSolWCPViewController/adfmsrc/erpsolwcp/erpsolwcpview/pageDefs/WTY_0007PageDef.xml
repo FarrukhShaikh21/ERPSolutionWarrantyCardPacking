@@ -64,7 +64,10 @@
       </AttrNames>
     </attributeValues>
     <action IterBinding="InSetPackingCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSolWCPAppModuleDataControl.InSetPackingCRUD"
+            DataControl="ERPSolWCPAppModuleDataControl">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <tree IterBinding="InSpboxDetCRUDIterator" id="InSpboxDetCRUD">
       <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView" Name="InSpboxDetCRUD0">
         <AttrNames>

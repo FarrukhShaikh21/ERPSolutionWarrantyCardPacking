@@ -139,6 +139,10 @@
           ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Purchdate_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <FMT_FORMAT
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Purchdate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Purchdate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -156,6 +160,10 @@
           ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Expdate_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <FMT_FORMATTER
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Expdate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.Expdate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

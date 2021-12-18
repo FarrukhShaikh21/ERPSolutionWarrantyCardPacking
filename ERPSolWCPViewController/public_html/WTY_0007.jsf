@@ -148,7 +148,7 @@
                               <f:validator binding="#{bindings.Purchdate.validator}"/>
                               <af:convertDateTime pattern="#{bindings.Purchdate.format}"/>
                             </af:inputDate>
-                            <af:outputLabel value="WTY End Date" id="ol3"/>
+                            <af:outputLabel value="End Date" id="ol3"/>
                             <af:inputDate value="#{bindings.Expdate.inputValue}"
                                           required="#{bindings.Expdate.hints.mandatory}"
                                           columns="#{bindings.Expdate.hints.displayWidth}"
@@ -281,11 +281,12 @@
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
                         <af:panelGroupLayout id="pgl1">
                           <af:inputText id="it100" clientComponent="true" placeholder="Scan IMEI Here"
-                                        disabled="#{bindings.Posted.inputValue=='Y'}">
+                                        disabled="#{bindings.Posted.inputValue=='Y'}" columns="15" maximumLength="15">
                             <af:clientListener method="handleEnterEvent" type="keyPress"/>
                             <af:serverListener type="EnterEvent"
                                                method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
                             <af:clientListener method="jserpKeyNextItemBoxNo" type="keyPress"/>
+                            <af:convertNumber groupingUsed="false"/>
                           </af:inputText>
                         </af:panelGroupLayout>
                         <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2" rendered="false">
