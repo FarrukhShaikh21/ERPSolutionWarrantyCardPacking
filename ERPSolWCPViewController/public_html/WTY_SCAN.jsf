@@ -18,20 +18,21 @@
                 <f:facet name="info"/>
                 <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
                     <af:inputText label="Label 2" id="it5" simple="true" placeholder="Scan Box Here"
-                                  clientComponent="true">
+                                  clientComponent="true" contentStyle="text-transform:uppercase">
                         <af:clientListener method="handleEnterEventBox" type="keyPress"/>
                         <af:serverListener type="EnterEventBox"
                                            method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEventBox}"/>
                     </af:inputText>
                     <af:inputText label="Label 1" id="it100" simple="true" placeholder="Scan IMEI Here"
-                                  clientComponent="true">
+                                  clientComponent="true" maximumLength="15">
                         <af:clientListener method="handleEnterEvent" type="keyPress"/>
                         <af:serverListener type="EnterEvent"
                                            method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
                     </af:inputText>
                     <af:outputText value="#{bindings.txtTotalImei.inputValue}"
                                    shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
-                                   binding="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolTotalImei}">
+                                   binding="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolTotalImei}"
+                                   partialTriggers="t2:b4">
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                     </af:outputText>
                     <af:inputText label="Label 3" id="it1" simple="true" readOnly="true"/>

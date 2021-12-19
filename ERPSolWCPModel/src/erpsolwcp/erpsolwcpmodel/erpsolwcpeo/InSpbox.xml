@@ -10,7 +10,8 @@
   DBObjectName="IN_SPBOX"
   AliasName="InSpbox"
   BindingStyle="OracleName"
-  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxImpl">
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
@@ -177,6 +178,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="AltKeyBoxNo"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="IN_SPBOX"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Boxno"/>
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Packingseq"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="PkInSpbox"
     PrimaryKey="true">
     <DesignTime>
@@ -218,4 +231,25 @@
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Packingseq"/>
     </AttrArray>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="InSpboxAlreadyScannedBR"
+    ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox_Rule_0"
+    KeyName="AltKeyBoxNo">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="Boxno"/>
+      <validation:Item
+        Value="Packingseq"/>
+    </validation:OnAttributes>
+    <validation:ResExpressions
+      Name="InSpboxAlreadyScannedBR_ResExprList">
+      <validation:Expression
+        trustMode="trusted"
+        Name="0"><![CDATA[Boxno]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:UniqueKeyValidationBean>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </Entity>

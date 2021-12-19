@@ -16,6 +16,8 @@
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"/>
     <page path="/WTY_0007_SEARCH.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0007_SEARCHPageDef"/>
     <page path="/WTY_SCAN.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_SCANPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@InSetPackCreateNewWTY-0007"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
@@ -34,6 +36,8 @@
     <page id="erpsolwcp_erpsolwcpview_WTY_0007_SEARCHPageDef"
           path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007_SEARCHPageDef"/>
     <page id="erpsolwcp_erpsolwcpview_WTY_SCANPageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_SCANPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"

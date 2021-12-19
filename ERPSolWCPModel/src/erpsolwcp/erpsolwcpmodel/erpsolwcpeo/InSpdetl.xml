@@ -10,7 +10,8 @@
   DBObjectName="IN_SPDETL"
   AliasName="InSpdetl"
   BindingStyle="OracleName"
-  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlImpl">
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -273,4 +274,43 @@
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.Spboxseq"/>
     </AttrArray>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="InSpdetlRule0"
+    ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl_Rule_0"
+    KeyName="AltKeyIMEIDet">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ImeiNo"/>
+      <validation:Item
+        Value="Spboxseq"/>
+    </validation:OnAttributes>
+    <validation:ResExpressions
+      Name="InSpdetlRule0_ResExprList">
+      <validation:Expression
+        Name="0"><![CDATA[ImeiNo]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:UniqueKeyValidationBean>
+  <validation:LengthValidationBean
+    Name="InSpdetlRuleIMEILength"
+    ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl_Rule_1"
+    OnAttribute="ImeiNo"
+    CompareType="EQUALTO"
+    DataType="CHARACTER"
+    CompareLength="15"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ImeiNo"/>
+    </validation:OnAttributes>
+    <validation:ResExpressions
+      Name="InSpdetlRuleIMEILength_ResExprList">
+      <validation:Expression
+        trustMode="trusted"
+        Name="0"><![CDATA[ImeiNo]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:LengthValidationBean>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </Entity>

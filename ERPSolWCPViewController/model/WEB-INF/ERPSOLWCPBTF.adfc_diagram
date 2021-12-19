@@ -95,11 +95,11 @@
       islink="true"
       id="ControlFlowCase10"
       from="MethodCall12"
-      to="View9">
+      to="MethodCall34">
       <property
          name="fromOutcome">ERP-ACT-WTY-0007</property>
       <property
-         name="sdm:polyPoints">L50,644.0,364.94824,441.5,426.44824,R50</property>
+         name="sdm:polyPoints">L50,644.0,364.94824,523.01465,393.09766,R50</property>
    </ControlFlowCase>
    <View
       id="View11">
@@ -326,7 +326,7 @@
       <property
          name="fromOutcome">ACT-ERP-SEARCH-WTY-0007</property>
       <property
-         name="sdm:polyPoints">B33,390.0,480.44824,192.35645,615.94824,R46</property>
+         name="sdm:polyPoints">B27,386.5,480.44824,192.35645,615.94824,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -336,7 +336,7 @@
       <property
          name="fromOutcome">ACT-ERP-BACK-FROM-SEARCH-WCP-0007</property>
       <property
-         name="sdm:polyPoints">R54,194.51616,622.94824,397.0,484.12006,B44</property>
+         name="sdm:polyPoints">R54,194.54787,622.94824,393.5,484.08337,B39</property>
    </ControlFlowCase>
    <View
       id="View31">
@@ -361,7 +361,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
       <property
-         name="sdm:polyPoints">B56,404.0,487.4054,239.0,644.1953,T50</property>
+         name="sdm:polyPoints">B50,400.5,486.23425,363.8369,666.04205,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -371,29 +371,29 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN-BACK</property>
       <property
-         name="sdm:polyPoints">T56,370.8369,666.7471,411.0,487.0668,B67</property>
+         name="sdm:polyPoints">T56,370.8369,666.7471,407.5,486.9165,B61</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall34">
       <property
-         name="activityId">doClearBoxImeiListWTYScanned</property>
+         name="activityId">InSetPackCreateNewWTY-0007</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>doClearBoxImeiListWTYScanned&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>InSetPackCreateNewWTY-0007&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">698.5459</property>
+         name="y">393.44824</property>
       <property
-         name="x">239.0</property>
+         name="x">482.01465</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase35"
       from="MethodCall34"
-      to="View31">
+      to="View9">
       <property
-         name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
+         name="fromOutcome">InSetPackCreateNewWTY-0007</property>
       <property
-         name="sdm:polyPoints">R50,280.0,698.1953,326.3369,720.7471,L50</property>
+         name="sdm:polyPoints">B50,482.01465,447.09766,414.5,480.44824,B73</property>
    </ControlFlowCase>
 </SDM>

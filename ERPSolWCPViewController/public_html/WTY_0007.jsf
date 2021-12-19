@@ -263,7 +263,8 @@
                   <af:panelGridLayout id="pgl6">
                     <af:gridRow id="gr13">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
-                        <af:button text="Scan BOX/IMEI" id="b15" action="ACT-ERP-WTY-0007-SCAN">
+                        <af:button text="Scan BOX/IMEI" id="b15"
+                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSoldoAssignBindigs}">
                           <af:setActionListener from="#{bindings.txtPerBoxImei.inputValue}"
                                                 to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolPerBox}"/>
                         </af:button>
@@ -287,7 +288,7 @@
                       <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
                         <af:panelGroupLayout id="pgl1">
                           <af:inputText id="it100" clientComponent="true" placeholder="Scan IMEI Heree"
-                                        disabled="#{bindings.Posted.inputValue=='Y'}" columns="17" maximumLength="17"
+                                        disabled="#{bindings.Posted.inputValue=='Y'}" columns="15" maximumLength="17"
                                         autoSubmit="true">
                             <af:clientListener method="handleEnterEvent" type="keyPress"/>
                             <af:serverListener type="EnterEvent"

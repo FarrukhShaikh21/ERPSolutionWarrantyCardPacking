@@ -102,10 +102,10 @@
     <view id="WTY_SCAN">
       <page>/WTY_SCAN.jsf</page>
     </view>
-    <method-call id="doClearBoxImeiListWTYScanned">
-      <method>#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSoldoClearList}</method>
+    <method-call id="InSetPackCreateNewWTY-0007">
+      <method>#{bindings.CreateInsert.execute}</method>
       <outcome>
-        <fixed-outcome>ACT-ERP-WTY-0007-SCAN</fixed-outcome>
+        <fixed-outcome>InSetPackCreateNewWTY-0007</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__1">
@@ -126,7 +126,7 @@
       <from-activity-id>doERPGotoWCPActivity</from-activity-id>
       <control-flow-case id="__11">
         <from-outcome>ERP-ACT-WTY-0007</from-outcome>
-        <to-activity-id>WTY_0007</to-activity-id>
+        <to-activity-id>InSetPackCreateNewWTY-0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
@@ -211,10 +211,10 @@
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__36">
-      <from-activity-id>doClearBoxImeiListWTYScanned</from-activity-id>
+      <from-activity-id>InSetPackCreateNewWTY-0007</from-activity-id>
       <control-flow-case id="__37">
-        <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
-        <to-activity-id>WTY_SCAN</to-activity-id>
+        <from-outcome>InSetPackCreateNewWTY-0007</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
