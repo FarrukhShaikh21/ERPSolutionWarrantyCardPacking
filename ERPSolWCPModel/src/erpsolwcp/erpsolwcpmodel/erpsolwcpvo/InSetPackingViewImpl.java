@@ -27,7 +27,7 @@ public class InSetPackingViewImpl extends ERPSolGlobalsViewObjectImpl implements
     public void doSuperviseWarrantyCard() {
         
         CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_WARRANTY_CARD.FUNC_SUBMIT_WARRANTY_CARD('"+this.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
-        System.out.println("begin ?:=PKG_WARRANTY_CARD.FUNC_SUBMIT_WARRANTY_CARD('"+this.getCurrentRow().getAttribute("Pckid")+"'); END;");
+        System.out.println("begin ?:=PKG_WARRANTY_CARD.FUNC_SUBMIT_WARRANTY_CARD('"+this.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
         try {
             cs.registerOutParameter(1, Types.VARCHAR);
             cs.executeUpdate();
