@@ -336,7 +336,7 @@
       <property
          name="fromOutcome">ACT-ERP-BACK-FROM-SEARCH-WCP-0007</property>
       <property
-         name="sdm:polyPoints">R54,194.54787,622.94824,393.5,484.08337,B39</property>
+         name="sdm:polyPoints">R46,192.35645,615.94824,386.5,480.44824,B27</property>
    </ControlFlowCase>
    <View
       id="View31">
@@ -357,11 +357,11 @@
       islink="true"
       id="ControlFlowCase32"
       from="View9"
-      to="View31">
+      to="MethodCall36">
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
       <property
-         name="sdm:polyPoints">B50,400.5,486.23425,363.8369,666.04205,T44</property>
+         name="sdm:polyPoints">B50,400.5,487.02502,237.5,706.09766,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -395,5 +395,28 @@
          name="fromOutcome">InSetPackCreateNewWTY-0007</property>
       <property
          name="sdm:polyPoints">B50,482.01465,447.09766,414.5,480.44824,B73</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall36">
+      <property
+         name="activityId">CommitWTY-0007-SCAN</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CommitWTY-0007-SCAN&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">760.44824</property>
+      <property
+         name="x">237.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase37"
+      from="MethodCall36"
+      to="View31">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0007-SCAN</property>
+      <property
+         name="sdm:polyPoints">R50,278.5,760.09766,326.3369,720.7471,L50</property>
    </ControlFlowCase>
 </SDM>

@@ -108,6 +108,12 @@
         <fixed-outcome>InSetPackCreateNewWTY-0007</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CommitWTY-0007-SCAN">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-WTY-0007-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -193,7 +199,7 @@
       </control-flow-case>
       <control-flow-case id="__29">
         <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
-        <to-activity-id>WTY_SCAN</to-activity-id>
+        <to-activity-id>CommitWTY-0007-SCAN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__33">
@@ -215,6 +221,13 @@
       <control-flow-case id="__37">
         <from-outcome>InSetPackCreateNewWTY-0007</from-outcome>
         <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>CommitWTY-0007-SCAN</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
+        <to-activity-id>WTY_SCAN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
