@@ -34,7 +34,7 @@
                     <af:outputText value="#{bindings.txtTotalImei.inputValue}"
                                    shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
                                    binding="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolTotalImei}"
-                                   partialTriggers="t2:b4">
+                                   partialTriggers="t2:b4" inlineStyle="font-size:x-large">
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                     </af:outputText>
                     <af:inputText label="Label 3" id="it1" simple="true" readOnly="true"/>
