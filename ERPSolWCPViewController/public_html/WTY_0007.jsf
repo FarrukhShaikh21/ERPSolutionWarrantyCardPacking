@@ -133,7 +133,7 @@
                             <af:spacer width="10" height="10" id="s8"/>
                             <af:selectOneChoice label="#{bindings.Ptype.hints.label}"
                                                 value="#{bindings.Ptype.inputValue}" id="soc1" simple="true"
-                                                contentStyle="width:150px">
+                                                contentStyle="width:150px" autoSubmit="true">
                               <af:selectItem label="Re-Pack" id="si2" value="R"/>
                               <af:selectItem label="Fresh" value="F" id="si1"/>
                             </af:selectOneChoice>
