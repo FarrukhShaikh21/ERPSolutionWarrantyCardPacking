@@ -186,7 +186,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Boxno"/>
-      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.Packingseq"/>
     </AttrArray>
   </Key>
   <Key
@@ -244,7 +243,6 @@
     <validation:ResExpressions
       Name="InSpboxAlreadyScannedBR_ResExprList">
       <validation:Expression
-        trustMode="trusted"
         Name="0"><![CDATA[Boxno]]></validation:Expression>
     </validation:ResExpressions>
   </validation:UniqueKeyValidationBean>

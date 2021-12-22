@@ -18,13 +18,15 @@
                 <f:facet name="info"/>
                 <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
                     <af:inputText label="Label 2" id="it5" simple="true" placeholder="Scan Box Here"
-                                  clientComponent="true" contentStyle="text-transform:uppercase">
+                                  clientComponent="true" contentStyle="text-transform:uppercase"
+                                  inlineStyle="display:block; border-left-color:WindowText; border-left-style:solid; border-right-color:WindowText; border-right-style:solid; border-top-color:WindowText; border-top-style:solid; border-bottom-color:WindowText; border-bottom-style:solid;">
                         <af:clientListener method="handleEnterEventBox" type="keyPress"/>
                         <af:serverListener type="EnterEventBox"
                                            method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEventBox}"/>
                     </af:inputText>
                     <af:inputText label="Label 1" id="it100" simple="true" placeholder="Scan IMEI Here"
-                                  clientComponent="true" maximumLength="15">
+                                  clientComponent="true" maximumLength="15"
+                                  inlineStyle="display:block; border-left-color:WindowText; border-left-style:solid; border-right-color:WindowText; border-right-style:solid; border-top-color:WindowText; border-top-style:solid; border-bottom-color:WindowText; border-bottom-style:solid;">
                         <af:clientListener method="handleEnterEvent" type="keyPress"/>
                         <af:serverListener type="EnterEvent"
                                            method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
@@ -36,6 +38,9 @@
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
                     </af:outputText>
                     <af:inputText label="Label 3" id="it1" simple="true" readOnly="true"/>
+                    <f:facet name="separator">
+                        <af:spacer width="20" height="10" id="s1"/>
+                    </f:facet>
                 </af:panelGroupLayout>
                 <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
                     <f:facet name="first">
@@ -46,7 +51,11 @@
                                   selectedRowKeys="#{bindings.InSpboxDetCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.InSpboxDetCRUD.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.InSpboxDetCRUD.rangeSize}" id="t1"
-                                  autoHeightRows="20" scrollPolicy="page" partialTriggers="b1">
+                                  autoHeightRows="25" scrollPolicy="page" partialTriggers="b1"
+                                  styleClass="AFStretchWidth" varStatus="vs">
+                            <af:column id="c6" width="60" headerText="S.No">
+                                <af:outputText value="#{vs.index+1}" id="ot4"/>
+                            </af:column>
                             <af:column headerText="#{bindings.InSpboxDetCRUD.hints.Boxno.label}" id="c1" width="200"
                                        displayIndex="-1">
                                 <af:outputText value="#{row.Boxno}"
@@ -66,7 +75,11 @@
                                   selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t2"
-                                  scrollPolicy="page" autoHeightRows="17" partialTriggers="b4">
+                                  scrollPolicy="page" autoHeightRows="20" partialTriggers="b4"
+                                  styleClass="AFStretchWidth" varStatus="vs">
+                            <af:column id="c5" headerText="S.No" width="60">
+                                <af:outputText value="#{vs.index+1}" id="ot3"/>
+                            </af:column>
                             <af:column headerText="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}" id="c3" width="150">
                                 <af:outputText value="#{row.ImeiNo}"
                                                shortDesc="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.tooltip}" id="ot2"/>

@@ -114,6 +114,9 @@
         <fixed-outcome>ACT-ERP-WTY-0007-SCAN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="WTY_SHOW_ERROR">
+      <page>/WTY_SHOW_ERROR.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -215,6 +218,10 @@
         <from-outcome>ACT-ERP-WTY-0007-SCAN-BACK</from-outcome>
         <to-activity-id>WTY_0007</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>ACT-ERP-SHOW-ERROR</from-outcome>
+        <to-activity-id>WTY_SHOW_ERROR</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__36">
       <from-activity-id>InSetPackCreateNewWTY-0007</from-activity-id>
@@ -227,6 +234,13 @@
       <from-activity-id>CommitWTY-0007-SCAN</from-activity-id>
       <control-flow-case id="__39">
         <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
+        <to-activity-id>WTY_SCAN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>WTY_SHOW_ERROR</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>ACT-ERP-BACK-FROM-ERROR</from-outcome>
         <to-activity-id>WTY_SCAN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

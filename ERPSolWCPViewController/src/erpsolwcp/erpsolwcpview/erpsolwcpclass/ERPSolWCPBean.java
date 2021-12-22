@@ -525,6 +525,7 @@ public class ERPSolWCPBean {
         List errors = binding.getErrors();
         if (!errors.isEmpty()) {
            ERPSolvoImei.getCurrentRow().remove();
+           binding.execute();
            return;
        }
 
@@ -562,20 +563,20 @@ public class ERPSolWCPBean {
     
     public void handleEnterEventBox(ClientEvent ce) {
     String message = (String) ce.getParameters().get("fvalue");
-           System.out.println("zero"+ERPSolvoBox);
-           System.out.println("one"+ERPSolvoBox);
+//           System.out.println("zero"+ERPSolvoBox);
+//           System.out.println("one"+ERPSolvoBox);
         Row ERPsolrow=ERPSolvoBox.createRow();
-           System.out.println("on2");
+//           System.out.println("on2");
         ERPsolrow.setAttribute("Boxno", message);
-           System.out.println("THREE");
+//           System.out.println("THREE");
         ERPSolvoBox.insertRow(ERPsolrow);
-           System.out.println("onFOUR");
+//           System.out.println("onFOUR");
         ERPSolvoBox.setCurrentRow(ERPsolrow);
-        System.out.println("six");
+//        System.out.println("six");
         OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
-           System.out.println("seven");
+//           System.out.println("seven");
         binding.execute();
-           System.out.println("eight");
+//           System.out.println("eight");
            List errors = binding.getErrors();
            if (!errors.isEmpty()) {
               ERPSolvoBox.getCurrentRow().remove();

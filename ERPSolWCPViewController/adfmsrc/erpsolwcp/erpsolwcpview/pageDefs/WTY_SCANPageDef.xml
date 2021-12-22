@@ -5,9 +5,17 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="InSpboxDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
-              id="InSpboxDetCRUDIterator"/>
+              id="InSpboxDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Spboxseq" ascending="false"/>
+      </sortCriteria>
+    </iterator>
     <iterator Binds="InSpdetlDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
-              id="InSpdetlDetCRUDIterator"/>
+              id="InSpdetlDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Spdetlseq" ascending="false"/>
+      </sortCriteria>
+    </iterator>
   </executables>
   <bindings>
     <tree IterBinding="InSpboxDetCRUDIterator" id="InSpboxDetCRUD">
