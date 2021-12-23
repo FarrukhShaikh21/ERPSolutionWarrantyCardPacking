@@ -353,6 +353,30 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtImeiSerial"
+    Precision="80"
+    ColumnName="TXT_IMEI_SERIAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.ImeiSerial==null?"I":InItems?.ImeiSerial]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPacking.txtImeiSerial_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="InSpbox"
     Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingInSpBoxPackingSeqAssoc"

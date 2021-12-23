@@ -18,6 +18,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class InSetPackingViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_INSETPACKING = 0;
 
     /**
@@ -47,11 +48,13 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
         txtTotalTransactionIMEI,
         txtTotalBox,
         txtPerBoxImei,
+        txtImeiSerial,
         InSpboxView,
         InItemsView,
         AccInItemsView,
         AccVWYesNoQVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -73,6 +76,7 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int PCKID = AttributesEnum.Pckid.index();
     public static final int LOCATIONID = AttributesEnum.Locationid.index();
     public static final int REGIONID = AttributesEnum.Regionid.index();
@@ -96,6 +100,7 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
     public static final int TXTTOTALTRANSACTIONIMEI = AttributesEnum.txtTotalTransactionIMEI.index();
     public static final int TXTTOTALBOX = AttributesEnum.txtTotalBox.index();
     public static final int TXTPERBOXIMEI = AttributesEnum.txtPerBoxImei.index();
+    public static final int TXTIMEISERIAL = AttributesEnum.txtImeiSerial.index();
     public static final int INSPBOXVIEW = AttributesEnum.InSpboxView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int ACCINITEMSVIEW = AttributesEnum.AccInItemsView.index();
@@ -465,6 +470,22 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
      */
     public void settxtPerBoxImei(Integer value) {
         setAttributeInternal(TXTPERBOXIMEI, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_IMEI_SERIAL using the alias name txtImeiSerial.
+     * @return the TXT_IMEI_SERIAL
+     */
+    public String gettxtImeiSerial() {
+        return (String) getAttributeInternal(TXTIMEISERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_IMEI_SERIAL using the alias name txtImeiSerial.
+     * @param value value to set the TXT_IMEI_SERIAL
+     */
+    public void settxtImeiSerial(String value) {
+        setAttributeInternal(TXTIMEISERIAL, value);
     }
 
     /**

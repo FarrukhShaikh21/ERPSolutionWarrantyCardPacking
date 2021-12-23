@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VWImeiBySerialNoQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWImeiBySerialNoQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_SERIAL_NO"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select imei from item_imei_info where serial_no=:P_ADF_SERIAL_NO]]></SQLQuery>
+  <ViewAttribute
+    Name="Imei"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="BIGINT"
+    AliasName="IMEI"
+    Expression="IMEI"
+    SQLType="NUMERIC"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Imei"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

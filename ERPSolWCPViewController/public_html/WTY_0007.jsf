@@ -93,6 +93,14 @@
                                         partialTriggers="it5">
                             <f:validator binding="#{bindings.Pckid.validator}"/>
                           </af:inputText>
+                          <af:inputText value="#{bindings.txtImeiSerial.inputValue}"
+                                        label="#{bindings.txtImeiSerial.hints.label}"
+                                        required="#{bindings.txtImeiSerial.hints.mandatory}"
+                                        columns="#{bindings.txtImeiSerial.hints.displayWidth}"
+                                        maximumLength="#{bindings.txtImeiSerial.hints.precision}"
+                                        shortDesc="#{bindings.txtImeiSerial.hints.tooltip}" id="it10" rendered="false">
+                            <f:validator binding="#{bindings.txtImeiSerial.validator}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
                                         required="#{bindings.Posted.hints.mandatory}"
                                         columns="#{bindings.Posted.hints.displayWidth}"
@@ -272,6 +280,8 @@
                                    action="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSoldoAssignBindigs}">
                           <af:setActionListener from="#{bindings.txtPerBoxImei.inputValue}"
                                                 to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolPerBox}"/>
+                          <af:setActionListener from="#{bindings.txtImeiSerial.inputValue}"
+                                                to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPImeiSerial}"/>
                         </af:button>
                         <af:inputText value="#{bindings.BoxNo.inputValue}" simple="true"
                                       required="#{bindings.BoxNo.hints.mandatory}"

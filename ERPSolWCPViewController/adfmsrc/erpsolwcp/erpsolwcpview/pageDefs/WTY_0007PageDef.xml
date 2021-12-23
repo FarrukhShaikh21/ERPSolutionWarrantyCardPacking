@@ -126,5 +126,10 @@
                   DataControl="ERPSolWCPAppModuleDataControl"
                   InstanceName="data.ERPSolWCPAppModuleDataControl.InSetPackingCRUD"
                   ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doSuperviseWarrantyCard_ERPSolWCPAppModuleDataControl_InSetPackingCRUD_doSuperviseWarrantyCard_result"/>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtImeiSerial">
+      <AttrNames>
+        <Item Value="txtImeiSerial"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

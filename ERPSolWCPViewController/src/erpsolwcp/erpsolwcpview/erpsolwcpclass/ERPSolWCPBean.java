@@ -79,6 +79,8 @@ public class ERPSolWCPBean {
     ViewObject ERPSolvoBox;
     String ERPSolImeiStr;
     String ERPSolBoxStr;
+    String ERPImeiSerial;
+    ViewObject ERPSolSerialImei;
         
     public void doSetERPSolWCPSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -563,6 +565,23 @@ public class ERPSolWCPBean {
 //            return;
 //       }
 //    System.out.println(message);
+    if (getERPImeiSerial().equals("S")) {
+           ERPSolSerialImei.setNamedWhereClauseParam("P_ADF_SERIAL_NO", message);
+           ERPSolSerialImei.executeQuery();
+           
+           try {
+                message = ERPSolSerialImei.first().getAttribute("Imei").toString();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                String inputId = "it2"; //here it6 is id for inputtext in1st column.
+                //        System.out.println("inputid "+inputId);
+                FacesContext facesCtx=FacesContext.getCurrentInstance();
+                ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+                service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+                "comp.focus()");
+                e.printStackTrace();
+            }
+       }
         Row ERPsolrow=ERPSolvoImei.createRow();
         ERPsolrow.setAttribute("ImeiNo", message); 
         ERPSolvoImei.insertRow(ERPsolrow);
@@ -809,9 +828,10 @@ public class ERPSolWCPBean {
          ERPSolbc = ERPSolGlobalViewBean.doGetERPBindings();
          ERPSolibImei=(DCIteratorBinding)ERPSolbc.get("InSpdetlDetCRUDIterator");
          ERPSolvoImei=ERPSolibImei.getViewObject();
-
-        ERPSolibBox=(DCIteratorBinding)ERPSolbc.get("InSpboxDetCRUDIterator");
-        ERPSolvoBox=ERPSolibBox.getViewObject();
+         ApplicationModule ERPSolAM = ERPSolvoImei.getApplicationModule();
+         ERPSolSerialImei=ERPSolAM.findViewObject("VWImeiBySerialNoRO");
+         ERPSolibBox=(DCIteratorBinding)ERPSolbc.get("InSpboxDetCRUDIterator");
+         ERPSolvoBox=ERPSolibBox.getViewObject();
         
 //        getERPSolBoxScanned().clear();
 //        getERPSolImeiScanned().clear();
@@ -832,5 +852,13 @@ public class ERPSolWCPBean {
 
     public String getERPSolBoxStr() {
         return null;
+    }
+
+    public void setERPImeiSerial(String ERPImeiSerial) {
+        this.ERPImeiSerial = ERPImeiSerial;
+    }
+
+    public String getERPImeiSerial() {
+        return ERPImeiSerial;
     }
 }

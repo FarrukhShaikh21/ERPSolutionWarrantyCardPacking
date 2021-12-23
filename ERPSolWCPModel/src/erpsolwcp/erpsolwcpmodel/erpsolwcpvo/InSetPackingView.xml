@@ -272,6 +272,14 @@
     EntityAttrName="txtPerBoxImei"
     EntityUsage="InSetPacking"
     AliasName="TXT_PER_BOX_IMEI"/>
+  <ViewAttribute
+    Name="txtImeiSerial"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtImeiSerial"
+    EntityUsage="InSetPacking"
+    AliasName="TXT_IMEI_SERIAL"/>
   <ViewCriteria
     Name="InSetPackingViewFindVC"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"

@@ -22,6 +22,9 @@
   <ViewUsage
     Name="InItemsAutoSuggestRO"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"/>
+  <ViewUsage
+    Name="VWImeiBySerialNoRO"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWImeiBySerialNoQVO"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
