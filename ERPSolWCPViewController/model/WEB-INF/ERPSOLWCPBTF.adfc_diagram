@@ -419,39 +419,4 @@
       <property
          name="sdm:polyPoints">R50,278.5,760.09766,326.3369,720.7471,L50</property>
    </ControlFlowCase>
-   <View
-      id="View38">
-      <property
-         name="activityId">WTY_SHOW_ERROR</property>
-      <property
-         name="page">/WTY_SHOW_ERROR.jsf</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>WTY_SHOW_ERROR&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">746.7988</property>
-      <property
-         name="x">647.3369</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase39"
-      from="View31"
-      to="View38">
-      <property
-         name="fromOutcome">ACT-ERP-SHOW-ERROR</property>
-      <property
-         name="sdm:polyPoints">R46,408.78934,717.2471,606.3369,742.94824,L46</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase40"
-      from="View38"
-      to="View31">
-      <property
-         name="fromOutcome">ACT-ERP-BACK-FROM-ERROR</property>
-      <property
-         name="sdm:polyPoints">L54,605.884,749.94824,408.3369,724.2471,R54</property>
-   </ControlFlowCase>
 </SDM>
