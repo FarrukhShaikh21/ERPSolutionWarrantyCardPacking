@@ -16,6 +16,8 @@
         <sort attribute="Spdetlseq" ascending="false"/>
       </sortCriteria>
     </iterator>
+    <iterator Binds="InSetPackingCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSetPackingCRUDIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="InSpboxDetCRUDIterator" id="InSpboxDetCRUD">
@@ -39,6 +41,16 @@
     <attributeValues IterBinding="InSpboxDetCRUDIterator" id="txtTotalImei">
       <AttrNames>
         <Item Value="txtTotalImei"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSpboxDetCRUDIterator" id="Boxno">
+      <AttrNames>
+        <Item Value="Boxno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtTotalTransactionIMEI">
+      <AttrNames>
+        <Item Value="txtTotalTransactionIMEI"/>
       </AttrNames>
     </attributeValues>
   </bindings>
