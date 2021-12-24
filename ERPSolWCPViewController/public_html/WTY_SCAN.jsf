@@ -48,7 +48,7 @@
                                   contentStyle="text-transform:uppercase;border:none">
                         <af:clientListener method="jsCancelEventOnError" type="keyPress"/>
                     </af:inputText>
-                    <af:messages id="m1" inlineStyle="font-size:large"/>
+                    <af:messages id="m1" inlineStyle="font-size:large" globalOnly="true" inline="true"/>
                     <f:facet name="separator">
                         <af:spacer width="20" height="10" id="s1"/>
                     </f:facet>
@@ -90,28 +90,18 @@
                     </f:facet>
                     <f:facet name="second">
                         <af:panelBox text="Scanned IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb1" showDisclosure="false">
-                            <f:facet name="toolbar">
-                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
-                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                            </f:facet>
+                            <f:facet name="toolbar"/>
                             <af:table value="#{bindings.InSpdetlDetCRUD.collectionModel}" var="row"
                                       rows="#{bindings.InSpdetlDetCRUD.rangeSize}"
                                       emptyText="#{bindings.InSpdetlDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
                                       rowBandingInterval="0"
                                       selectedRowKeys="#{bindings.InSpdetlDetCRUD.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.InSpdetlDetCRUD.collectionModel.makeCurrent}" fetchSize="#{bindings.InSpdetlDetCRUD.rangeSize}" id="t2"
-                                      scrollPolicy="page" autoHeightRows="1000" partialTriggers="b4 ::b5"
-                                      styleClass="AFStretchWidth" varStatus="vs" blockRowNavigationOnError="always"
-                                      maxClientRows="1500">
+                                      scrollPolicy="page" autoHeightRows="20" partialTriggers="b4"
+                                      styleClass="AFStretchWidth" varStatus="vs"
+                                      maxClientRows="500" rowSelection="single">
                                 <af:column id="c5" headerText="S.No" width="60">
                                     <af:outputText value="#{vs.index+1}" id="ot3"/>
-                                </af:column>
-                                <af:column id="c8">
-                                    <af:inputText label="Label 6" id="it6" readOnly="#{(vs.index+1 )!=11}"/>
-                                </af:column>
-                                <af:column id="c7">
-                                    <af:inputText label="Label 5" id="it4" value="#{row.bindings.ImeiNo.inputValue}"
-                                                  readOnly="#{(vs.index+1 )==11}"/>
                                 </af:column>
                                 <af:column headerText="#{bindings.InSpdetlDetCRUD.hints.ImeiNo.label}" id="c3"
                                            width="150">
@@ -121,7 +111,7 @@
                                 </af:column>
                                 <af:column id="c4">
                                     <af:button actionListener="#{bindings.Delete1.execute}" text="Delete IMEI"
-                                               disabled="#{!bindings.Delete1.enabled}" id="b4" immediate="true"/>
+                                               disabled="#{!bindings.Delete1.enabled}" id="b4"/>
                                 </af:column>
                             </af:table>
                         </af:panelBox>

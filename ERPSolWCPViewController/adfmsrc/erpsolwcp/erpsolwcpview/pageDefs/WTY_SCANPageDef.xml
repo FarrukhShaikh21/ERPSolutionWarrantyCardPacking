@@ -53,7 +53,5 @@
         <Item Value="txtTotalTransactionIMEI"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="InSpdetlDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>
