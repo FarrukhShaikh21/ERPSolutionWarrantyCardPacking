@@ -25,6 +25,9 @@
   <ViewUsage
     Name="VWImeiBySerialNoRO"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWImeiBySerialNoQVO"/>
+  <ViewUsage
+    Name="InSetPackingScanViewCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingScanView"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

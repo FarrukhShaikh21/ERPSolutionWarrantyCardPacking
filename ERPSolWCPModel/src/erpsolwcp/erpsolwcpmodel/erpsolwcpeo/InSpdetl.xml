@@ -33,7 +33,6 @@
   <Attribute
     Name="ImeiNo"
     IsUnique="true"
-    IsNotNull="true"
     Precision="15"
     ColumnName="IMEI_NO"
     SQLType="VARCHAR"
@@ -120,7 +119,6 @@
     TableName="IN_SPDETL"/>
   <Attribute
     Name="Storeid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="STOREID"
     SQLType="VARCHAR"

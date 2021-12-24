@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_SCANPageDef"
-                Package="erpsolwcp.erpsolwcpview.pageDefs" SkipValidation="true">
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
@@ -17,7 +17,7 @@
       </sortCriteria>
     </iterator>
     <iterator Binds="InSetPackingCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
-              id="InSetPackingCRUDIterator"/>
+              id="InSetPackingCRUDIterator" ChangeEventPolicy="push"/>
   </executables>
   <bindings>
     <tree IterBinding="InSpboxDetCRUDIterator" id="InSpboxDetCRUD">
@@ -53,5 +53,7 @@
         <Item Value="txtTotalTransactionIMEI"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="InSpdetlDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>
