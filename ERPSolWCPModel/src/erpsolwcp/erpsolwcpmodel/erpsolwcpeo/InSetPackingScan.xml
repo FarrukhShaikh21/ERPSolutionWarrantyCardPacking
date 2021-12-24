@@ -15,7 +15,7 @@
     IsNotNull="true"
     ColumnName="IN_SET_PACKING_SCAN_SEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING_SCAN"
     PrimaryKey="true"/>
@@ -68,7 +68,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING_SCAN"/>
   <Attribute
@@ -87,14 +87,14 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING_SCAN"/>
   <Attribute
     Name="Packingseq"
     ColumnName="PACKINGSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING_SCAN"/>
   <Key
