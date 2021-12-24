@@ -48,7 +48,8 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
         txtPerBoxImei,
         txtImeiSerial,
         InSpbox,
-        InItems;
+        InItems,
+        InSetPackingScan;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -97,6 +98,7 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTIMEISERIAL = AttributesEnum.txtImeiSerial.index();
     public static final int INSPBOX = AttributesEnum.InSpbox.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
+    public static final int INSETPACKINGSCAN = AttributesEnum.InSetPackingScan.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -484,6 +486,14 @@ public class InSetPackingImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setInItems(EntityImpl value) {
         setAttributeInternal(INITEMS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getInSetPackingScan() {
+        return (RowIterator) getAttributeInternal(INSETPACKINGSCAN);
     }
 
 

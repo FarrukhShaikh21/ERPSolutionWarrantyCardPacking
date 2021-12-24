@@ -71,4 +71,10 @@
     EntityAttrName="Packingseq"
     EntityUsage="InSetPackingScan"
     AliasName="PACKINGSEQ"/>
+  <ViewLinkAccessor
+    Name="InSetPackingView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPAckingInSetPackingScanpackingseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

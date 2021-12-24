@@ -19,6 +19,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class InSetPackingViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_INSETPACKING = 0;
 
     /**
@@ -51,6 +52,7 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
         txtImeiSerial,
         InSpboxView,
         InItemsView,
+        InSetPackingScanView,
         AccInItemsView,
         AccVWYesNoQVO;
         static AttributesEnum[] vals = null;
@@ -76,6 +78,7 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int PCKID = AttributesEnum.Pckid.index();
     public static final int LOCATIONID = AttributesEnum.Locationid.index();
@@ -103,6 +106,7 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
     public static final int TXTIMEISERIAL = AttributesEnum.txtImeiSerial.index();
     public static final int INSPBOXVIEW = AttributesEnum.InSpboxView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
+    public static final int INSETPACKINGSCANVIEW = AttributesEnum.InSetPackingScanView.index();
     public static final int ACCINITEMSVIEW = AttributesEnum.AccInItemsView.index();
     public static final int ACCVWYESNOQVO = AttributesEnum.AccVWYesNoQVO.index();
 
@@ -507,6 +511,13 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
      */
     public void setInItemsView(Row value) {
         setAttributeInternal(INITEMSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link InSetPackingScanView.
+     */
+    public RowIterator getInSetPackingScanView() {
+        return (RowIterator) getAttributeInternal(INSETPACKINGSCANVIEW);
     }
 
     /**

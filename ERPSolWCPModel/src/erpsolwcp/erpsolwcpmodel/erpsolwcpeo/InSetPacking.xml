@@ -391,6 +391,13 @@
     AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingItemIdAssoc.InSetPacking"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InSetPackingScan"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc.InSetPackingScan"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc.InSetPacking"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkInSetPacking"
     PrimaryKey="true">

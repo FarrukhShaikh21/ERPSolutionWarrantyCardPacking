@@ -97,6 +97,13 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING_SCAN"/>
+  <AccessorAttribute
+    Name="InSetPacking"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc.InSetPacking"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc.InSetPackingScan"
+    Type="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkInSetPackingScan"
     PrimaryKey="true">
@@ -105,6 +112,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingScan.InSetPackingScanSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_InSetPackingScan">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_IN_SET_PACKING"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_IN_SET_PACKING_SCAN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingScan.Packingseq"/>
     </AttrArray>
   </Key>
 </Entity>
