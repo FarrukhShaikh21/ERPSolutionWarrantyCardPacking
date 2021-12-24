@@ -114,6 +114,9 @@
         <fixed-outcome>ACT-ERP-WTY-0007-SCAN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="WTY_SHOW_ERROR">
+      <page>/WTY_SHOW_ERROR.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -201,6 +204,10 @@
         <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
         <to-activity-id>CommitWTY-0007-SCAN</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN-TEMP</from-outcome>
+        <to-activity-id>WTY_SHOW_ERROR</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__33">
       <from-activity-id>WTY_0007_SEARCH</from-activity-id>
@@ -228,6 +235,13 @@
       <control-flow-case id="__39">
         <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
         <to-activity-id>WTY_SCAN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>WTY_SHOW_ERROR</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN-TEMP-BACK</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
