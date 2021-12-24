@@ -36,12 +36,6 @@
     EntityUsage="InSetPackingScan"
     AliasName="IMEI_NO"/>
   <ViewAttribute
-    Name="Pckid"
-    PrecisionRule="true"
-    EntityAttrName="Pckid"
-    EntityUsage="InSetPackingScan"
-    AliasName="PCKID"/>
-  <ViewAttribute
     Name="Lineno"
     PrecisionRule="true"
     EntityAttrName="Lineno"
@@ -71,4 +65,10 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="InSetPackingScan"
     AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="Packingseq"
+    PrecisionRule="true"
+    EntityAttrName="Packingseq"
+    EntityUsage="InSetPackingScan"
+    AliasName="PACKINGSEQ"/>
 </ViewObject>
