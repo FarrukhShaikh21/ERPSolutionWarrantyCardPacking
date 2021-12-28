@@ -17,6 +17,10 @@
     Name="AccInItemsView"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInItemsView"
@@ -41,6 +45,24 @@
     </AttrArray>
     <DisplayCriteria
       Name="InItemsViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPosted"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Posted"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="InSetPackingRepack"
@@ -108,7 +130,15 @@
     PrecisionRule="true"
     EntityAttrName="Posted"
     EntityUsage="InSetPackingRepack"
-    AliasName="POSTED"/>
+    AliasName="POSTED"
+    LOVName="LovPosted">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Postedby"
     PrecisionRule="true"
@@ -223,6 +253,52 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER"/>
+  <ViewCriteria
+    Name="InSetPackingRepackFindVC"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InSetPackingRepackViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Pckid"
+        ViewAttribute="Pckid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Pdate"
+        ViewAttribute="Pdate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="InSpboxRepackView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"
