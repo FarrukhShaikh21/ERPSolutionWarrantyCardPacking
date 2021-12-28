@@ -64,7 +64,7 @@
       </AttrNames>
     </attributeValues>
     <action IterBinding="InSetPackingRepackCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createWithParams" InstanceName="ERPSolWCPAppModuleDataControl.InSetPackingCRUD"
+            Action="createWithParams" InstanceName="ERPSolWCPAppModuleDataControl.InSetPackingRepackCRUD"
             DataControl="ERPSolWCPAppModuleDataControl">
       <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
     </action>
@@ -110,7 +110,7 @@
     <methodAction id="doSuperviseWarrantyCard" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="doSuperviseWarrantyCard" IsViewObjectMethod="true"
                   DataControl="ERPSolWCPAppModuleDataControl"
-                  InstanceName="data.ERPSolWCPAppModuleDataControl.InSetPackingCRUD"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.InSetPackingRepackCRUD"
                   ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doSuperviseWarrantyCard_ERPSolWCPAppModuleDataControl_InSetPackingCRUD_doSuperviseWarrantyCard_result"/>
     <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="txtImeiSerial">
       <AttrNames>

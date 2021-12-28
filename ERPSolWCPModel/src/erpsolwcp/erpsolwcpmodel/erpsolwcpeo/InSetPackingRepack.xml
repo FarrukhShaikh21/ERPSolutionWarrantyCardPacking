@@ -252,7 +252,24 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false"/>
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.ModelNo]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingRepack.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="InSpboxRepack"
     Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingRepackInSpBoxRepackPackIdAssoc"
@@ -320,4 +337,8 @@
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingRepack.Itemid"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </Entity>

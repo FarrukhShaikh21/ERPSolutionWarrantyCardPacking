@@ -150,7 +150,7 @@
         <to-activity-id>InSetPackCreateNewWTY-0007</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__45">
-        <from-outcome>ACT-ERP-WTY-0002</from-outcome>
+        <from-outcome>ERP-ACT-WTY-0002</from-outcome>
         <to-activity-id>WTY_0002</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

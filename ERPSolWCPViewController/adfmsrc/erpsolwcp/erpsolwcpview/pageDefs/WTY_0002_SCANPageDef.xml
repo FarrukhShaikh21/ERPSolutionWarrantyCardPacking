@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0002_SCANPageDef"
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InSpboxRepackDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpboxRepackDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Spboxseq" ascending="false"/>
+      </sortCriteria>
+    </iterator>
+    <iterator Binds="InSpdetlRepackDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpdetlRepackDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Spdetlseq" ascending="false"/>
+      </sortCriteria>
+    </iterator>
+    <iterator Binds="InSetPackingRepackCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSetPackingRepackCRUDIterator" ChangeEventPolicy="push"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InSpboxRepackDetCRUDIterator" id="InSpboxDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxRepackView" Name="InSpboxRepackDeCRUD0">
+        <AttrNames>
+          <Item Value="Boxno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="InSpboxRepackDetCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="InSpdetlRepackDetCRUDIterator" id="InSpdetlRepackDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlRepackView" Name="InSpdetlDetRepackCRUD0">
+        <AttrNames>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <action IterBinding="InSpdetlRepackDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="InSpboxRepackDetCRUDIterator" id="txtTotalImei">
+      <AttrNames>
+        <Item Value="txtTotalImei"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSpboxRepackDetCRUDIterator" id="Boxno">
+      <AttrNames>
+        <Item Value="Boxno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="txtTotalTransactionIMEI">
+      <AttrNames>
+        <Item Value="txtTotalTransactionIMEI"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

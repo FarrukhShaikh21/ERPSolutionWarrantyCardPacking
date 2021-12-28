@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackViewImpl"
+  ComponentInterface="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.common.InSetPackingRepackView"
+  ClientProxyName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.client.InSetPackingRepackViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
@@ -299,6 +305,42 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="InSetPackingRepackRepackVC"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InSetPackingRepackViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Ptype"
+        ViewAttribute="Ptype"
+        Operator="="
+        Conjunction="AND"
+        Value="R"
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="InSpboxRepackView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"
@@ -310,4 +352,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseWarrantyCard"
+      MethodName="doSuperviseWarrantyCard">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

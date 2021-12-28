@@ -475,7 +475,7 @@
       from="MethodCall12"
       to="View41">
       <property
-         name="fromOutcome">ACT-ERP-WTY-0002</property>
+         name="fromOutcome">ERP-ACT-WTY-0002</property>
       <property
          name="tosrcid">__45</property>
       <property
@@ -516,7 +516,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0002-SCAN-BACK</property>
       <property
-         name="sdm:polyPoints">L54,899.3149,775.94824,733.5,689.5459,R54</property>
+         name="sdm:polyPoints">L46,901.0215,768.94824,733.5,686.0459,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall46">
