@@ -48,7 +48,7 @@
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
                                    action="ACT-ERP-SEARCH-WTY-0007"/>
                         <af:button text="Print" id="b7"
-                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}"
+                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCRefreshReport}"
                                    icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
                                    partialSubmit="true"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"

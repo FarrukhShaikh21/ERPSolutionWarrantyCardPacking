@@ -485,6 +485,46 @@ public class ERPSolWCPBean {
         doErpSolOpenReportTab(pReportUrl);
         return null;
     }
+    public String doERPSolExecuteWCRefreshReport() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSetPackingRepackCRUDIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOWCPRP");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOWCPRP", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOWCPRP", "select PATH PATH FROM SYSTEM a where a.PROJECTID='WTY' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"RPT_PACKING";
+        
+    
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+    //        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+        AttributeBinding ERPPackingid        =(AttributeBinding)ERPSolbc.getControlBinding("Pckid");
+        String reportParameter="";
+    //        reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="&VPCKID="+ERPPackingid.getInputValue();
+    //        reportParameter+="&P_STOREID_ID="+(ERPStoreid.getInputValue()==null?"":ERPStoreid.getInputValue());
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
     private void writeJavaScriptToClient(String script) {
             FacesContext fctx = FacesContext.getCurrentInstance();
             ExtendedRenderKitService erks = null;
