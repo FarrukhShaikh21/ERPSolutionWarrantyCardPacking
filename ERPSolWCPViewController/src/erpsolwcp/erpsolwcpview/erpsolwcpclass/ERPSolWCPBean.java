@@ -662,10 +662,12 @@ public class ERPSolWCPBean {
     public void handleEnterRepackEvent(ClientEvent ce) {
         try{
             
-        
+        System.out.println("repack 1");
     String message = (String) ce.getParameters().get("fvalue");
     if (getERPImeiSerial().equals("S")) {
+           System.out.println("repack 2");
            ERPSolSerialImei.setNamedWhereClauseParam("P_ADF_SERIAL_NO", message);
+           System.out.println("repack 3");
            ERPSolSerialImei.executeQuery();
            
            try {
@@ -681,9 +683,13 @@ public class ERPSolWCPBean {
                 e.printStackTrace();
             }
        }
+            System.out.println("repack -five");
         Row ERPsolrow=ERPSolvoImei.createRow();
+            System.out.println("repack -sox");
         ERPsolrow.setAttribute("ImeiNo", message); 
+            System.out.println("repack -seven");
         ERPSolvoImei.insertRow(ERPsolrow);
+            System.out.println("repack -eight");
         ERPSolvoImei.setCurrentRow(ERPsolrow);
         AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolTotalImei());
         OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
@@ -951,6 +957,21 @@ public class ERPSolWCPBean {
 //        getERPSolImeiScanned().clear();
          return "ACT-ERP-WTY-0007-SCAN";
     }
+
+    public String  ERPSoldoAssignRepackBindigs() {
+         ERPSolbc = ERPSolGlobalViewBean.doGetERPBindings();
+         ERPSolibImei=(DCIteratorBinding)ERPSolbc.get("InSpdetlRepackDetCRUDIterator");
+         ERPSolvoImei=ERPSolibImei.getViewObject();
+         ApplicationModule ERPSolAM = ERPSolvoImei.getApplicationModule();
+         ERPSolSerialImei=ERPSolAM.findViewObject("VWImeiBySerialNoRO");
+         ERPSolibBox=(DCIteratorBinding)ERPSolbc.get("InSpboxRepackDetCRUDIterator");
+         ERPSolvoBox=ERPSolibBox.getViewObject();
+        
+    //        getERPSolBoxScanned().clear();
+    //        getERPSolImeiScanned().clear();
+         return "ACT-ERP-WTY-0002-SCAN";
+    }
+
 
     public void setERPSolImeiStr(String ERPSolImeiStr) {
         this.ERPSolImeiStr = null;

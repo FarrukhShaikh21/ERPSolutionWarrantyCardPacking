@@ -2,6 +2,14 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="WTY_EXCEPTION.jsf" id="d1">
-        <af:form id="f1"></af:form>
+        <af:form id="f1">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+                <af:outputText value="#{controllerContext.currentViewPort.exceptionData.message}" id="ot1"
+                               inlineStyle="color:red;font-size:large"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}" id="ot2"
+                               inlineStyle="color:red;font-size:large"/>
+            </af:panelGroupLayout>
+        </af:form>
     </af:document>
 </f:view>

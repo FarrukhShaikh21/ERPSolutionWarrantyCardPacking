@@ -243,7 +243,12 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false"/>
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.ImeiSerial==null?"I":InItems?.ImeiSerial]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </Attribute>
   <Attribute
     Name="txtItemName"
     Precision="80"

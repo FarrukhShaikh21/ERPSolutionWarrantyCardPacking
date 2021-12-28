@@ -277,7 +277,7 @@
                     <af:gridRow id="gr13">
                       <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
                         <af:button text="Scan BOX/IMEI" id="b15"
-                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSoldoAssignBindigs}">
+                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSoldoAssignRepackBindigs}">
                           <af:setActionListener from="#{bindings.txtPerBoxImei.inputValue}"
                                                 to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolPerBox}"/>
                           <af:setActionListener from="#{bindings.txtImeiSerial.inputValue}"

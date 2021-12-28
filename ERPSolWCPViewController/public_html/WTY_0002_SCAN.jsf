@@ -10,7 +10,7 @@
                     <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b3"
                                    icon="#{resource['images:imgSave.png']}"/>
-                        <af:button text="Back To Packing" id="b2" action="ACT-ERP-WTY-0007-SCAN-BACK" icon="#{resource['images:imgExitForm.png']}"/>
+                        <af:button text="Back To Packing" id="b2" action="ACT-ERP-WTY-0002-SCAN-BACK" icon="#{resource['images:imgExitForm.png']}"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="legend"/>
@@ -149,7 +149,7 @@
       }
 
 function handleEnterRepackEvent(evt) {
-//alert(3)
+alert(3)
       var _keyCode = evt.getKeyCode();
 
       //check for Enter Key
