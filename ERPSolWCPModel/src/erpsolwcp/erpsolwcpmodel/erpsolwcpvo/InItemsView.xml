@@ -750,21 +750,18 @@
         ViewAttribute="ItemRefId"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Description"
         ViewAttribute="Description"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ModelNo"
         ViewAttribute="ModelNo"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         UpperColumns="0"
         Required="Optional"/>
     </ViewCriteriaRow>
@@ -772,6 +769,11 @@
   <ViewLinkAccessor
     Name="InSetPackingView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InItemsInSetPackingItemIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InSetPackingRepackView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InItemsInSetPackingRepackItemIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

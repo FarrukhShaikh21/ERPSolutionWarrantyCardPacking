@@ -1310,6 +1310,13 @@
     AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingItemIdAssoc.InItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="InSetPackingRepack"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingRepackItemIdAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingRepackItemIdAssoc.InSetPackingRepack"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingRepackItemIdAssoc.InItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>
