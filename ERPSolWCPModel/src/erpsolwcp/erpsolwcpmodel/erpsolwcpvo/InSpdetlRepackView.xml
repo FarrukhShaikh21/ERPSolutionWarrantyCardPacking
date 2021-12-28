@@ -131,4 +131,10 @@
     EntityAttrName="Spdetlseq"
     EntityUsage="InSpdetlRepack"
     AliasName="SPDETLSEQ"/>
+  <ViewLinkAccessor
+    Name="InSpboxRepackView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxRepackInSpDetailRepackSpboxSeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

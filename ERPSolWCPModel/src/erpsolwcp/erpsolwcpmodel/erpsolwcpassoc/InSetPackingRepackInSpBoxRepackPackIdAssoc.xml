@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InSetPackingRepackInSpBoxRepackPackIdAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="InSetPackingRepack"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingRepack"
+    DeleteContainee="true"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InSetPackingRepack"/>
+      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingRepack.PkInSetPacking"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingRepack.Packingseq"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="InSpboxRepack"
+    Cardinality="-1"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepack"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InSpboxRepack"/>
+      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepack.fk_InSpboxRepack"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepack.Packingseq"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

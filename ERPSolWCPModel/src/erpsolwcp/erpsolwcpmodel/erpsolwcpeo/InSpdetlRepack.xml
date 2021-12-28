@@ -204,6 +204,13 @@
     ColumnType="NUMBER"
     TableName="IN_SPDETL"
     PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="InSpboxRepack"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxRepackInSpDetailRepackSpboxSeqAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxRepackInSpDetailRepackSpboxSeqAssoc.InSpboxRepack"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSpBoxRepackInSpDetailRepackSpboxSeqAssoc.InSpdetlRepack"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkInSpdetl"
     PrimaryKey="true">
@@ -234,6 +241,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.Storeid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_InSpdetlRepack">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_IN_SPBOX"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_IN_SPDETL_REPACK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.Spboxseq"/>
     </AttrArray>
   </Key>
 </Entity>

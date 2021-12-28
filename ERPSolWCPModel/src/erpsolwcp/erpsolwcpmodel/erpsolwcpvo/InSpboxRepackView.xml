@@ -107,4 +107,15 @@
     EntityAttrName="Lineno"
     EntityUsage="InSpboxRepack"
     AliasName="LINENO"/>
+  <ViewLinkAccessor
+    Name="InSetPackingRepackView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InSpdetlRepackView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxRepackInSpDetailRepackSpboxSeqLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

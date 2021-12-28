@@ -142,4 +142,9 @@
     EntityAttrName="Packingseq"
     EntityUsage="InSetPackingRepack"
     AliasName="PACKINGSEQ"/>
+  <ViewLinkAccessor
+    Name="InSpboxRepackView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
