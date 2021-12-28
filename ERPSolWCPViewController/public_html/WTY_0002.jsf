@@ -349,7 +349,7 @@
                                               columns="#{bindings.InSpboxRepackDetCRUD1.hints.Boxno.displayWidth}"
                                               maximumLength="#{bindings.InSpboxRepackDetCRUD1.hints.Boxno.precision}"
                                               shortDesc="#{bindings.InSpboxRepackDetCRUD1.hints.Boxno.tooltip}"
-                                              id="it1">
+                                              id="it1" disabled="true">
                                   <f:validator binding="#{row.bindings.Boxno.validator}"/>
                                 </af:inputText>
                               </af:column>
@@ -379,14 +379,15 @@
                                       selectionListener="#{bindings.InSpdetlRepackDetCRUD1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.InSpdetlRepackDetCRUD1.rangeSize}" id="t3"
                                       partialTriggers="::b10 ::b11" scrollPolicy="page" autoHeightRows="12">
-                              <af:column headerText="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.label}" id="c2">
+                              <af:column headerText="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.label}" id="c2"
+                                         width="200">
                                 <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
                                               label="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.label}"
                                               required="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.mandatory}"
                                               columns="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.displayWidth}"
                                               maximumLength="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.precision}"
                                               shortDesc="#{bindings.InSpdetlRepackDetCRUD1.hints.ImeiNo.tooltip}"
-                                              id="it3">
+                                              id="it3" disabled="true">
                                   <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
                                 </af:inputText>
                               </af:column>

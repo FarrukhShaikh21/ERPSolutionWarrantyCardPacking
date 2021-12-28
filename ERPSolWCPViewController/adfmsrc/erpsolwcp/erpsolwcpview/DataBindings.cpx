@@ -21,6 +21,8 @@
     <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@CommitWTY-0007-SCAN"
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef"/>
     <page path="/WTY_0002.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0002PageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ACT-ERP-WTY-0002-COMMIT"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
@@ -44,6 +46,8 @@
     <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef"
           path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef"/>
     <page id="erpsolwcp_erpsolwcpview_WTY_0002PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0002PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef1"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"

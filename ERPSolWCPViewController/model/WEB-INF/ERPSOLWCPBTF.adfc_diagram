@@ -465,9 +465,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">743.7988</property>
+         name="y">686.3965</property>
       <property
-         name="x">757.5</property>
+         name="x">692.5</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -481,6 +481,64 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B56,688.5,418.94824,757.5,689.44824,T50</property>
+         name="sdm:polyPoints">B56,688.5,418.94824,692.5,632.0459,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View43">
+      <property
+         name="activityId">WTY_0002_SCAN</property>
+      <property
+         name="page">/WTY_0002_SCAN.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>WTY_0002_SCAN&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">772.7988</property>
+      <property
+         name="x">942.0215</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase44"
+      from="View41"
+      to="MethodCall46">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0002-SCAN</property>
+      <property
+         name="sdm:polyPoints">B50,692.5,740.0459,776.5,761.09766,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase45"
+      from="View43"
+      to="View41">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0002-SCAN-BACK</property>
+      <property
+         name="sdm:polyPoints">L54,899.3149,775.94824,733.5,689.5459,R54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall46">
+      <property
+         name="activityId">ACT-ERP-WTY-0002-COMMIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ACT-ERP-WTY-0002-COMMIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">815.44824</property>
+      <property
+         name="x">776.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase47"
+      from="MethodCall46"
+      to="View43">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0002-SCAN</property>
+      <property
+         name="sdm:polyPoints">R50,817.5,815.09766,901.0215,775.94824,L54</property>
    </ControlFlowCase>
 </SDM>
