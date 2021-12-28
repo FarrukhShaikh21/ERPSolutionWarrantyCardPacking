@@ -13,6 +13,35 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtItemName"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtItemName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsViewFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="InSetPackingRepack"
     Entity="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingRepack"/>
@@ -142,6 +171,58 @@
     EntityAttrName="Packingseq"
     EntityUsage="InSetPackingRepack"
     AliasName="PACKINGSEQ"/>
+  <ViewAttribute
+    Name="txtImeiSerial"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtImeiSerial"
+    EntityUsage="InSetPackingRepack"
+    AliasName="TXT_IMEI_SERIAL"/>
+  <ViewAttribute
+    Name="txtPerBoxImei"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtPerBoxImei"
+    EntityUsage="InSetPackingRepack"
+    AliasName="TXT_PER_BOX_IMEI"/>
+  <ViewAttribute
+    Name="txtItemName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="InSetPackingRepack"
+    AliasName="TXT_ITEM_NAME"
+    LOVName="LovtxtItemName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtTotalTransactionIMEI"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="txtTotalBox"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER"/>
   <ViewLinkAccessor
     Name="InSpboxRepackView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"

@@ -47,6 +47,9 @@ public class InSetPackingRepackImpl extends ERPSolGlobalsEntityImpl {
         AllowedWpr,
         PrintInc,
         Packingseq,
+        txtPerBoxImei,
+        txtImeiSerial,
+        txtItemName,
         InSpboxRepack;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -91,6 +94,9 @@ public class InSetPackingRepackImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLOWEDWPR = AttributesEnum.AllowedWpr.index();
     public static final int PRINTINC = AttributesEnum.PrintInc.index();
     public static final int PACKINGSEQ = AttributesEnum.Packingseq.index();
+    public static final int TXTPERBOXIMEI = AttributesEnum.txtPerBoxImei.index();
+    public static final int TXTIMEISERIAL = AttributesEnum.txtImeiSerial.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int INSPBOXREPACK = AttributesEnum.InSpboxRepack.index();
 
     /**
@@ -410,6 +416,54 @@ public class InSetPackingRepackImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setPackingseq(Integer value) {
         setAttributeInternal(PACKINGSEQ, value);
+    }
+
+    /**
+     * Gets the attribute value for txtPerBoxImei, using the alias name txtPerBoxImei.
+     * @return the value of txtPerBoxImei
+     */
+    public Integer gettxtPerBoxImei() {
+        return (Integer) getAttributeInternal(TXTPERBOXIMEI);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPerBoxImei.
+     * @param value value to set the txtPerBoxImei
+     */
+    public void settxtPerBoxImei(Integer value) {
+        setAttributeInternal(TXTPERBOXIMEI, value);
+    }
+
+    /**
+     * Gets the attribute value for txtImeiSerial, using the alias name txtImeiSerial.
+     * @return the value of txtImeiSerial
+     */
+    public String gettxtImeiSerial() {
+        return (String) getAttributeInternal(TXTIMEISERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtImeiSerial.
+     * @param value value to set the txtImeiSerial
+     */
+    public void settxtImeiSerial(String value) {
+        setAttributeInternal(TXTIMEISERIAL, value);
+    }
+
+    /**
+     * Gets the attribute value for txtItemName, using the alias name txtItemName.
+     * @return the value of txtItemName
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtItemName.
+     * @param value value to set the txtItemName
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
     }
 
     /**

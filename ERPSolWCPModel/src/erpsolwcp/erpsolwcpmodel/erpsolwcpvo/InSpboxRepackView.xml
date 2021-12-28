@@ -107,6 +107,16 @@
     EntityAttrName="Lineno"
     EntityUsage="InSpboxRepack"
     AliasName="LINENO"/>
+  <ViewAttribute
+    Name="txtTotalImei"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER"/>
   <ViewLinkAccessor
     Name="InSetPackingRepackView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"

@@ -1,10 +1,135 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0002PageDef"
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0007PageDef"
                 Package="erpsolwcp.erpsolwcpview.pageDefs">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="InSetPackingRepackCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSetPackingRepackCRUDIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="InSpboxRepackDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpboxRepackDetCRUDIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="InSpdetlRepackDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InSpdetlRepackDetCRUDIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="VWScanImeiBoxRO" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="VWScanImeiBoxROIterator" ChangeEventPolicy="push" CacheResults="false"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="InSetPackingRepackCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InSetPackingRepackCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InSetPackingRepackCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Pckid">
+      <AttrNames>
+        <Item Value="Pckid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Pdate">
+      <AttrNames>
+        <Item Value="Pdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Purchdate">
+      <AttrNames>
+        <Item Value="Purchdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Expdate">
+      <AttrNames>
+        <Item Value="Expdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Ptype">
+      <AttrNames>
+        <Item Value="Ptype"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="InSetPackingRepackCRUDIterator" StaticList="false" Uses="LovtxtItemName" id="txtItemName"/>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InSetPackingRepackCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPSolWCPAppModuleDataControl.InSetPackingCRUD"
+            DataControl="ERPSolWCPAppModuleDataControl">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="InSpboxRepackDetCRUDIterator" id="InSpboxRepackDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView" Name="InSpboxDetCRUD0">
+        <AttrNames>
+          <Item Value="Boxno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InSpdetlRepackDetCRUDIterator" id="InSpdetlRepackDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView" Name="InSpdetlDetCRUD0">
+        <AttrNames>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="VWScanImeiBoxROIterator" id="Imei">
+      <AttrNames>
+        <Item Value="Imei"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InSpboxRepackDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="InSpdetlRepackDetCRUDIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="InSpdetlRepackDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="InSpboxRepackDetCRUDIterator" id="Boxno">
+      <AttrNames>
+        <Item Value="Boxno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="txtTotalBox">
+      <AttrNames>
+        <Item Value="txtTotalBox"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="txtTotalTransactionIMEI">
+      <AttrNames>
+        <Item Value="txtTotalTransactionIMEI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSpboxRepackDetCRUDIterator" id="txtTotalImei">
+      <AttrNames>
+        <Item Value="txtTotalImei"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VWScanImeiBoxROIterator" id="BoxNo">
+      <AttrNames>
+        <Item Value="BoxNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="txtPerBoxImei">
+      <AttrNames>
+        <Item Value="txtPerBoxImei"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSuperviseWarrantyCard" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseWarrantyCard" IsViewObjectMethod="true"
+                  DataControl="ERPSolWCPAppModuleDataControl"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.InSetPackingCRUD"
+                  ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doSuperviseWarrantyCard_ERPSolWCPAppModuleDataControl_InSetPackingCRUD_doSuperviseWarrantyCard_result"/>
+    <attributeValues IterBinding="InSetPackingRepackCRUDIterator" id="txtImeiSerial">
+      <AttrNames>
+        <Item Value="txtImeiSerial"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

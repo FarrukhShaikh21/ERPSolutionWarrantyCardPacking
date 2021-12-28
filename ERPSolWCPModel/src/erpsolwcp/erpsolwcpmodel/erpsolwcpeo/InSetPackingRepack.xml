@@ -88,8 +88,7 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SET_PACKING">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="Purchdate"
@@ -228,6 +227,33 @@
     ColumnType="NUMBER"
     TableName="IN_SET_PACKING"
     PrimaryKey="true"/>
+  <Attribute
+    Name="txtPerBoxImei"
+    ColumnName="TXT_PER_BOX_IMEI"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false"/>
+  <Attribute
+    Name="txtImeiSerial"
+    Precision="80"
+    ColumnName="TXT_IMEI_SERIAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false"/>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SET_PACKING"
+    IsPersistent="false"
+    IsQueriable="false"/>
   <AccessorAttribute
     Name="InSpboxRepack"
     Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPackingRepackInSpBoxRepackPackIdAssoc"
