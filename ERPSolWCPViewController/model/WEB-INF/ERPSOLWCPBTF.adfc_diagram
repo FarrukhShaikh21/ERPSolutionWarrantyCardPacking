@@ -541,4 +541,19 @@
       <property
          name="sdm:polyPoints">R50,817.5,815.09766,901.0215,775.94824,L54</property>
    </ControlFlowCase>
+   <View
+      id="View48">
+      <property
+         name="activityId">WTY_EXCEPTION</property>
+      <property
+         name="page">/WTY_EXCEPTION.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>WTY_EXCEPTION&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">true</property>
+      <property
+         name="y">501.79883</property>
+      <property
+         name="x">-113.66016</property>
+   </View>
 </SDM>

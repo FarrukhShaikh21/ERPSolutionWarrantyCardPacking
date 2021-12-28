@@ -38,6 +38,7 @@
       <managed-bean-class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <exception-handler>WTY_EXCEPTION</exception-handler>
     <task-flow-return id="ERPSOL-RETURN-FROM-WCP">
       <outcome>
         <name>ERPSOL-RETURN-FROM-WCP</name>
@@ -129,6 +130,9 @@
         <fixed-outcome>ACT-ERP-WTY-0002-SCAN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="WTY_EXCEPTION">
+      <page>/WTY_EXCEPTION.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
