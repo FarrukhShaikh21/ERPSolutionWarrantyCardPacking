@@ -659,6 +659,67 @@ public class ERPSolWCPBean {
         
     }
 
+    public void handleEnterRepackEvent(ClientEvent ce) {
+        try{
+            
+        
+    String message = (String) ce.getParameters().get("fvalue");
+    if (getERPImeiSerial().equals("S")) {
+           ERPSolSerialImei.setNamedWhereClauseParam("P_ADF_SERIAL_NO", message);
+           ERPSolSerialImei.executeQuery();
+           
+           try {
+                message = ERPSolSerialImei.first().getAttribute("Imei").toString();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                String inputId = "it2"; //here it6 is id for inputtext in1st column.
+                //        System.out.println("inputid "+inputId);
+                FacesContext facesCtx=FacesContext.getCurrentInstance();
+                ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+                service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+                "comp.focus()");
+                e.printStackTrace();
+            }
+       }
+        Row ERPsolrow=ERPSolvoImei.createRow();
+        ERPsolrow.setAttribute("ImeiNo", message); 
+        ERPSolvoImei.insertRow(ERPsolrow);
+        ERPSolvoImei.setCurrentRow(ERPsolrow);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolTotalImei());
+        OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
+        binding.execute();
+        List errors = binding.getErrors();
+        if (!errors.isEmpty()) {
+           ERPSolvoImei.getCurrentRow().remove();
+           binding.execute();
+           String inputId = "it2"; //here it6 is id for inputtext in1st column.
+           //        System.out.println("inputid "+inputId);
+           FacesContext facesCtx=FacesContext.getCurrentInstance();
+           ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+           service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+           "comp.focus()");            
+           return;
+       }
+
+
+        if(getERPSolTotalImei().getValue().toString().equals(getERPSolPerBox().toString()))
+      {
+            
+        String inputId = "it5"; //here it6 is id for inputtext in1st column.
+        FacesContext facesCtx=FacesContext.getCurrentInstance();
+        ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+        service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+        "comp.focus()");      // javascript method is used
+        
+        }
+        }
+        catch(Exception erpexc) {
+            erpexc.printStackTrace();
+        }
+        
+    }
+
+
 
     
   
@@ -695,7 +756,40 @@ public class ERPSolWCPBean {
     }
        }
   
+ 
+    public void handleEnterEventRepackBox(ClientEvent ce) {
     
+    try{
+      String message = (String) ce.getParameters().get("fvalue");
+      Row ERPsolrow=ERPSolvoBox.createRow();
+      ERPsolrow.setAttribute("Boxno", message);
+      ERPSolvoBox.insertRow(ERPsolrow);
+      ERPSolvoBox.setCurrentRow(ERPsolrow);
+      OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
+      binding.execute();
+         List errors = binding.getErrors();
+         if (!errors.isEmpty()) {
+            ERPSolvoBox.getCurrentRow().remove();
+             binding.execute();
+             String inputId = "it2"; //here it6 is id for inputtext in1st column.
+             FacesContext facesCtx=FacesContext.getCurrentInstance();
+             ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+             service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+             "comp.focus()");      // javascript            
+            return;
+         }
+      
+         String inputId = "it100"; //here it6 is id for inputtext in1st column.
+         FacesContext facesCtx=FacesContext.getCurrentInstance();
+         ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+         service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+         "comp.focus()");      // javascript method is used
+    }
+    catch(Exception erpexcep) {
+      erpexcep.printStackTrace();
+    }
+     }
+       
     public void doERPSolValidateBox(ValueChangeEvent ce) {
            String message;
            try {

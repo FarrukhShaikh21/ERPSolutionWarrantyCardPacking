@@ -1,7 +1,191 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="WTY_0002_SCAN.jsf" id="d1">
-        <af:form id="f1"></af:form>
+    <af:document title="WTY_0002_SCAN.jsf" id="d1" initialFocusId="it5">
+        <af:form id="f1">
+            <af:panelHeader text="Scan IMEI Here" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t3">
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b3"
+                                   icon="#{resource['images:imgSave.png']}"/>
+                        <af:button text="Back To Packing" id="b2" action="ACT-ERP-WTY-0007-SCAN-BACK" icon="#{resource['images:imgExitForm.png']}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
+                    <af:inputText label="Label 2" id="it5" simple="true" placeholder="Scan Box Here"
+                                  clientComponent="true" contentStyle="text-transform:uppercase;border:2px solid black"
+                                  value="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolBoxStr}">
+                                        <af:clientListener method="handleEnterEventRepackBox" type="keyPress"/>
+                        <af:serverListener type="EnterEventRepackBox"
+                                           method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEventRepackBox}"/>
+                     </af:inputText>             
+                    <af:inputText label="Label 1" id="it100" simple="true" placeholder="SCAN IMEI HERE"
+                                  clientComponent="true" maximumLength="15"
+                                  value="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolImeiStr}"
+                                  contentStyle="border:2px solid black">
+                                                          <af:clientListener method="handleEnterRepackEvent" type="keyPress"/>
+                        <af:serverListener type="EnterRepackEvent"
+                                           method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterRepackEvent}"/>
+
+                      </af:inputText>            
+                    <af:outputText value="#{bindings.txtTotalImei.inputValue}"
+                                   shortDesc="#{bindings.txtTotalImei.hints.tooltip}" id="ot7"
+                                   binding="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolTotalImei}"
+                                   partialTriggers="t2:b4" inlineStyle="font-size:x-large;color:white">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalImei.format}"/>
+                    </af:outputText>
+                    <af:outputText value="#{bindings.txtTotalTransactionIMEI.inputValue}"
+                                   shortDesc="#{bindings.txtTotalTransactionIMEI.hints.tooltip}" id="ot5"
+                                   inlineStyle="font-size:x-large" partialTriggers="t2:b4 it100 t1:b1">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalTransactionIMEI.format}"/>
+                    </af:outputText>
+                    <af:inputText label="Label 3" id="it1" simple="true" readOnly="true"/>
+                    <af:inputText label="Label 4" id="it2" simple="true" inlineStyle="border:none"
+                                  contentStyle="text-transform:uppercase;border:none">
+                        <af:clientListener method="jsCancelEventOnError" type="keyPress"/>
+                    </af:inputText>
+                    <af:messages id="m1" inlineStyle="font-size:large" globalOnly="true" inline="true"/>
+                    <f:facet name="separator">
+                        <af:spacer width="20" height="10" id="s1"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+                <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
+                    <f:facet name="first">
+                        <af:panelBox text="Box" id="pb2" showDisclosure="false">
+                            <f:facet name="toolbar"/>
+                            <af:inputText value="#{bindings.Boxno.inputValue}" simple="true"
+                                          required="#{bindings.Boxno.hints.mandatory}"
+                                          columns="#{bindings.Boxno.hints.displayWidth}"
+                                          maximumLength="#{bindings.Boxno.hints.precision}"
+                                          shortDesc="#{bindings.Boxno.hints.tooltip}" id="it3" rendered="false">
+                                <f:validator binding="#{bindings.Boxno.validator}"/>
+                            </af:inputText>
+                            <af:table value="#{bindings.InSpboxRepackDetCRUD.collectionModel}" var="row"
+                                      rows="#{bindings.InSpboxRepackDetCRUD.rangeSize}"
+                                      emptyText="#{bindings.InSpboxRepackDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.InSpboxRepackDetCRUD.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.InSpboxRepackDetCRUD.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.InSpboxRepackDetCRUD.rangeSize}" id="t1"
+                                      autoHeightRows="25" scrollPolicy="page" partialTriggers="b1"
+                                      styleClass="AFStretchWidth" varStatus="vs">
+                                <af:column id="c6" width="60" headerText="S.No">
+                                    <af:outputText value="#{vs.index+1}" id="ot4"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.InSpboxRepackDetCRUD.hints.Boxno.label}" id="c1" width="200"
+                                           displayIndex="-1">
+                                    <af:outputText value="#{row.Boxno}"
+                                                   shortDesc="#{bindings.InSpboxRepackDetCRUD.hints.Boxno.tooltip}" id="ot1"/>
+                                </af:column>
+                                <af:column id="c2" width="70" displayIndex="-1">
+                                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                               disabled="#{!bindings.Delete.enabled}" id="b1"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelBox>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelBox text="Scanned IMEI Of Box (#{bindings.Boxno.inputValue})" id="pb1" showDisclosure="false">
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.InSpdetlRepackDetCRUD.collectionModel}" var="row"
+                                      rows="#{bindings.InSpdetlRepackDetCRUD.rangeSize}"
+                                      emptyText="#{bindings.InSpdetlRepackDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.InSpdetlRepackDetCRUD.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.InSpdetlRepackDetCRUD.collectionModel.makeCurrent}" fetchSize="#{bindings.InSpdetlRepackDetCRUD.rangeSize}" id="t2"
+                                      scrollPolicy="page" autoHeightRows="20" partialTriggers="b4"
+                                      styleClass="AFStretchWidth" varStatus="vs"
+                                      maxClientRows="500" rowSelection="single">
+                                <af:column id="c5" headerText="S.No" width="60">
+                                    <af:outputText value="#{vs.index+1}" id="ot3"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.InSpdetlRepackDetCRUD.hints.ImeiNo.label}" id="c3"
+                                           width="150">
+                                    <af:outputText value="#{row.ImeiNo}"
+                                                   shortDesc="#{bindings.InSpdetlRepackDetCRUD.hints.ImeiNo.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column id="c4">
+                                    <af:button actionListener="#{bindings.Delete1.execute}" text="Delete IMEI"
+                                               disabled="#{!bindings.Delete1.enabled}" id="b4"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelBox>
+                    </f:facet>
+                </af:panelSplitter>
+            </af:panelHeader>
+        </af:form>
+        <f:facet name="metaContainer">
+          <af:resource type="javascript">
+    function jserpKeyNextItemLOV(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+        comp = AdfPage.PAGE.findComponent('pt1:it100');
+        comp.focus();          
+        erpevt.cancel();
+    }
+    }
+   function jserpKeyNextItemBoxNo(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+         sum=AdfPage.PAGE.findComponent('pt1:ot7').getValue();
+        perbox=AdfPage.PAGE.findComponent('pt1:ot8').getValue();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+     
+     
+//        alert(sum+1 +' '+perbox)
+        
+    if(sum+1==perbox){
+        comp = AdfPage.PAGE.findComponent('pt1:it5');
+        comp.focus();          
+        erpevt.cancel();
+        }
+    }
+      }
+
+function handleEnterRepackEvent(evt) {
+//alert(3)
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterRepackEvent", {fvalue:comp.getSubmittedValue()}, false);
+
+          comp.setValue(null);
+          evt.cancel();
+
+      }
+
+   }
+
+function handleEnterEventRepackBox(evt) {
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+          var comp = evt.getSource();
+          AdfCustomEvent.queue(comp, "EnterEventRepackBox", {fvalue:comp.getSubmittedValue()}, false);
+          comp.setValue(null);
+          evt.cancel();
+      }
+
+   }
+ 
+ function jsCancelEventOnError(evt) {
+      evt.cancel();
+
+   }  
+   </af:resource>
+        </f:facet>
     </af:document>
 </f:view>

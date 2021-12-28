@@ -20,7 +20,7 @@
               id="InSetPackingRepackCRUDIterator" ChangeEventPolicy="push"/>
   </executables>
   <bindings>
-    <tree IterBinding="InSpboxRepackDetCRUDIterator" id="InSpboxDetCRUD">
+    <tree IterBinding="InSpboxRepackDetCRUDIterator" id="InSpboxRepackDetCRUD">
       <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxRepackView" Name="InSpboxRepackDeCRUD0">
         <AttrNames>
           <Item Value="Boxno"/>
