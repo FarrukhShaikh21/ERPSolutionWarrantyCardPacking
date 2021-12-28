@@ -7,6 +7,10 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
+
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
@@ -165,6 +169,7 @@ public class InSetPackingRepackImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setItemid(String value) {
         setAttributeInternal(ITEMID, value);
+        doSetErpSolStartEndDate(getPdate().toString());
     }
 
     /**
@@ -455,7 +460,64 @@ public class InSetPackingRepackImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            System.out.println("in set pack insert-REFRESH");
+            String pkValue=" packing_id('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getPdate()+"','YYYY-MM-DD'))";
+            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+            populateAttributeAsChanged(PCKID, result);
+        } 
         super.doDML(operation, e);
     }
+
+    public void doSetErpSolStartEndDate(String pDate) {
+        try {
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date UtilDate = new SimpleDateFormat("yyyy-MM-dd").parse(pDate);
+        calendar.setTime(UtilDate);
+        String smonth="";
+        String emonth="";
+        String eday  ="";
+        String eyear="";
+        String syear="";
+        java.util.Date WtyStart;
+        java.util.Date  WtyEnd;
+        Integer day=calendar.get(Calendar.DAY_OF_MONTH);
+        
+        if (day<11) {
+           calendar.add(Calendar.MONTH, 1);
+        }
+        else {
+           calendar.add(Calendar.MONTH, 2);
+        }
+        //       calendar.add(Calendar.MONTH, 1);
+        syear=""+calendar.get(Calendar.YEAR);
+        
+        smonth=""+ (calendar.get(Calendar.MONTH)+1);
+        WtyStart=new SimpleDateFormat("yyyy-MM-dd").parse(syear+"-"+smonth+"-01");
+        calendar.add(Calendar.MONTH, 11);
+        eyear=""+(calendar.get(Calendar.YEAR));
+        eday=""+calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        
+        emonth=""+(calendar.get(Calendar.MONTH)+1);
+        
+        WtyEnd=new SimpleDateFormat("yyyy-MM-dd").parse(eyear+"-"+emonth+"-"+eday);
+        
+        
+        
+        java.sql.Date sqlStartDate = new java.sql.Date(WtyStart.getTime());
+        java.sql.Date sqlEndate = new java.sql.Date(WtyEnd.getTime());
+        
+        Date jboStartDate = new oracle.jbo.domain.Date(sqlStartDate);
+        Date jboEndDate = new oracle.jbo.domain.Date(sqlEndate);
+        
+        System.out.println(jboStartDate);
+        System.out.println(jboEndDate);
+        setPurchdate(jboStartDate);
+        setExpdate(jboEndDate);
+        }
+        catch (Exception exc){
+            exc.printStackTrace();
+        }
+    }    
 }
 

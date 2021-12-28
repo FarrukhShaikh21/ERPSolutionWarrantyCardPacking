@@ -19,7 +19,6 @@
   <Attribute
     Name="Pckid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     ColumnName="PCKID"
     SQLType="VARCHAR"
@@ -45,7 +44,6 @@
   </Attribute>
   <Attribute
     Name="Regionid"
-    IsNotNull="true"
     Precision="3"
     ColumnName="REGIONID"
     SQLType="VARCHAR"
@@ -58,7 +56,6 @@
   </Attribute>
   <Attribute
     Name="Itemid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="ITEMID"
     SQLType="VARCHAR"
@@ -77,7 +74,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="R">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -117,7 +115,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

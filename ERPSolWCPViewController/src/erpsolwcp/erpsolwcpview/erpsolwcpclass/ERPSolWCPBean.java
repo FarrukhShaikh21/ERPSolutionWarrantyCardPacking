@@ -560,11 +560,10 @@ public class ERPSolWCPBean {
         }
     }
     public void handleEnterEvent(ClientEvent ce) {
+        try{
+            
+        
     String message = (String) ce.getParameters().get("fvalue");
-//    if (message.length()!=15) {
-//            return;
-//       }
-//    System.out.println(message);
     if (getERPImeiSerial().equals("S")) {
            ERPSolSerialImei.setNamedWhereClauseParam("P_ADF_SERIAL_NO", message);
            ERPSolSerialImei.executeQuery();
@@ -607,55 +606,37 @@ public class ERPSolWCPBean {
       {
             
         String inputId = "it5"; //here it6 is id for inputtext in1st column.
-//        System.out.println("inputid "+inputId);
         FacesContext facesCtx=FacesContext.getCurrentInstance();
         ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
         service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
         "comp.focus()");      // javascript method is used
         
         }
+        }
+        catch(Exception erpexc) {
+            erpexc.printStackTrace();
+        }
+        
     }
 
-      /*  if (ERPSolvo.getRowCount()>0)
-        {
-            ERPSolvo.first();
-        if (ERPSolvo.first().getAttribute("ImeiNo").equals(message)) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("This IMEI IS Already Scanned"));
-            return;
-        }
-        while(ERPSolvo.hasNext()) {
-            if (ERPSolvo.next().getAttribute("ImeiNo").equals(message)) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("This IMEI IS Already Scanned"));
-                return;
-            } 
-        }
-        }*/
-            
-//        ERPSolvo.getApplicationModule().getTransaction().commit();
+
     
   
       public void handleEnterEventBox(ClientEvent ce) {
-    String message = (String) ce.getParameters().get("fvalue");
-//           System.out.println("zero"+ERPSolvoBox);
-//           System.out.println("one"+ERPSolvoBox);
+    
+    try{
+        String message = (String) ce.getParameters().get("fvalue");
         Row ERPsolrow=ERPSolvoBox.createRow();
-//           System.out.println("on2");
         ERPsolrow.setAttribute("Boxno", message);
-//           System.out.println("THREE");
         ERPSolvoBox.insertRow(ERPsolrow);
-//           System.out.println("onFOUR");
         ERPSolvoBox.setCurrentRow(ERPsolrow);
-//        System.out.println("six");
         OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
-//           System.out.println("seven");
         binding.execute();
-//           System.out.println("eight");
            List errors = binding.getErrors();
            if (!errors.isEmpty()) {
               ERPSolvoBox.getCurrentRow().remove();
                binding.execute();
                String inputId = "it2"; //here it6 is id for inputtext in1st column.
-               //        System.out.println("inputid "+inputId);
                FacesContext facesCtx=FacesContext.getCurrentInstance();
                ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
                service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
@@ -668,11 +649,10 @@ public class ERPSolWCPBean {
            ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
            service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
            "comp.focus()");      // javascript method is used
-           
-//        ERPSolvo.getApplicationModule().getTransaction().commit();
-        
-        
-        
+    }
+    catch(Exception erpexcep) {
+        erpexcep.printStackTrace();
+    }
        }
   
     
