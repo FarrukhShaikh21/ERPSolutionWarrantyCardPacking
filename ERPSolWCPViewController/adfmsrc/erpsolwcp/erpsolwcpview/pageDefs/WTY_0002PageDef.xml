@@ -68,20 +68,6 @@
             DataControl="ERPSolWCPAppModuleDataControl">
       <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
     </action>
-    <tree IterBinding="InSpboxRepackDetCRUDIterator" id="InSpboxRepackDetCRUD">
-      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxView" Name="InSpboxDetCRUD0">
-        <AttrNames>
-          <Item Value="Boxno"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="InSpdetlRepackDetCRUDIterator" id="InSpdetlRepackDetCRUD">
-      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlView" Name="InSpdetlDetCRUD0">
-        <AttrNames>
-          <Item Value="ImeiNo"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <attributeValues IterBinding="VWScanImeiBoxROIterator" id="Imei">
       <AttrNames>
         <Item Value="Imei"/>
@@ -131,5 +117,19 @@
         <Item Value="txtImeiSerial"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="InSpdetlRepackDetCRUDIterator" id="InSpdetlRepackDetCRUD1">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlRepackView" Name="InSpdetlRepackDetCRUD10">
+        <AttrNames>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InSpboxRepackDetCRUDIterator" id="InSpboxRepackDetCRUD1">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxRepackView" Name="InSpboxRepackDetCRUD10">
+        <AttrNames>
+          <Item Value="Boxno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -117,6 +117,9 @@
     <view id="WTY_SHOW_ERROR">
       <page>/WTY_SHOW_ERROR.jsf</page>
     </view>
+    <view id="WTY_0002">
+      <page>/WTY_0002.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -136,6 +139,10 @@
       <control-flow-case id="__11">
         <from-outcome>ERP-ACT-WTY-0007</from-outcome>
         <to-activity-id>InSetPackCreateNewWTY-0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__45">
+        <from-outcome>ACT-ERP-WTY-0002</from-outcome>
+        <to-activity-id>WTY_0002</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
