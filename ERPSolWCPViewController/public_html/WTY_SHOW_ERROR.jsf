@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="WTY_SHOW_ERROR.jsf" id="d1">
+        <af:form id="f1">
+            <af:outputText id="ot1" value="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPErrorMessage}" inlineStyle="font-size:xx-large;color:red"/>
+        </af:form>
+    </af:document>
+</f:view>
