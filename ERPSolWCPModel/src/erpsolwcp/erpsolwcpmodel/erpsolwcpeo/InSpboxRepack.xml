@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="IN_SPBOX"
   AliasName="InSpboxRepack"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepackImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Pckdetlid"
     IsUnique="true"

@@ -28,6 +28,15 @@
   <ViewUsage
     Name="InSetPackingScanViewCRUD"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingScanView"/>
+  <ViewUsage
+    Name="InSetPackingRepackCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView"/>
+  <ViewUsage
+    Name="InSpboxRepackRebackDetCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxRepackView"/>
+  <ViewUsage
+    Name="InSpdetlRepackDetCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlRepackView"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
@@ -39,5 +48,17 @@
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxInSpDetailSpboxSeqLink"
     SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpboxDetCRUD"
     DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpdetlDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InSetPackingRepackInSpBoxRepackPackIdLink1"
+    ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"
+    SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSetPackingRepackCRUD"
+    DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpboxRepackRebackDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InSpBoxRepackInSpDetailRepackSpboxSeqLink1"
+    ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxRepackInSpDetailRepackSpboxSeqLink"
+    SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpboxRepackRebackDetCRUD"
+    DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpdetlRepackDetCRUD"
     Reversed="false"/>
 </AppModule>
