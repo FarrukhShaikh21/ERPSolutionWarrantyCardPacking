@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InSpdetlRepack"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="IN_SPDETL"
+  AliasName="InSpdetlRepack"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Pckdetlid"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="25"
+    ColumnName="PCKDETLID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImeiNo"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="IMEI_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Code"
+    Precision="20"
+    ColumnName="CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Phoneno"
+    Precision="15"
+    ColumnName="PHONENO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Msg"
+    Precision="200"
+    ColumnName="MSG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Createdby"
+    Precision="20"
+    ColumnName="CREATEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="IN_SPDETL"/>
+  <Attribute
+    Name="Modifiedby"
+    Precision="20"
+    ColumnName="MODIFIEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="IN_SPDETL"/>
+  <Attribute
+    Name="Storeid"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="STOREID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Incentive"
+    ColumnName="INCENTIVE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="IN_SPDETL"/>
+  <Attribute
+    Name="IncentiveMsg"
+    Precision="150"
+    ColumnName="INCENTIVE_MSG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Chk"
+    Precision="1"
+    ColumnName="CHK"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SerialNo"
+    Precision="50"
+    ColumnName="SERIAL_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SPDETL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IncPst"
+    ColumnName="INC_PST"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="IN_SPDETL"/>
+  <Attribute
+    Name="Spboxseq"
+    ColumnName="SPBOXSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="IN_SPDETL"/>
+  <Attribute
+    Name="Spdetlseq"
+    IsNotNull="true"
+    ColumnName="SPDETLSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="IN_SPDETL"
+    PrimaryKey="true"/>
+  <Key
+    Name="PkInSpdetl"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_IN_SPDETL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.Spdetlseq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UnqInSpdetl">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UNQ_IN_SPDETL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.ImeiNo"/>
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.Pckdetlid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0017415">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKALL_STORES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C0017415"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.Storeid"/>
+    </AttrArray>
+  </Key>
+</Entity>
