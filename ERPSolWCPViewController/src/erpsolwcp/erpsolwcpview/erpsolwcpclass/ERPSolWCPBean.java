@@ -81,6 +81,7 @@ public class ERPSolWCPBean {
     String ERPSolBoxStr;
     String ERPImeiSerial;
     ViewObject ERPSolSerialImei;
+    ApplicationModule ERPSolAM;
         
     public void doSetERPSolWCPSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -764,7 +765,8 @@ public class ERPSolWCPBean {
   
  
     public void handleEnterEventRepackBox(ClientEvent ce) {
-    
+         DBTransaction dbt=(DBTransaction)ERPSolAM.getTransaction();
+         CallableStatement cs=null;
     try{
       String message = (String) ce.getParameters().get("fvalue");
       Row ERPsolrow=ERPSolvoBox.createRow();
@@ -777,22 +779,39 @@ public class ERPSolWCPBean {
          if (!errors.isEmpty()) {
             ERPSolvoBox.getCurrentRow().remove();
              binding.execute();
-             String inputId = "it2"; //here it6 is id for inputtext in1st column.
-             FacesContext facesCtx=FacesContext.getCurrentInstance();
-             ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
-             service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
-             "comp.focus()");      // javascript            
+             doERPSolGotoErrorTextItem();
             return;
          }
-      
+        
+        cs=dbt.createCallableStatement("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;", DBTransaction.DEFAULT);
+        System.out.println("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;");
+        cs.registerOutParameter(1, Types.VARCHAR);
+        cs.executeUpdate();
+        dbt.commit();
+        if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
+                doERPSolGotoErrorTextItem();
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(cs.getString(1)));
+                return;
+            }
+         ERPSolvoImei.executeQuery();
          String inputId = "it100"; //here it6 is id for inputtext in1st column.
          FacesContext facesCtx=FacesContext.getCurrentInstance();
          ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
          service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
          "comp.focus()");      // javascript method is used
     }
-    catch(Exception erpexcep) {
-      erpexcep.printStackTrace();
+    catch(Exception erpexcep) {//for error cursor should move to it2 field
+        doERPSolGotoErrorTextItem();// javascript            
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(erpexcep.getMessage()));
+        erpexcep.printStackTrace();
+    }
+    finally{
+        try {
+                cs.close();
+            } catch (SQLException sqle) {
+                // TODO: Add catch code
+                sqle.printStackTrace();
+            }
     }
      }
        
@@ -948,7 +967,7 @@ public class ERPSolWCPBean {
          ERPSolbc = ERPSolGlobalViewBean.doGetERPBindings();
          ERPSolibImei=(DCIteratorBinding)ERPSolbc.get("InSpdetlDetCRUDIterator");
          ERPSolvoImei=ERPSolibImei.getViewObject();
-         ApplicationModule ERPSolAM = ERPSolvoImei.getApplicationModule();
+         ERPSolAM = ERPSolvoImei.getApplicationModule();
          ERPSolSerialImei=ERPSolAM.findViewObject("VWImeiBySerialNoRO");
          ERPSolibBox=(DCIteratorBinding)ERPSolbc.get("InSpboxDetCRUDIterator");
          ERPSolvoBox=ERPSolibBox.getViewObject();
@@ -962,7 +981,7 @@ public class ERPSolWCPBean {
          ERPSolbc = ERPSolGlobalViewBean.doGetERPBindings();
          ERPSolibImei=(DCIteratorBinding)ERPSolbc.get("InSpdetlRepackDetCRUDIterator");
          ERPSolvoImei=ERPSolibImei.getViewObject();
-         ApplicationModule ERPSolAM = ERPSolvoImei.getApplicationModule();
+         ERPSolAM = ERPSolvoImei.getApplicationModule();
          ERPSolSerialImei=ERPSolAM.findViewObject("VWImeiBySerialNoRO");
          ERPSolibBox=(DCIteratorBinding)ERPSolbc.get("InSpboxRepackDetCRUDIterator");
          ERPSolvoBox=ERPSolibBox.getViewObject();
@@ -995,5 +1014,13 @@ public class ERPSolWCPBean {
 
     public String getERPImeiSerial() {
         return ERPImeiSerial;
+    }
+    public void doERPSolGotoErrorTextItem() {
+        String inputId = "it2"; //here it6 is id for inputtext in1st column.
+        FacesContext facesCtx=FacesContext.getCurrentInstance();
+        ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+        service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
+        "comp.focus()");      // javascript            
+
     }
 }
