@@ -237,9 +237,9 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InSpboxView.sum("txtTotalImei")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InSpboxView.sum("txtTotalImei")]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -260,9 +260,9 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InSpboxView.count("Boxno")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InSpboxView.count("Boxno")]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
   <ViewAttribute
     Name="txtPerBoxImei"

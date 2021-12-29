@@ -116,7 +116,20 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
-    SQLType="INTEGER"/>
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InSpdetlRepackView.count("ImeiNo")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxRepackView.txtTotalImei_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="InSetPackingRepackView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingRepackInSpBoxRepackPackIdLink"
@@ -128,4 +141,8 @@
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxRepackInSpDetailRepackSpboxSeqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

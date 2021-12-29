@@ -248,7 +248,12 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
-    SQLType="INTEGER"/>
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[InSpboxRepackView.sum("txtTotalImei")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtTotalBox"
     IsUpdateable="false"
@@ -258,7 +263,12 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
-    SQLType="INTEGER"/>
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[InSpboxRepackView.count("Boxno")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewCriteria
     Name="InSetPackingRepackFindVC"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView"

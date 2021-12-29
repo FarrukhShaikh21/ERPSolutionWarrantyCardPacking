@@ -49,7 +49,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="S">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -214,7 +215,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SET_PACKING">
+    TableName="IN_SET_PACKING"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -234,7 +236,12 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     IsPersistent="false"
-    IsQueriable="false"/>
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.Perbox==null?20:InItems?.Perbox]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </Attribute>
   <Attribute
     Name="txtImeiSerial"
     Precision="80"

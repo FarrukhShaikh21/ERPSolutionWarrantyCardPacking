@@ -344,15 +344,15 @@ public class InSpdetlRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for IncPst, using the alias name IncPst.
      * @return the value of IncPst
      */
-    public BigDecimal getIncPst() {
-        return (BigDecimal) getAttributeInternal(INCPST);
+    public Integer getIncPst() {
+        return (Integer) getAttributeInternal(INCPST);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for IncPst.
      * @param value value to set the IncPst
      */
-    public void setIncPst(BigDecimal value) {
+    public void setIncPst(Integer value) {
         setAttributeInternal(INCPST, value);
     }
 
@@ -360,15 +360,15 @@ public class InSpdetlRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Spboxseq, using the alias name Spboxseq.
      * @return the value of Spboxseq
      */
-    public BigDecimal getSpboxseq() {
-        return (BigDecimal) getAttributeInternal(SPBOXSEQ);
+    public Integer getSpboxseq() {
+        return (Integer) getAttributeInternal(SPBOXSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Spboxseq.
      * @param value value to set the Spboxseq
      */
-    public void setSpboxseq(BigDecimal value) {
+    public void setSpboxseq(Integer value) {
         setAttributeInternal(SPBOXSEQ, value);
     }
 
@@ -376,15 +376,15 @@ public class InSpdetlRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Spdetlseq, using the alias name Spdetlseq.
      * @return the value of Spdetlseq
      */
-    public BigDecimal getSpdetlseq() {
-        return (BigDecimal) getAttributeInternal(SPDETLSEQ);
+    public Integer getSpdetlseq() {
+        return (Integer) getAttributeInternal(SPDETLSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Spdetlseq.
      * @param value value to set the Spdetlseq
      */
-    public void setSpdetlseq(BigDecimal value) {
+    public void setSpdetlseq(Integer value) {
         setAttributeInternal(SPDETLSEQ, value);
     }
 
@@ -408,7 +408,7 @@ public class InSpdetlRepackImpl extends ERPSolGlobalsEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(BigDecimal spdetlseq) {
+    public static Key createPrimaryKey(Integer spdetlseq) {
         return new Key(new Object[] { spdetlseq });
     }
 
@@ -443,6 +443,11 @@ public class InSpdetlRepackImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            System.out.println("indpdet");
+           System.out.println("in sp det-in"+getInSpboxRepack().getAttribute("Pckdetlid"));
+            populateAttributeAsChanged(PCKDETLID, getInSpboxRepack().getAttribute("Pckdetlid"));
+        }
         super.doDML(operation, e);
     }
 }

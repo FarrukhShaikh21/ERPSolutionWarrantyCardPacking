@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -61,6 +62,8 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int PCKDETLID = AttributesEnum.Pckdetlid.index();
     public static final int BOXNO = AttributesEnum.Boxno.index();
     public static final int PCKID = AttributesEnum.Pckid.index();
@@ -83,6 +86,14 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      */
     public InSpboxRepackImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepack");
+    }
+
 
     /**
      * Gets the attribute value for Pckdetlid, using the alias name Pckdetlid.
@@ -152,15 +163,15 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for CreatedDate, using the alias name CreatedDate.
      * @return the value of CreatedDate
      */
-    public Timestamp getCreatedDate() {
-        return (Timestamp) getAttributeInternal(CREATEDDATE);
+    public Date getCreatedDate() {
+        return (Date) getAttributeInternal(CREATEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CreatedDate.
      * @param value value to set the CreatedDate
      */
-    public void setCreatedDate(Timestamp value) {
+    public void setCreatedDate(Date value) {
         setAttributeInternal(CREATEDDATE, value);
     }
 
@@ -184,15 +195,15 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ModifiedDate, using the alias name ModifiedDate.
      * @return the value of ModifiedDate
      */
-    public Timestamp getModifiedDate() {
-        return (Timestamp) getAttributeInternal(MODIFIEDDATE);
+    public Date getModifiedDate() {
+        return (Date) getAttributeInternal(MODIFIEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ModifiedDate.
      * @param value value to set the ModifiedDate
      */
-    public void setModifiedDate(Timestamp value) {
+    public void setModifiedDate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
     }
 
@@ -248,15 +259,15 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for TotalImei, using the alias name TotalImei.
      * @return the value of TotalImei
      */
-    public BigDecimal getTotalImei() {
-        return (BigDecimal) getAttributeInternal(TOTALIMEI);
+    public Integer getTotalImei() {
+        return (Integer) getAttributeInternal(TOTALIMEI);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for TotalImei.
      * @param value value to set the TotalImei
      */
-    public void setTotalImei(BigDecimal value) {
+    public void setTotalImei(Integer value) {
         setAttributeInternal(TOTALIMEI, value);
     }
 
@@ -264,15 +275,15 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Spboxseq, using the alias name Spboxseq.
      * @return the value of Spboxseq
      */
-    public BigDecimal getSpboxseq() {
-        return (BigDecimal) getAttributeInternal(SPBOXSEQ);
+    public Integer getSpboxseq() {
+        return (Integer) getAttributeInternal(SPBOXSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Spboxseq.
      * @param value value to set the Spboxseq
      */
-    public void setSpboxseq(BigDecimal value) {
+    public void setSpboxseq(Integer value) {
         setAttributeInternal(SPBOXSEQ, value);
     }
 
@@ -280,15 +291,15 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Packingseq, using the alias name Packingseq.
      * @return the value of Packingseq
      */
-    public BigDecimal getPackingseq() {
-        return (BigDecimal) getAttributeInternal(PACKINGSEQ);
+    public Integer getPackingseq() {
+        return (Integer) getAttributeInternal(PACKINGSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Packingseq.
      * @param value value to set the Packingseq
      */
-    public void setPackingseq(BigDecimal value) {
+    public void setPackingseq(Integer value) {
         setAttributeInternal(PACKINGSEQ, value);
     }
 
@@ -329,20 +340,14 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
         return (RowIterator) getAttributeInternal(INSPDETLREPACK);
     }
 
+
     /**
      * @param spboxseq key constituent
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(BigDecimal spboxseq) {
+    public static Key createPrimaryKey(Integer spboxseq) {
         return new Key(new Object[] { spboxseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepack");
     }
 
     /**
@@ -376,6 +381,19 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+               System.out.println("in sp box-REPACKING");
+               populateAttributeAsChanged(PCKID ,getInSetPackingRepack().getAttribute("Pckid")); 
+               
+               String pkValue="FUNC_GET_MAX_ID('IN_SPBOX WHERE PCKID=''"+getInSetPackingRepack().getAttribute("Pckid")+"''','LINENO')";
+               System.out.println("this is c");
+               System.out.println(pkValue + "pk value");
+               System.out.println("this is d");
+               String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+               populateAttributeAsChanged(LINENO, Integer.parseInt(result));  
+               populateAttributeAsChanged(PCKDETLID ,getInSetPackingRepack().getAttribute("Pckid")+"-"+getLineno());  
+             
+           }  
         super.doDML(operation, e);
     }
 }

@@ -118,9 +118,9 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InSpdetlView.count("ImeiNo")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InSpdetlView.count("ImeiNo")]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
   <ViewLinkAccessor
     Name="InSetPackingView"

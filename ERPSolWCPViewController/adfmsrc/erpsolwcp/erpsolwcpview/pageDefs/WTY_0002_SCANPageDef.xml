@@ -53,5 +53,7 @@
         <Item Value="txtTotalTransactionIMEI"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="InSpboxRepackDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

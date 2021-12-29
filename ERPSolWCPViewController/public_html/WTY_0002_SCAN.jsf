@@ -56,7 +56,10 @@
                 <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
                     <f:facet name="first">
                         <af:panelBox text="Box" id="pb2" showDisclosure="false">
-                            <f:facet name="toolbar"/>
+                            <f:facet name="toolbar">
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                            </f:facet>
                             <af:inputText value="#{bindings.Boxno.inputValue}" simple="true"
                                           required="#{bindings.Boxno.hints.mandatory}"
                                           columns="#{bindings.Boxno.hints.displayWidth}"
@@ -71,7 +74,7 @@
                                       selectedRowKeys="#{bindings.InSpboxRepackDetCRUD.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.InSpboxRepackDetCRUD.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.InSpboxRepackDetCRUD.rangeSize}" id="t1"
-                                      autoHeightRows="25" scrollPolicy="page" partialTriggers="b1"
+                                      autoHeightRows="25" scrollPolicy="page" partialTriggers="b1 ::b5"
                                       styleClass="AFStretchWidth" varStatus="vs">
                                 <af:column id="c6" width="60" headerText="S.No">
                                     <af:outputText value="#{vs.index+1}" id="ot4"/>
@@ -149,7 +152,7 @@
       }
 
 function handleEnterRepackEvent(evt) {
-alert(3)
+//alert(3)
       var _keyCode = evt.getKeyCode();
 
       //check for Enter Key

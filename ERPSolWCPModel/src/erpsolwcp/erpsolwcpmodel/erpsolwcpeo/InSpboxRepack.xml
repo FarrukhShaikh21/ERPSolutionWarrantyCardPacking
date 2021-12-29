@@ -19,7 +19,6 @@
   <Attribute
     Name="Pckdetlid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="24"
     ColumnName="PCKDETLID"
     SQLType="VARCHAR"
@@ -45,7 +44,6 @@
   </Attribute>
   <Attribute
     Name="Pckid"
-    IsNotNull="true"
     Precision="20"
     ColumnName="PCKID"
     SQLType="VARCHAR"
@@ -72,7 +70,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SPBOX"/>
   <Attribute
@@ -91,7 +89,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="IN_SPBOX"/>
   <Attribute
@@ -102,7 +100,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SPBOX">
+    TableName="IN_SPBOX"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -136,7 +135,7 @@
     Name="TotalImei"
     ColumnName="TOTAL_IMEI"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPBOX"/>
   <Attribute
@@ -144,7 +143,7 @@
     IsNotNull="true"
     ColumnName="SPBOXSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPBOX"
     PrimaryKey="true"/>
@@ -152,7 +151,7 @@
     Name="Packingseq"
     ColumnName="PACKINGSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPBOX"/>
   <Attribute

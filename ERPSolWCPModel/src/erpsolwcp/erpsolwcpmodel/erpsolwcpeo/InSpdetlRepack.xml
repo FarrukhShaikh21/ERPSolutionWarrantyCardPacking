@@ -137,7 +137,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="IN_SPDETL">
+    TableName="IN_SPDETL"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -189,14 +190,14 @@
     Name="IncPst"
     ColumnName="INC_PST"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPDETL"/>
   <Attribute
     Name="Spboxseq"
     ColumnName="SPBOXSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPDETL"/>
   <Attribute
@@ -204,7 +205,7 @@
     IsNotNull="true"
     ColumnName="SPDETLSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="IN_SPDETL"
     PrimaryKey="true"/>

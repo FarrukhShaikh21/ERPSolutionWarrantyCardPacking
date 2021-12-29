@@ -30,7 +30,11 @@
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingScanView"/>
   <ViewUsage
     Name="InSetPackingRepackCRUD"
-    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView"/>
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView">
+    <ViewCriteriaUsage
+      Name="InSetPackingRepackRepackVC"
+      FullName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingRepackView.InSetPackingRepackRepackVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="InSpboxRepackDetCRUD"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpboxRepackView"/>
