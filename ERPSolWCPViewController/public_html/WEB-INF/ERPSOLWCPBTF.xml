@@ -133,6 +133,12 @@
     <view id="WTY_EXCEPTION">
       <page>/WTY_EXCEPTION.jsf</page>
     </view>
+    <method-call id="CreateInsertWTY-0002">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsertWTY-0002</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -155,7 +161,7 @@
       </control-flow-case>
       <control-flow-case id="__45">
         <from-outcome>ERP-ACT-WTY-0002</from-outcome>
-        <to-activity-id>WTY_0002</to-activity-id>
+        <to-activity-id>CreateInsertWTY-0002</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
@@ -283,6 +289,13 @@
       <control-flow-case id="__49">
         <from-outcome>ACT-ERP-WTY-0002-SCAN</from-outcome>
         <to-activity-id>WTY_0002_SCAN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__50">
+      <from-activity-id>CreateInsertWTY-0002</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome>CreateInsertWTY-0002</from-outcome>
+        <to-activity-id>WTY_0002</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -473,7 +473,7 @@
       islink="true"
       id="ControlFlowCase43"
       from="MethodCall12"
-      to="View41">
+      to="MethodCall49">
       <property
          name="fromOutcome">ERP-ACT-WTY-0002</property>
       <property
@@ -481,7 +481,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B56,688.5,418.94824,692.5,632.0459,T50</property>
+         name="sdm:polyPoints">B56,688.5,418.94824,836.01465,576.09766,T50</property>
    </ControlFlowCase>
    <View
       id="View43">
@@ -556,4 +556,27 @@
       <property
          name="x">-113.66016</property>
    </View>
+   <MethodCall
+      id="MethodCall49">
+      <property
+         name="activityId">CreateInsertWTY-0002</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateInsertWTY-0002&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">630.44824</property>
+      <property
+         name="x">836.01465</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase50"
+      from="MethodCall49"
+      to="View41">
+      <property
+         name="fromOutcome">CreateInsertWTY-0002</property>
+      <property
+         name="sdm:polyPoints">L50,795.01465,630.09766,733.5,682.5459,R46</property>
+   </ControlFlowCase>
 </SDM>
