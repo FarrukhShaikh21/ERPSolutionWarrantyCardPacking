@@ -225,7 +225,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.ImeiNo"/>
-      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.Spboxseq"/>
     </AttrArray>
   </Key>
   <Key
@@ -303,7 +302,6 @@
     <validation:ResExpressions
       Name="InSpdetlRuleIMEILength_ResExprList">
       <validation:Expression
-        trustMode="trusted"
         Name="0"><![CDATA[ImeiNo]]></validation:Expression>
     </validation:ResExpressions>
   </validation:LengthValidationBean>

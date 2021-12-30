@@ -538,6 +538,7 @@ public class InSetPackingRepackImpl extends ERPSolGlobalsEntityImpl {
             String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
             populateAttributeAsChanged(PCKID, result);
         } 
+        System.out.println("in set pack insert-REFRESH-UPDATE");
         super.doDML(operation, e);
     }
 

@@ -19,7 +19,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InSpboxRepack"/>
-      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpboxRepack.PkInSpbox"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
@@ -34,7 +33,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InSpdetlRepack"/>
-      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetlRepack.fk_InSpdetlRepack"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

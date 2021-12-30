@@ -661,10 +661,21 @@ public class ERPSolWCPBean {
     }
 
     public void handleEnterRepackEvent(ClientEvent ce) {
+        
+        String message = (String) ce.getParameters().get("fvalue");
+        if (message.trim().length()==0) {
+          System.out.println("calling"+message.length());
+           return;
+        }
+        
+        DBTransaction dbt=(DBTransaction)ERPSolAM.getTransaction();
+        CallableStatement cs=null;
+        OperationBinding binding=ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
+        
         try{
             
         System.out.println("repack 1");
-    String message = (String) ce.getParameters().get("fvalue");
+    
     if (getERPImeiSerial().equals("S")) {
            System.out.println("repack 2");
            ERPSolSerialImei.setNamedWhereClauseParam("P_ADF_SERIAL_NO", message);
@@ -675,15 +686,23 @@ public class ERPSolWCPBean {
                 message = ERPSolSerialImei.first().getAttribute("Imei").toString();
             } catch (Exception e) {
                 // TODO: Add catch code
-                String inputId = "it2"; //here it6 is id for inputtext in1st column.
-                //        System.out.println("inputid "+inputId);
-                FacesContext facesCtx=FacesContext.getCurrentInstance();
-                ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
-                service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
-                "comp.focus()");
-                e.printStackTrace();
+                doERPSolGotoErrorTextItem();
             }
        }
+        System.out.println("begin ?:=pkg_warranty_card.FUNC_INSERT_REPACK_IMEI('"+message+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;");
+            
+        cs=dbt.createCallableStatement("begin ?:=pkg_warranty_card.FUNC_INSERT_REPACK_IMEI('"+message+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;", DBTransaction.DEFAULT);
+        cs.registerOutParameter(1, Types.VARCHAR);
+        cs.executeUpdate();
+        
+            if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
+                    binding.execute();
+                    doERPSolGotoErrorTextItem();
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(cs.getString(1)));
+                    return;
+                }
+            
+                
             System.out.println("repack -five");
         Row ERPsolrow=ERPSolvoImei.createRow();
             System.out.println("repack -sox");
@@ -693,18 +712,12 @@ public class ERPSolWCPBean {
             System.out.println("repack -eight");
         ERPSolvoImei.setCurrentRow(ERPsolrow);
         AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolTotalImei());
-        OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
         binding.execute();
         List errors = binding.getErrors();
         if (!errors.isEmpty()) {
            ERPSolvoImei.getCurrentRow().remove();
            binding.execute();
-           String inputId = "it2"; //here it6 is id for inputtext in1st column.
-           //        System.out.println("inputid "+inputId);
-           FacesContext facesCtx=FacesContext.getCurrentInstance();
-           ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
-           service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
-           "comp.focus()");            
+           doERPSolGotoErrorTextItem();
            return;
        }
 
@@ -722,6 +735,12 @@ public class ERPSolWCPBean {
         }
         catch(Exception erpexc) {
             erpexc.printStackTrace();
+        }
+        finally{
+            try {
+                cs.close();
+            } catch (SQLException e) {
+            }
         }
         
     }
@@ -765,15 +784,30 @@ public class ERPSolWCPBean {
   
  
     public void handleEnterEventRepackBox(ClientEvent ce) {
+         String message = (String) ce.getParameters().get("fvalue");
+   if (message.trim().length()==0) {
+           System.out.println("calling"+message.length());
+            return;
+       }
          DBTransaction dbt=(DBTransaction)ERPSolAM.getTransaction();
          CallableStatement cs=null;
+         OperationBinding binding=null;
     try{
-      String message = (String) ce.getParameters().get("fvalue");
+      
+        System.out.println(message.length() + "msglength");
+        if (message.length()==0) {
+               return;
+//               System.out.println(message.length() + "msglength-1");
+//                doERPSolGotoErrorTextItem();
+//               System.out.println(message.length() + "msglength-2");
+//                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Please Enter Box No."));
+                
+           }
       Row ERPsolrow=ERPSolvoBox.createRow();
       ERPsolrow.setAttribute("Boxno", message);
       ERPSolvoBox.insertRow(ERPsolrow);
       ERPSolvoBox.setCurrentRow(ERPsolrow);
-      OperationBinding binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
+      binding =ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit") ;
       binding.execute();
          List errors = binding.getErrors();
          if (!errors.isEmpty()) {
@@ -784,11 +818,13 @@ public class ERPSolWCPBean {
          }
         
         cs=dbt.createCallableStatement("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;", DBTransaction.DEFAULT);
-        System.out.println("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;");
+//        System.out.println("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;");
         cs.registerOutParameter(1, Types.VARCHAR);
         cs.executeUpdate();
         dbt.commit();
         if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
+                ERPSolvoBox.getCurrentRow().remove();
+                binding.execute();
                 doERPSolGotoErrorTextItem();
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(cs.getString(1)));
                 return;
@@ -801,6 +837,8 @@ public class ERPSolWCPBean {
          "comp.focus()");      // javascript method is used
     }
     catch(Exception erpexcep) {//for error cursor should move to it2 field
+        ERPSolvoBox.getCurrentRow().remove();
+        binding.execute();
         doERPSolGotoErrorTextItem();// javascript            
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(erpexcep.getMessage()));
         erpexcep.printStackTrace();
@@ -810,7 +848,7 @@ public class ERPSolWCPBean {
                 cs.close();
             } catch (SQLException sqle) {
                 // TODO: Add catch code
-                sqle.printStackTrace();
+//                sqle.printStackTrace();
             }
     }
      }

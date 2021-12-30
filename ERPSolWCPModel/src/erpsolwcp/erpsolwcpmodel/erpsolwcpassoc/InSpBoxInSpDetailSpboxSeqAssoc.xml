@@ -19,7 +19,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InSpbox"/>
-      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpbox.PkInSpbox"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
@@ -34,7 +33,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InSpdetl"/>
-      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSpdetl.fk_InSpdetl"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

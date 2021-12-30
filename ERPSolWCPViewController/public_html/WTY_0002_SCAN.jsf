@@ -58,7 +58,7 @@
                         <af:panelBox text="Box" id="pb2" showDisclosure="false">
                             <f:facet name="toolbar">
                                 <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
-                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5" rendered="false"/>
                             </f:facet>
                             <af:inputText value="#{bindings.Boxno.inputValue}" simple="true"
                                           required="#{bindings.Boxno.hints.mandatory}"

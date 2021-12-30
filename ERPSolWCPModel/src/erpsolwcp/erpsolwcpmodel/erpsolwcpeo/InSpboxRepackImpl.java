@@ -124,7 +124,7 @@ public class InSpboxRepackImpl extends ERPSolGlobalsEntityImpl {
      * @param value value to set the Boxno
      */
     public void setBoxno(String value) {
-        setAttributeInternal(BOXNO, value);
+        setAttributeInternal(BOXNO, value==null?null:value.toUpperCase());
     }
 
     /**
