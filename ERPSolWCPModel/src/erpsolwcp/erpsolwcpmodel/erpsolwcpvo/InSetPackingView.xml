@@ -236,10 +236,8 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InSpboxView.sum("txtTotalImei")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[InSpboxView.sum("txtTotalImei")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -259,10 +257,8 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InSpboxView.count("Boxno")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[InSpboxView.count("Boxno")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
   <ViewAttribute
     Name="txtPerBoxImei"
@@ -353,6 +349,42 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="InSetPackingViewFreshVC"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InSetPackingViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Ptype"
+        ViewAttribute="Ptype"
+        Operator="="
+        Conjunction="AND"
+        Value="F"
+        UpperColumns="0"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
