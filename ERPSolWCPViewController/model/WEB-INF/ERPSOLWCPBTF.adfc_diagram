@@ -179,7 +179,7 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">T56,591.0,463.09766,681.5,418.94824,B44</property>
+         name="sdm:polyPoints">T56,591.0,463.09766,678.0,418.94824,B39</property>
    </ControlFlowCase>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule17">
@@ -516,7 +516,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0002-SCAN-BACK</property>
       <property
-         name="sdm:polyPoints">L46,901.0215,768.94824,733.5,686.0459,R50</property>
+         name="sdm:polyPoints">L46,901.0215,768.94824,733.5,689.5459,R54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall46">
@@ -578,5 +578,30 @@
          name="fromOutcome">CreateInsertWTY-0002</property>
       <property
          name="sdm:polyPoints">L50,795.01465,630.09766,733.5,682.5459,R46</property>
+   </ControlFlowCase>
+   <View
+      id="View51">
+      <property
+         name="activityId">WTY-0016</property>
+      <property
+         name="page">/WTY-0016.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>WTY-0016&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">701.7988</property>
+      <property
+         name="x">1128.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase52"
+      from="MethodCall12"
+      to="View51">
+      <property
+         name="fromOutcome">ERP-ACT-WTY-0016</property>
+      <property
+         name="sdm:polyPoints">B61,692.0,418.94824,1087.5,701.44824,L50</property>
    </ControlFlowCase>
 </SDM>
