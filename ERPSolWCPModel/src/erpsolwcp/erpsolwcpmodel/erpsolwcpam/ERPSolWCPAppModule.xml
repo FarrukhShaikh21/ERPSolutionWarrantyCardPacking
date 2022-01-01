@@ -41,6 +41,9 @@
   <ViewUsage
     Name="InSpdetlRepackDetCRUD"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSpdetlRepackView"/>
+  <ViewUsage
+    Name="VWWarrantyCardReportRO"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWWarrantyCardReportQVO"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
