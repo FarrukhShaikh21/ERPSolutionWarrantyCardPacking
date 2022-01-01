@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="VWUnsubmitWarrantyCardQVO"
+  Name="VWDocumentForUnsubmitQVO"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
@@ -15,28 +15,16 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWUnsubmitWarrantyCardQVO_LABEL"/>
+        ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWDocumentForUnsubmitQVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="P_ADF_PROJECTID"
-    Kind="where"
-    Type="java.lang.String"
-    DefaultValue="WTY">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Variable>
-  <Variable
-    Name="P_ADF_USERID"
+    Name="P_ADF_LOCATIONID"
     Kind="where"
     Type="java.lang.String">
     <TransientExpression
       trustMode="untrusted"
-      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserLocationCode()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYHINT
@@ -44,61 +32,72 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[select m.DocTypeId, m.module_name 
-  from sys_program m, sys_users_detail d 
- where m.moduleid = d.moduleid 
-   and nvl(d.unsubmit, 'N') = 'Y' 
-   and m.DocTypeId is not null 
-   and m.ProjectId = :P_ADF_PROJECTID 
-   and d.userid = :P_ADF_USERID]]></SQLQuery>
+  <Variable
+    Name="P_ADF_DOCTYPEID"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[select m.pckid Doc_id, 'Model: '||i.model_no||' Date: '||m.pdate description 
+from IN_SET_PACKING m, in_items i 
+where m.itemid=i.itemid 
+  and m.ptype = 'F'  
+  and :P_ADF_DOCTYPEID = 'WCF'  
+  and m.posted = 'Y'  
+  and m.LocationId = :P_ADF_LOCATIONID]]></SQLQuery>
   <ViewAttribute
-    Name="Doctypeid"
+    Name="DocId"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="255"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="DOCTYPEID"
-    Expression="DOCTYPEID"
+    AliasName="DOC_ID"
+    Expression="DOC_ID"
     SQLType="VARCHAR">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="15"/>
+      <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWUnsubmitWarrantyCardQVO.Doctypeid_LABEL"/>
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWDocumentForUnsubmitQVO.DocId_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ModuleName"
+    Name="Description"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="75"
+    Precision="79"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="MODULE_NAME"
-    Expression="MODULE_NAME"
+    AliasName="DESCRIPTION"
+    Expression="DESCRIPTION"
     SQLType="VARCHAR">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="75"/>
+      <Attr Name="_DisplaySize" Value="79"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWUnsubmitWarrantyCardQVO.ModuleName_LABEL"/>
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWDocumentForUnsubmitQVO.Description_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
-    <Item Value="Doctypeid"/>
+    <Item Value="DocId"/>
   </AttrArray>
   <ResourceBundle>
     <PropertiesBundle

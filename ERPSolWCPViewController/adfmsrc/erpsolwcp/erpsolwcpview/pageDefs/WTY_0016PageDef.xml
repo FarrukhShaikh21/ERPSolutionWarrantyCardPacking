@@ -16,5 +16,12 @@
     </attributeValues>
     <list IterBinding="VWWarrantyCardReportROIterator" StaticList="false" Uses="LovtxtDocTypeId" id="txtDocTypeId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="VWWarrantyCardReportROIterator" StaticList="false" Uses="LovtxtRecordID"
+                  id="txtRecordID"/>
+    <attributeValues IterBinding="VWWarrantyCardReportROIterator" id="txtRecordDescription">
+      <AttrNames>
+        <Item Value="txtRecordDescription"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -23,6 +23,26 @@
                             <f:selectItems value="#{bindings.txtDocTypeId.items}" id="si1"/>
                             <f:validator binding="#{bindings.txtDocTypeId.validator}"/>
                         </af:selectOneChoice>
+                        <af:inputComboboxListOfValues id="txtRecordIDId"
+                                                      popupTitle="Search and Select: #{bindings.txtRecordID.hints.label}"
+                                                      value="#{bindings.txtRecordID.inputValue}"
+                                                      label="#{bindings.txtRecordID.hints.label}"
+                                                      model="#{bindings.txtRecordID.listOfValuesModel}"
+                                                      required="#{bindings.txtRecordID.hints.mandatory}"
+                                                      columns="#{bindings.txtRecordID.hints.displayWidth}"
+                                                      shortDesc="#{bindings.txtRecordID.hints.tooltip}"
+                                                      autoSubmit="true" contentStyle="width:100%">
+                            <f:validator binding="#{bindings.txtRecordID.validator}"/>
+                        </af:inputComboboxListOfValues>
+                        <af:inputText value="#{bindings.txtRecordDescription.inputValue}"
+                                      label="#{bindings.txtRecordDescription.hints.label}"
+                                      required="#{bindings.txtRecordDescription.hints.mandatory}"
+                                      columns="#{bindings.txtRecordDescription.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtRecordDescription.hints.precision}"
+                                      shortDesc="#{bindings.txtRecordDescription.hints.tooltip}" id="it2"
+                                      readOnly="true" partialTriggers="txtRecordIDId">
+                            <f:validator binding="#{bindings.txtRecordDescription.validator}"/>
+                        </af:inputText>
                     </af:panelFormLayout>
                 </f:facet>
                 <f:facet name="erptempleft"/>
