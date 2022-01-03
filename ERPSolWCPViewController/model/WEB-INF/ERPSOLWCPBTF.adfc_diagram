@@ -156,7 +156,7 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">L50,808.0,279.44824,584.0,459.2544,T44</property>
+         name="sdm:polyPoints">L50,808.0,279.44824,584.0,459.29248,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall15">
@@ -481,7 +481,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B56,688.5,418.94824,836.01465,576.09766,T50</property>
+         name="sdm:polyPoints">B50,685.0,422.1585,836.01465,576.09766,T50</property>
    </ControlFlowCase>
    <View
       id="View43">
@@ -582,11 +582,11 @@
    <View
       id="View51">
       <property
-         name="activityId">WTY-0016</property>
+         name="activityId">WTY_0016</property>
       <property
-         name="page">/WTY-0016.jsf</property>
+         name="page">/WTY_0016.jsf</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>WTY-0016&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>WTY_0016&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property

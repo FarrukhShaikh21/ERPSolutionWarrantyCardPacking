@@ -139,8 +139,8 @@
         <fixed-outcome>CreateInsertWTY-0002</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="WTY-0016">
-      <page>/WTY-0016.jsf</page>
+    <view id="WTY_0016">
+      <page>/WTY_0016.jsf</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
@@ -168,7 +168,7 @@
       </control-flow-case>
       <control-flow-case id="__52">
         <from-outcome>ERP-ACT-WTY-0016</from-outcome>
-        <to-activity-id>WTY-0016</to-activity-id>
+        <to-activity-id>WTY_0016</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">

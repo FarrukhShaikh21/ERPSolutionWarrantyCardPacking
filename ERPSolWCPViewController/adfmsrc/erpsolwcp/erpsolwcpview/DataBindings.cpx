@@ -26,7 +26,7 @@
     <page path="/WTY_0002_SCAN.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0002_SCANPageDef"/>
     <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@CreateInsertWTY-0002"
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef1"/>
-    <page path="/WTY-0016.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0016PageDef"/>
+    <page path="/WTY_0016.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0016PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
