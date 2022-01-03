@@ -85,6 +85,15 @@
                           <af:outputLabel value="#{bindings.Pckid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Packingseq.inputValue}"
+                                        label="#{bindings.Packingseq.hints.label}"
+                                        required="#{bindings.Packingseq.hints.mandatory}"
+                                        columns="#{bindings.Packingseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Packingseq.hints.precision}"
+                                        shortDesc="#{bindings.Packingseq.hints.tooltip}" id="it11" rendered="false">
+                            <f:validator binding="#{bindings.Packingseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Packingseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Pckid.inputValue}" simple="true"
                                         required="#{bindings.Pckid.hints.mandatory}"
                                         columns="#{bindings.Pckid.hints.displayWidth}"

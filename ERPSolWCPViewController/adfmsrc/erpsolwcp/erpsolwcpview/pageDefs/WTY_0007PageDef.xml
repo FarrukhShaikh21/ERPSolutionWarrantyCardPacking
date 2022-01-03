@@ -131,5 +131,10 @@
         <Item Value="txtImeiSerial"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="Packingseq">
+      <AttrNames>
+        <Item Value="Packingseq"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

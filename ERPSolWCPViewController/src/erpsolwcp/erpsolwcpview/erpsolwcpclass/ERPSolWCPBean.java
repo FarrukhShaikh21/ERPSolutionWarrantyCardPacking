@@ -1000,8 +1000,57 @@ public class ERPSolWCPBean {
     public Integer getERPSolPerBox() {
         return ERPSolPerBox;
     }
+    
+    public String ERPSoldoAssignBindigs(){
+        OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
+        binding.execute();
+        
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        
+        
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("InSetPackingCRUDIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOWCP");
+        if (vo!=null) {
+            vo.remove();
+        }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOWCP", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='FORM_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOWCP", "select PATH PATH FROM SYSTEM a where a.PROJECTID='WTY' ");
+        vo.executeQuery();
+        String PFormURL=vo.first().getAttribute(0).toString()+"FORMS\\\\";
+        System.out.println(PFormURL);
+        PFormURL=PFormURL+"WTY_PACKING_FRESH.fmx";
+        
+        
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        //        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+        AttributeBinding ERPPackingid        =(AttributeBinding)ERPSolbc.getControlBinding("Pckid");
+        AttributeBinding ERPPackingseq        =(AttributeBinding)ERPSolbc.getControlBinding("Packingseq");
+        
+        String reportParameter="";
+        //        reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        
+        pReportUrl=pReportUrl.replace("<P_FORM_NAME>", PFormURL);
+        pReportUrl=pReportUrl.replace("<P_PRIMARY_KEY>", ERPPackingseq.getInputValue().toString());
+        pReportUrl=pReportUrl.replace("<P_USERID>", ERPSolGlobClassModel.doGetUserCode());
+        
+        System.out.println(PFormURL);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);                                           
+                                           
+        return null;
+    }
 
+    /* 
     public String  ERPSoldoAssignBindigs() {
+        
          ERPSolbc = ERPSolGlobalViewBean.doGetERPBindings();
          ERPSolibImei=(DCIteratorBinding)ERPSolbc.get("InSpdetlDetCRUDIterator");
          ERPSolvoImei=ERPSolibImei.getViewObject();
@@ -1010,10 +1059,9 @@ public class ERPSolWCPBean {
          ERPSolibBox=(DCIteratorBinding)ERPSolbc.get("InSpboxDetCRUDIterator");
          ERPSolvoBox=ERPSolibBox.getViewObject();
         
-//        getERPSolBoxScanned().clear();
-//        getERPSolImeiScanned().clear();
+
          return "ACT-ERP-WTY-0007-SCAN";
-    }
+    } */
 
     public String  ERPSoldoAssignRepackBindigs() {
          ERPSolbc = ERPSolGlobalViewBean.doGetERPBindings();
