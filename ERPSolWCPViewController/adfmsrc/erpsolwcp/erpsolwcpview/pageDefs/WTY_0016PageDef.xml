@@ -23,5 +23,9 @@
         <Item Value="txtRecordDescription"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doERPSolUnsubmitWCP" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolUnsubmitWCP" IsViewObjectMethod="true" DataControl="ERPSolWCPAppModuleDataControl"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.VWWarrantyCardReportRO"
+                  ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doERPSolUnsubmitWCP_ERPSolWCPAppModuleDataControl_VWWarrantyCardReportRO_doERPSolUnsubmitWCP_result"/>
   </bindings>
 </pageDefinition>

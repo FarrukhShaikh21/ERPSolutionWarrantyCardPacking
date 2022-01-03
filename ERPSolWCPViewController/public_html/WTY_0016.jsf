@@ -43,6 +43,8 @@
                                       readOnly="true" partialTriggers="txtRecordIDId">
                             <f:validator binding="#{bindings.txtRecordDescription.validator}"/>
                         </af:inputText>
+                        <af:button actionListener="#{bindings.doERPSolUnsubmitWCP.execute}" text="Un Supervise"
+                                   disabled="#{!bindings.doERPSolUnsubmitWCP.enabled}" id="b1"/>
                     </af:panelFormLayout>
                 </f:facet>
                 <f:facet name="erptempleft"/>

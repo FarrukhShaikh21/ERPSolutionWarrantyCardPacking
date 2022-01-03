@@ -8,9 +8,13 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWWarrantyCardReportQVOImpl"
+  ComponentInterface="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.common.VWWarrantyCardReportQVO"
+  ClientProxyName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.client.VWWarrantyCardReportQVOClient">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -95,7 +99,7 @@
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="txtDocTypeId"
     IsSelected="false"
@@ -181,6 +185,16 @@
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doERPSolUnsubmitWCP"
+      MethodName="doERPSolUnsubmitWCP">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
