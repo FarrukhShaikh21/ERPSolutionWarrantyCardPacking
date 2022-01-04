@@ -15,15 +15,6 @@
                 </f:facet>
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
-                <af:outputText value="#{bindings.txtSumtxtTotalBox.inputValue}"
-                               shortDesc="#{bindings.txtSumtxtTotalBox.hints.tooltip}" id="ot11" rendered="false">
-                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumtxtTotalBox.format}"/>
-                </af:outputText>
-                <af:outputText value="#{bindings.txtSumtxtTotalTransactionIMEI.inputValue}"
-                               shortDesc="#{bindings.txtSumtxtTotalTransactionIMEI.hints.tooltip}" id="ot12"
-                               rendered="false">
-                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumtxtTotalTransactionIMEI.format}"/>
-                </af:outputText>
                 <af:panelGroupLayout layout="vertical" id="pgl1">
                     <af:query id="qryId1" headerText="Search" disclosed="true"
                               value="#{bindings.InSetPackingViewFindVCQuery.queryDescriptor}"
@@ -124,14 +115,7 @@
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.InSetPackingCRUD.hints.txtTotalBox.format}"/>
                                 </af:outputText>
-                                <f:facet name="footer">
-                                    <af:outputText value="#{bindings.txtSumtxtTotalBox.inputValue}"
-                                                   shortDesc="#{bindings.InSetPackingCRUD.hints.txtSumtxtTotalBox.tooltip}"
-                                                   id="ot9" inlineStyle="font-weight:bold">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.InSetPackingCRUD.hints.txtSumtxtTotalBox.format}"/>
-                                    </af:outputText>
-                                </f:facet>
+                                <f:facet name="footer"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.txtTotalTransactionIMEI.name}"
                                        filterable="true"
@@ -143,14 +127,7 @@
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.InSetPackingCRUD.hints.txtTotalTransactionIMEI.format}"/>
                                 </af:outputText>
-                                <f:facet name="footer">
-                                    <af:outputText value="#{bindings.txtSumtxtTotalTransactionIMEI.inputValue}"
-                                                   shortDesc="#{bindings.InSetPackingCRUD.hints.txtSumtxtTotalTransactionIMEI.tooltip}"
-                                                   id="ot10" inlineStyle="font-weight:bold" truncateAt="0">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.InSetPackingCRUD.hints.txtSumtxtTotalTransactionIMEI.format}"/>
-                                    </af:outputText>
-                                </f:facet>
+                                <f:facet name="footer"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.InSetPackingCRUD.hints.Posted.name}" filterable="true"
                                        headerText="#{bindings.InSetPackingCRUD.hints.Posted.label}" id="resId1c9">

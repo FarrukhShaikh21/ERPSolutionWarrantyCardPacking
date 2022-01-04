@@ -27,15 +27,5 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtSumtxtTotalBox">
-      <AttrNames>
-        <Item Value="txtSumtxtTotalBox"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtSumtxtTotalTransactionIMEI">
-      <AttrNames>
-        <Item Value="txtSumtxtTotalTransactionIMEI"/>
-      </AttrNames>
-    </attributeValues>
   </bindings>
 </pageDefinition>

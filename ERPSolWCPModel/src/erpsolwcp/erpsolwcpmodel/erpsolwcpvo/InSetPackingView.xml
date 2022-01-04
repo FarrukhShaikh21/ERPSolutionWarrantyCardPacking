@@ -292,8 +292,6 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
-    <TransientExpression><![CDATA[getRowSet().sum("txtTotalBox")]]></TransientExpression>
-    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -312,12 +310,7 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
-    SQLType="INTEGER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().sum("txtTotalTransactionIMEI")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
-  </ViewAttribute>
+    SQLType="INTEGER"/>
   <ViewCriteria
     Name="InSetPackingViewFindVC"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"
