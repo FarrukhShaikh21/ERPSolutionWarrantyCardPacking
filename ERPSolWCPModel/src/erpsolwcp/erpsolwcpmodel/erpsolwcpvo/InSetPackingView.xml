@@ -259,6 +259,12 @@
     SQLType="INTEGER">
     <TransientExpression><![CDATA[InSpboxView.count("Boxno")]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView.txtTotalBox_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="txtPerBoxImei"
@@ -276,6 +282,42 @@
     EntityAttrName="txtImeiSerial"
     EntityUsage="InSetPacking"
     AliasName="TXT_IMEI_SERIAL"/>
+  <ViewAttribute
+    Name="txtSumtxtTotalBox"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression><![CDATA[getRowSet().sum("txtTotalBox")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView.txtSumtxtTotalBox_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumtxtTotalTransactionIMEI"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[getRowSet().sum("txtTotalTransactionIMEI")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewCriteria
     Name="InSetPackingViewFindVC"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InSetPackingView"

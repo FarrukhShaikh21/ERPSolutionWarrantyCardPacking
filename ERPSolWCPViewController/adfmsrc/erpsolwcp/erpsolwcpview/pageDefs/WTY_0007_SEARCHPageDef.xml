@@ -22,8 +22,20 @@
           <Item Value="txtTotalBox"/>
           <Item Value="txtTotalTransactionIMEI"/>
           <Item Value="Posted"/>
+          <Item Value="txtSumtxtTotalBox"/>
+          <Item Value="txtSumtxtTotalTransactionIMEI"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtSumtxtTotalBox">
+      <AttrNames>
+        <Item Value="txtSumtxtTotalBox"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InSetPackingCRUDIterator" id="txtSumtxtTotalTransactionIMEI">
+      <AttrNames>
+        <Item Value="txtSumtxtTotalTransactionIMEI"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

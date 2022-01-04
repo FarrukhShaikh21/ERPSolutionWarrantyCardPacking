@@ -50,6 +50,8 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
         txtTotalBox,
         txtPerBoxImei,
         txtImeiSerial,
+        txtSumtxtTotalBox,
+        txtSumtxtTotalTransactionIMEI,
         InSpboxView,
         InItemsView,
         InSetPackingScanView,
@@ -104,6 +106,8 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
     public static final int TXTTOTALBOX = AttributesEnum.txtTotalBox.index();
     public static final int TXTPERBOXIMEI = AttributesEnum.txtPerBoxImei.index();
     public static final int TXTIMEISERIAL = AttributesEnum.txtImeiSerial.index();
+    public static final int TXTSUMTXTTOTALBOX = AttributesEnum.txtSumtxtTotalBox.index();
+    public static final int TXTSUMTXTTOTALTRANSACTIONIMEI = AttributesEnum.txtSumtxtTotalTransactionIMEI.index();
     public static final int INSPBOXVIEW = AttributesEnum.InSpboxView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int INSETPACKINGSCANVIEW = AttributesEnum.InSetPackingScanView.index();
@@ -490,6 +494,22 @@ public class InSetPackingViewRowImpl extends ViewRowImpl {
      */
     public void settxtImeiSerial(String value) {
         setAttributeInternal(TXTIMEISERIAL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumtxtTotalBox.
+     * @return the txtSumtxtTotalBox
+     */
+    public Integer gettxtSumtxtTotalBox() {
+        return (Integer) getAttributeInternal(TXTSUMTXTTOTALBOX);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumtxtTotalTransactionIMEI.
+     * @return the txtSumtxtTotalTransactionIMEI
+     */
+    public Integer gettxtSumtxtTotalTransactionIMEI() {
+        return (Integer) getAttributeInternal(TXTSUMTXTTOTALTRANSACTIONIMEI);
     }
 
     /**
