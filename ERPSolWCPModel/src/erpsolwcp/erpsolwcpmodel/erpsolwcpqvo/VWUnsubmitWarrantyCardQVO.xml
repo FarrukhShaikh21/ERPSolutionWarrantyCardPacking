@@ -34,15 +34,15 @@
     Name="P_ADF_USERID"
     Kind="where"
     Type="java.lang.String">
-    <TransientExpression
-      trustMode="untrusted"
-      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYHINT
           Value="Hide"/>
       </SchemaBasedProperties>
     </Properties>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
   </Variable>
   <SQLQuery><![CDATA[select m.DocTypeId, m.module_name 
   from sys_program m, sys_users_detail d 

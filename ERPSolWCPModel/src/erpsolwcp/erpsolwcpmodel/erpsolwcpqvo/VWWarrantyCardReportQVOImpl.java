@@ -25,8 +25,8 @@ public class VWWarrantyCardReportQVOImpl extends ViewObjectImpl implements VWWar
     }
     
     public void doERPSolUnsubmitWCP(){
-            CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_WARRANTY_CARD.FUNC_SUBMIT_WARRANTY_CARD('"+this.first().getAttribute("Pckid")+"','"+this.first().getAttribute("txtDocTypeId")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
-            System.out.println("begin ?:=PKG_WARRANTY_CARD.FUNC_SUBMIT_WARRANTY_CARD('"+this.first().getAttribute("Pckid")+"','"+this.first().getAttribute("txtDocTypeId")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
+            CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_WARRANTY_CARD.FUNC_UNSUBMIT_WARRANTY_CARD('"+this.first().getAttribute("txtRecordID")+"','"+this.first().getAttribute("txtDocTypeId")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
+            System.out.println("begin ?:=PKG_WARRANTY_CARD.FUNC_UNSUBMIT_WARRANTY_CARD('"+this.first().getAttribute("txtRecordID")+"','"+this.first().getAttribute("txtDocTypeId")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
             try {
                 cs.registerOutParameter(1, Types.VARCHAR);
                 cs.executeUpdate();
@@ -37,6 +37,7 @@ public class VWWarrantyCardReportQVOImpl extends ViewObjectImpl implements VWWar
                 throw new JboException("Unable to Unsupervise ");
             }
             finally{
+                System.out.println("finally is being called");
                 try {
                     cs.close();
                 } catch (SQLException e) {

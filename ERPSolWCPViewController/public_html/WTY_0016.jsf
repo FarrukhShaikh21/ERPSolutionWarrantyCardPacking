@@ -31,8 +31,10 @@
                                                       required="#{bindings.txtRecordID.hints.mandatory}"
                                                       columns="#{bindings.txtRecordID.hints.displayWidth}"
                                                       shortDesc="#{bindings.txtRecordID.hints.tooltip}"
-                                                      autoSubmit="true" contentStyle="width:100%">
+                                                      autoSubmit="true" contentStyle="width:100%"
+                                                      partialTriggers="soc1">
                             <f:validator binding="#{bindings.txtRecordID.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolGetAutoSuggestedUnsubmitWCP}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputText value="#{bindings.txtRecordDescription.inputValue}"
                                       label="#{bindings.txtRecordDescription.hints.label}"

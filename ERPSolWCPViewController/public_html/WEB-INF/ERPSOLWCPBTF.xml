@@ -142,6 +142,18 @@
     <view id="WTY_0016">
       <page>/WTY_0016.jsf</page>
     </view>
+    <method-call id="ExeSolWCPReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSolWCPReport">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -175,7 +187,7 @@
       <from-activity-id>ExeSolWCPTransaction</from-activity-id>
       <control-flow-case id="__13">
         <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
-        <to-activity-id>ERPSolWCPMain</to-activity-id>
+        <to-activity-id>ExeSolWCPReverse</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">
@@ -303,6 +315,20 @@
       <control-flow-case id="__51">
         <from-outcome>CreateInsertWTY-0002</from-outcome>
         <to-activity-id>WTY_0002</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id>ExeSolWCPReverse</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ExeSolWCPReport</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__55">
+      <from-activity-id>ExeSolWCPReport</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ERPSolWCPMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

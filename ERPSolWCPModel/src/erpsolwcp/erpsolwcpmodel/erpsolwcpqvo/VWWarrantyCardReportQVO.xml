@@ -162,6 +162,10 @@
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtDocTypeId"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="txtRecordDescription"
@@ -178,9 +182,13 @@
         <LABEL
           ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWWarrantyCardReportQVO.txtRecordDescription_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtDocTypeId"/>
+    </Dependencies>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>

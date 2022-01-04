@@ -92,7 +92,7 @@ where m.itemid=i.itemid
         <LABEL
           ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWDocumentForUnsubmitQVO.Description_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -44,6 +44,9 @@
   <ViewUsage
     Name="VWWarrantyCardReportRO"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWWarrantyCardReportQVO"/>
+  <ViewUsage
+    Name="VWDocumentForUnsubmitAutoSuggestRO"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWDocumentForUnsubmitQVO"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"

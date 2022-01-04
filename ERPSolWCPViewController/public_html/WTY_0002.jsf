@@ -22,7 +22,7 @@
                           valueChangeListener="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolIMEIVce}" autoSubmit="true"
                           binding="#{pageFlowScope.ERPSolWCPPageFlowBean.rip}" rows="1" partialTriggers="it9"
                           maximumLength="15" rendered="false"/>                          
-            <af:panelGridLayout id="pgl3">
+            <af:panelGridLayout id="pgl3" partialTriggers="b15">
               <af:gridRow id="gr3">
                 <af:gridCell id="gc5" halign="stretch" valign="middle" styleClass="ERPSolFormEntryAreaHeader">
                   <af:panelGridLayout id="pgl4">
