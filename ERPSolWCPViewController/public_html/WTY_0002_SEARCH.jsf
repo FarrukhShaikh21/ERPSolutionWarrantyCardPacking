@@ -2,6 +2,81 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="WTY_0002_SEARCH.jsf" id="d1">
-        <af:form id="f1"></af:form>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text="InSetPackingRepack" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.InSetPackingRepackFindVCQuery.queryDescriptor}"
+                              model="#{bindings.InSetPackingRepackFindVCQuery.queryModel}"
+                              queryListener="#{bindings.InSetPackingRepackFindVCQuery.processQuery}"
+                              queryOperationListener="#{bindings.InSetPackingRepackFindVCQuery.processQueryOperation}"
+                              resultComponentId="::resId1" saveQueryMode="hidden"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:link text="Back To Repacking" id="l2" partialSubmit="true" iconPosition="leading"
+                                     icon="#{resource['images:imgExitForm.png']}"/>
+                        </af:toolbar>
+                    </f:facet>
+                </af:panelHeader>
+                <af:table value="#{bindings.InSetPackingRepackCRUD.collectionModel}" var="row"
+                          rows="#{bindings.InSetPackingRepackCRUD.rangeSize}"
+                          emptyText="#{bindings.InSetPackingRepackCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.InSetPackingRepackCRUD.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.InSetPackingRepackCRUD.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.InSetPackingRepackCRUD.rangeSize}" id="resId1">
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.Pckid.label}" id="resId1c1">
+                        <af:link text="#{row.Pckid}" id="l1" action="ACT-ERP-WTY-0002-SEARCH-BACK"/>
+                        <af:outputText value="#{row.Pckid}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.Pckid.tooltip}" id="ot1"
+                                       rendered="false"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.Pdate.label}" id="resId1c2">
+                        <af:outputText value="#{row.Pdate}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.Pdate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="#{bindings.InSetPackingRepackCRUD.hints.Pdate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.Locationid.label}" id="resId1c3">
+                        <af:outputText value="#{row.Locationid}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.Locationid.tooltip}"
+                                       id="ot3"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.Itemid.label}" id="resId1c4">
+                        <af:outputText value="#{row.Itemid}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.Itemid.tooltip}" id="ot4"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.txtItemName.label}" id="resId1c5">
+                        <af:outputText value="#{row.txtItemName}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.txtItemName.tooltip}"
+                                       id="ot5"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.Posted.label}" id="resId1c6">
+                        <af:selectOneChoice value="#{row.bindings.Posted.inputValue}"
+                                            label="#{row.bindings.Posted.label}"
+                                            required="#{bindings.InSetPackingRepackCRUD.hints.Posted.mandatory}"
+                                            shortDesc="#{bindings.InSetPackingRepackCRUD.hints.Posted.tooltip}"
+                                            readOnly="true" id="soc1">
+                            <f:selectItems value="#{row.bindings.Posted.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.Posted.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.Remarks.label}" id="resId1c7"
+                               width="200" minimumWidth="12">
+                        <af:outputText value="#{row.Remarks}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.Remarks.tooltip}" id="ot6"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.InSetPackingRepackCRUD.hints.txtTotalBox.label}" id="resId1c8">
+                        <af:outputText value="#{row.txtTotalBox}"
+                                       shortDesc="#{bindings.InSetPackingRepackCRUD.hints.txtTotalBox.tooltip}"
+                                       id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.InSetPackingRepackCRUD.hints.txtTotalBox.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelGroupLayout>
+        </af:form>
     </af:document>
 </f:view>

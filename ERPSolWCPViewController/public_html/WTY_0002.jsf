@@ -46,7 +46,7 @@
                         <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
                                    iconPosition="top" action="ACT-ERP-CLOSE-FORM-WCP"/>
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
-                                   action="ACT-ERP-SEARCH-WTY-0007"/>
+                                   action="ACT-ERP-WTY-0002-SEARCH"/>
                         <af:button text="Print" id="b7"
                                    action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCRefreshReport}"
                                    icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"

@@ -154,6 +154,9 @@
         <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="WTY_0002_SEARCH">
+      <page>/WTY_0002_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -295,6 +298,10 @@
         <from-outcome>ACT-ERP-WTY-0002-SCAN</from-outcome>
         <to-activity-id>ACT-ERP-WTY-0002-COMMIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__57">
+        <from-outcome>ACT-ERP-WTY-0002-SEARCH</from-outcome>
+        <to-activity-id>WTY_0002_SEARCH</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__46">
       <from-activity-id>WTY_0002_SCAN</from-activity-id>
@@ -329,6 +336,13 @@
       <control-flow-case id="__56">
         <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
         <to-activity-id>ERPSolWCPMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__58">
+      <from-activity-id>WTY_0002_SEARCH</from-activity-id>
+      <control-flow-case id="__59">
+        <from-outcome>ACT-ERP-WTY-0002-SEARCH-BACK</from-outcome>
+        <to-activity-id>WTY_0002</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

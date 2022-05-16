@@ -249,10 +249,8 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InSpboxRepackView.sum("txtTotalImei")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[InSpboxRepackView.sum("txtTotalImei")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
   <ViewAttribute
     Name="txtTotalBox"
@@ -264,10 +262,8 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InSpboxRepackView.count("Boxno")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[InSpboxRepackView.count("Boxno")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
   <ViewCriteria
     Name="InSetPackingRepackFindVC"
@@ -302,6 +298,12 @@
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
+        Name="Locationid"
+        ViewAttribute="Locationid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="Pdate"
         ViewAttribute="Pdate"
         Operator="BETWEEN"
@@ -313,6 +315,53 @@
         Operator="="
         Conjunction="AND"
         Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InSetPackingRepackFindVC_InSetPackingRepackViewCriteria_row_0_Createdby"
+        ViewAttribute="Createdby"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InSetPackingRepackFindVC_InSetPackingRepackViewCriteria_row_0_CreatedDate"
+        ViewAttribute="CreatedDate"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InSetPackingRepackFindVC_InSetPackingRepackViewCriteria_row_0_AllowedWpr"
+        ViewAttribute="AllowedWpr"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InItemsView"
+        ViewAttribute="InItemsView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="InItemsViewNestedCriteria"
+          ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="InItemsViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Itemid"
+              ViewAttribute="Itemid"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="ModelNo"
+              ViewAttribute="ModelNo"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria

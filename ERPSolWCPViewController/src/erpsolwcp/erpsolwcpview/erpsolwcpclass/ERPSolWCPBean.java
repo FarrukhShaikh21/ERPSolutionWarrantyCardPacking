@@ -821,7 +821,7 @@ public class ERPSolWCPBean {
          OperationBinding binding=null;
     try{
       
-        System.out.println(message.length() + "msglength");
+//        System.out.println(message.length() + "msglength");
         if (message.length()==0) {
                return;
 //               System.out.println(message.length() + "msglength-1");
@@ -845,6 +845,7 @@ public class ERPSolWCPBean {
          }
         
         cs=dbt.createCallableStatement("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;", DBTransaction.DEFAULT);
+        System.out.println("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;");
 //        System.out.println("begin ?:=pkg_warranty_card.func_insert_repack_imei_by_box('"+ERPSolvoBox.getCurrentRow().getAttribute("Pckid")+"','"+ERPSolvoBox.getCurrentRow().getAttribute("Spboxseq")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); end;");
         cs.registerOutParameter(1, Types.VARCHAR);
         cs.executeUpdate();
@@ -857,11 +858,13 @@ public class ERPSolWCPBean {
                 return;
             }
          ERPSolvoImei.executeQuery();
-         String inputId = "it100"; //here it6 is id for inputtext in1st column.
-         FacesContext facesCtx=FacesContext.getCurrentInstance();
-         ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
-         service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +
-         "comp.focus()");      // javascript method is used
+            if (ERPSolvoImei.getEstimatedRowCount()==0) {
+                String inputId = "it100"; //here it6 is id for inputtext in1st column.
+                FacesContext facesCtx = FacesContext.getCurrentInstance();
+                ExtendedRenderKitService service =
+                    Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+                service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('" + inputId + "');\n" + "comp.focus()");
+            }     // javascript method is used
     }
     catch(Exception erpexcep) {//for error cursor should move to it2 field
         ERPSolvoBox.getCurrentRow().remove();
