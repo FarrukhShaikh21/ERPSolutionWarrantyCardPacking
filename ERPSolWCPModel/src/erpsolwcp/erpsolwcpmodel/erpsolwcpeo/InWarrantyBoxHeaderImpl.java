@@ -383,6 +383,17 @@ public class InWarrantyBoxHeaderImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            System.out.println("in set pack insert");
+            String pkValue=" func_get_warranty_box_id('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getDocumentDate()+"','YYYY-MM-DD'))";
+            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+            populateAttributeAsChanged(DOCUMENTID, result);
+            
+            pkValue=" func_get_warranty_box_no('"+getItemid()+"','"+getLineno()+"',TO_DATE('"+getDocumentDate()+"','YYYY-MM-DD'))";
+            result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+            populateAttributeAsChanged(BOXNO, result);            
+        } 
+        
         super.doDML(operation, e);
     }
 }
