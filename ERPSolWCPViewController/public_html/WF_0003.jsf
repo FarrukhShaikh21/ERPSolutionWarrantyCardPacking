@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.DocumentId.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolWarrantyCard}" type="yesNo">
+                   dialogListener="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolWarrantyBox}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -36,9 +36,6 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
-                        <af:button actionListener="#{bindings.doSuperviseWarrantyCard.execute}"
-                                   text="doSuperviseWarrantyCard"
-                                   disabled="#{!bindings.doSuperviseWarrantyCard.enabled}" id="b12" rendered="false"/>
                         <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
                                    iconPosition="top" action="ACT-ERP-CLOSE-FORM-WCP"/>
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
@@ -73,6 +70,9 @@
                                    icon="#{resource['images:imgSupervise.png']}" iconPosition="top">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
+                        <af:button actionListener="#{bindings.doSuperviseWarrantyBox.execute}"
+                                   text="doSuperviseWarrantyBox" disabled="#{!bindings.doSuperviseWarrantyBox.enabled}"
+                                   id="b10" rendered="false"/>
                       </af:toolbar>
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
@@ -237,14 +237,14 @@
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr8">
                       <af:gridCell marginStart="5px" width="25%" id="gc20" halign="stretch">
-                        <af:panelBox text="Box" id="pb2" showDisclosure="false">
+                        <af:panelBox text="IMEI" id="pb2" showDisclosure="false">
                           <f:facet name="toolbar"/>
                           <af:panelCollection id="pc1" featuresOff="viewMenu detach" styleClass="AFStretchWidth"
                                               partialTriggers="::it7 ::it5">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar">
                               <af:toolbar id="t4">
-                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Box"
+                                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete IMEI"
                                            disabled="#{bindings.Submit.inputValue=='Y'}" id="b8"/>
                               </af:toolbar>
                             </f:facet>

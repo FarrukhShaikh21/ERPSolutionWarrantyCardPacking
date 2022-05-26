@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxHeaderViewImpl"
+  ComponentInterface="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.common.InWarrantyBoxHeaderView"
+  ClientProxyName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.client.InWarrantyBoxHeaderViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
@@ -154,4 +160,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseWarrantyBox"
+      MethodName="doSuperviseWarrantyBox">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

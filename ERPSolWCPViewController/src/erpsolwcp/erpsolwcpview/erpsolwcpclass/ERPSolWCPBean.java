@@ -246,7 +246,16 @@ public class ERPSolWCPBean {
             binding.execute();
         }
     }
-
+    
+    public void doERPSolWarrantyBox(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
+            binding.execute();
+            binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseWarrantyBox");
+            binding.execute();
+        }
+    }
+    
     public void doERPSoRebatelDialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
             OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSalesRebate");

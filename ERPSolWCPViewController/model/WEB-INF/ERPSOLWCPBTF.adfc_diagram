@@ -156,7 +156,7 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">L50,808.0,279.44824,584.0,459.29248,T44</property>
+         name="sdm:polyPoints">L50,808.0,279.44824,584.0,459.3327,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall15">
@@ -179,7 +179,7 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">T56,591.0,463.09766,678.0,418.94824,B39</property>
+         name="sdm:polyPoints">T56,591.0,463.09766,674.5,418.94824,B33</property>
    </ControlFlowCase>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule17">
@@ -442,7 +442,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN-TEMP</property>
       <property
-         name="sdm:polyPoints">B50,400.5,489.12036,545.8369,710.44824,T44</property>
+         name="sdm:polyPoints">B61,407.5,487.09406,552.8369,708.36334,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -452,7 +452,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0007-SCAN-TEMP-BACK</property>
       <property
-         name="sdm:polyPoints">T56,552.8369,708.36334,407.5,487.09406,B61</property>
+         name="sdm:polyPoints">T44,545.8369,710.44824,400.5,489.12036,B50</property>
    </ControlFlowCase>
    <View
       id="View41">
@@ -481,7 +481,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B50,685.0,422.1585,836.01465,576.09766,T50</property>
+         name="sdm:polyPoints">B56,688.5,422.12546,836.01465,576.09766,T50</property>
    </ControlFlowCase>
    <View
       id="View43">
@@ -602,7 +602,7 @@
       <property
          name="fromOutcome">ERP-ACT-WTY-0016</property>
       <property
-         name="sdm:polyPoints">B61,692.0,418.94824,1087.5,701.44824,L50</property>
+         name="sdm:polyPoints">B67,695.5,418.94824,1087.5,701.44824,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall53">
@@ -673,7 +673,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0002-SEARCH</property>
       <property
-         name="sdm:polyPoints">B50,638.5,719.88464,652.85645,871.1171,T56</property>
+         name="sdm:polyPoints">B39,631.5,720.2121,645.85645,871.44824,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -683,6 +683,70 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0002-SEARCH-BACK</property>
       <property
-         name="sdm:polyPoints">T44,645.85645,871.44824,631.5,720.2121,B39</property>
+         name="sdm:polyPoints">T56,652.85645,871.1171,638.5,719.88464,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View60">
+      <property
+         name="activityId">WF_0003</property>
+      <property
+         name="page">/WF_0003.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>WF_0003&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">984.7988</property>
+      <property
+         name="x">351.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase62"
+      from="MethodCall12"
+      to="View60">
+      <property
+         name="fromOutcome">ERP-ACT-WTY-0003</property>
+      <property
+         name="tosrcid">__61</property>
+      <property
+         name="fromsrcid">__10</property>
+      <property
+         name="sdm:polyPoints">B44,681.5,422.08783,351.5,930.44824,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View63">
+      <property
+         name="activityId">WF_0003_SEARCH</property>
+      <property
+         name="page">/WF_0003_SEARCH.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>WF_0003_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1026.7988</property>
+      <property
+         name="x">207.35449</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase64"
+      from="View63"
+      to="View60">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0003-SEARCH-BACK</property>
+      <property
+         name="sdm:polyPoints">R46,248.35449,1022.94824,308.3564,980.94824,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase65"
+      from="View60"
+      to="View63">
+      <property
+         name="fromOutcome">ACT-ERP-WTY-0003-SEARCH</property>
+      <property
+         name="sdm:polyPoints">L54,310.5,987.94824,250.52954,1029.9482,R54</property>
    </ControlFlowCase>
 </SDM>

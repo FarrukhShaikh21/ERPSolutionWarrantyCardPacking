@@ -65,5 +65,10 @@
             DataControl="ERPSolWCPAppModuleDataControl"/>
     <action IterBinding="InWarrantyBoxLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseWarrantyBox" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseWarrantyBox" IsViewObjectMethod="true"
+                  DataControl="ERPSolWCPAppModuleDataControl"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.InWarrantyBoxHeaderCRUD"
+                  ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doSuperviseWarrantyBox_ERPSolWCPAppModuleDataControl_InWarrantyBoxHeaderCRUD_doSuperviseWarrantyBox_result"/>
   </bindings>
 </pageDefinition>
