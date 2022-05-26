@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkWtyLineBoxHeaderseqnoAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="InWarrantyBoxHeader"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InWarrantyBoxHeader"/>
+      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.PkInWarrantyBoxHeader"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.Boxheaderseq"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="InWarrantyBoxLines"
+    Cardinality="-1"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLines">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InWarrantyBoxLines"/>
+      <Attr Name="_foreignKey" Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLines.FkWtyLineBoxHeaderseqno"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLines.Boxheaderseq"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

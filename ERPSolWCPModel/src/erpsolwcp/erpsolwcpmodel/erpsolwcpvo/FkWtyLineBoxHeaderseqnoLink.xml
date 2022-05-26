@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkWtyLineBoxHeaderseqnoLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.FkWtyLineBoxHeaderseqnoAssoc">
+  <ViewLinkDefEnd
+    Name="InWarrantyBoxHeaderView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxHeaderView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="InWarrantyBoxHeaderView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxHeaderView.Boxheaderseq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="InWarrantyBoxLinesView"
+    Cardinality="-1"
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxLinesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="InWarrantyBoxLinesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxLinesView.Boxheaderseq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
