@@ -157,11 +157,11 @@
     <view id="WTY_0002_SEARCH">
       <page>/WTY_0002_SEARCH.jsf</page>
     </view>
-    <view id="WF_0003">
-      <page>/WF_0003.jsf</page>
+    <view id="WTY_0003">
+      <page>/WTY_0003.jsf</page>
     </view>
-    <view id="WF_0003_SEARCH">
-      <page>/WF_0003_SEARCH.jsf</page>
+    <view id="WTY_0003_SEARCH">
+      <page>/WTY_0003_SEARCH.jsf</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
@@ -193,7 +193,7 @@
       </control-flow-case>
       <control-flow-case id="__61">
         <from-outcome>ERP-ACT-WTY-0003</from-outcome>
-        <to-activity-id>WF_0003</to-activity-id>
+        <to-activity-id>WTY_0003</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
@@ -356,17 +356,17 @@
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__62">
-      <from-activity-id>WF_0003_SEARCH</from-activity-id>
+      <from-activity-id>WTY_0003_SEARCH</from-activity-id>
       <control-flow-case id="__63">
         <from-outcome>ACT-ERP-WTY-0003-SEARCH-BACK</from-outcome>
-        <to-activity-id>WF_0003</to-activity-id>
+        <to-activity-id>WTY_0003</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__64">
-      <from-activity-id>WF_0003</from-activity-id>
+      <from-activity-id>WTY_0003</from-activity-id>
       <control-flow-case id="__65">
         <from-outcome>ACT-ERP-WTY-0003-SEARCH</from-outcome>
-        <to-activity-id>WF_0003_SEARCH</to-activity-id>
+        <to-activity-id>WTY_0003_SEARCH</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

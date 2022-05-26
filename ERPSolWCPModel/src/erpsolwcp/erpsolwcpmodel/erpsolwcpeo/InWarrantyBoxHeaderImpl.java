@@ -390,6 +390,7 @@ public class InWarrantyBoxHeaderImpl extends ERPSolGlobalsEntityImpl {
             populateAttributeAsChanged(DOCUMENTID, result);
             
             pkValue=" func_get_warranty_box_no('"+getItemid()+"','"+getLineno()+"',TO_DATE('"+getDocumentDate()+"','YYYY-MM-DD'))";
+            System.out.println(pkValue+ "this is pk");
             result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
             populateAttributeAsChanged(BOXNO, result);            
         } 

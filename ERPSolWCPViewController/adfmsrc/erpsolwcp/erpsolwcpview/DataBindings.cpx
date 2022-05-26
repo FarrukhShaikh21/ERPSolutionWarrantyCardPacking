@@ -33,6 +33,7 @@
           usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef111"/>
     <page path="/WTY_0002_SEARCH.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0002_SEARCHPageDef"/>
     <page path="/WF_0003.jsf" usageId="erpsolwcp_erpsolwcpview_WF_0003PageDef"/>
+    <page path="/WTY_0003.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0003PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
@@ -70,6 +71,7 @@
     <page id="erpsolwcp_erpsolwcpview_WTY_0002_SEARCHPageDef"
           path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0002_SEARCHPageDef"/>
     <page id="erpsolwcp_erpsolwcpview_WF_0003PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WF_0003PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0003PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0003PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"

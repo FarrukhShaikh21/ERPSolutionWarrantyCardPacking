@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0003PageDef"
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="InWarrantyBoxHeaderCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InWarrantyBoxHeaderCRUDIterator"/>
+    <iterator Binds="InWarrantyBoxLinesDetCRUD" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="InWarrantyBoxLinesDetCRUDIterator"/>
+    <searchRegion Binds="InWarrantyBoxLinesDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InWarrantyBoxLinesDetCRUDQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="DocumentDate">
+      <AttrNames>
+        <Item Value="DocumentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="InWarrantyBoxHeaderCRUDIterator" StaticList="false" Uses="LovtxtItemName"
+                  id="txtItemName"/>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="DocumentId">
+      <AttrNames>
+        <Item Value="DocumentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="BoxNo">
+      <AttrNames>
+        <Item Value="BoxNo"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="InWarrantyBoxLinesDetCRUDIterator" id="InWarrantyBoxLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxLinesView"
+                      Name="InWarrantyBoxLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="ImeNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <action IterBinding="InWarrantyBoxHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Submit">
+      <AttrNames>
+        <Item Value="Submit"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWCPAppModuleDataControl"/>
+    <action IterBinding="InWarrantyBoxLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseWarrantyBox" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseWarrantyBox" IsViewObjectMethod="true"
+                  DataControl="ERPSolWCPAppModuleDataControl"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.InWarrantyBoxHeaderCRUD"
+                  ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doSuperviseWarrantyBox_ERPSolWCPAppModuleDataControl_InWarrantyBoxHeaderCRUD_doSuperviseWarrantyBox_result"/>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Lineno">
+      <AttrNames>
+        <Item Value="Lineno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

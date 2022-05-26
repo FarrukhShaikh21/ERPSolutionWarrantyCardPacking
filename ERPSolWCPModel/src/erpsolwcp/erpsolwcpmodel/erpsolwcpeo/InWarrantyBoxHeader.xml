@@ -26,7 +26,6 @@
     PrimaryKey="true"/>
   <Attribute
     Name="DocumentId"
-    IsNotNull="true"
     Precision="20"
     ColumnName="DOCUMENT_ID"
     SQLType="VARCHAR"

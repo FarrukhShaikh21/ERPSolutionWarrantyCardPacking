@@ -688,11 +688,11 @@
    <View
       id="View60">
       <property
-         name="activityId">WF_0003</property>
+         name="activityId">WTY_0003</property>
       <property
-         name="page">/WF_0003.jsf</property>
+         name="page">/WTY_0003.jsf</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>WF_0003&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>WTY_0003&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -717,15 +717,15 @@
    <View
       id="View63">
       <property
-         name="activityId">WF_0003_SEARCH</property>
+         name="activityId">WTY_0003_SEARCH</property>
       <property
-         name="page">/WF_0003_SEARCH.jsf</property>
+         name="page">/WTY_0003_SEARCH.jsf</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>WF_0003_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>WTY_0003_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1026.7988</property>
+         name="y">1026.4482</property>
       <property
          name="x">207.35449</property>
    </View>
@@ -737,7 +737,7 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0003-SEARCH-BACK</property>
       <property
-         name="sdm:polyPoints">R46,248.35449,1022.94824,308.3564,980.94824,L46</property>
+         name="sdm:polyPoints">R46,248.35449,1022.59766,308.37125,980.94824,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -747,6 +747,6 @@
       <property
          name="fromOutcome">ACT-ERP-WTY-0003-SEARCH</property>
       <property
-         name="sdm:polyPoints">L54,310.5,987.94824,250.52954,1029.9482,R54</property>
+         name="sdm:polyPoints">L54,310.5,987.94824,250.51433,1029.5977,R54</property>
    </ControlFlowCase>
 </SDM>
