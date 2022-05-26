@@ -30,12 +30,6 @@
     EntityUsage="InWarrantyBoxLines"
     AliasName="BOXHEADERSEQ"/>
   <ViewAttribute
-    Name="ImeNo"
-    PrecisionRule="true"
-    EntityAttrName="ImeNo"
-    EntityUsage="InWarrantyBoxLines"
-    AliasName="IME_NO"/>
-  <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
@@ -59,4 +53,10 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="InWarrantyBoxLines"
     AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="ImeiNo"
+    PrecisionRule="true"
+    EntityAttrName="ImeiNo"
+    EntityUsage="InWarrantyBoxLines"
+    AliasName="IMEI_NO"/>
 </ViewObject>

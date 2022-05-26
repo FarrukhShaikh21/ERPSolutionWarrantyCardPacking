@@ -32,15 +32,6 @@
     ColumnType="NUMBER"
     TableName="IN_WARRANTY_BOX_LINES"/>
   <Attribute
-    Name="ImeNo"
-    Precision="15"
-    Scale="0"
-    ColumnName="IME_NO"
-    SQLType="NUMERIC"
-    Type="java.lang.String"
-    ColumnType="NUMBER"
-    TableName="IN_WARRANTY_BOX_LINES"/>
-  <Attribute
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
@@ -77,6 +68,15 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
+    TableName="IN_WARRANTY_BOX_LINES"/>
+  <Attribute
+    Name="ImeiNo"
+    Precision="15"
+    Scale="0"
+    ColumnName="IMEI_NO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
     TableName="IN_WARRANTY_BOX_LINES"/>
   <AccessorAttribute
     Name="InWarrantyBoxHeader"

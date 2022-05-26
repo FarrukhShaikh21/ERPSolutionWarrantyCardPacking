@@ -101,7 +101,9 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="IN_WARRANTY_BOX_HEADER">
+    TableName="IN_WARRANTY_BOX_HEADER"
+    IsNotNull="true"
+    DefaultValue="1">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -234,6 +236,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[InItems?.Description]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -242,6 +248,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="Remarks"
@@ -277,6 +287,18 @@
     AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInWarrantyBoxHeaderItemIdAssoc.InWarrantyBoxHeader"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="InWarrantyBoxHeaderLinenoCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="IN_WARRANTY_BOX_HEADER_LINENO_"/>
+      <Attr Name="_checkCondition" Value='"LINENO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.Lineno"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="PkInWarrantyBoxHeader"
     PrimaryKey="true">

@@ -44,7 +44,7 @@
       <nodeDefinition DefName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxLinesView"
                       Name="InWarrantyBoxLinesDetCRUD0">
         <AttrNames>
-          <Item Value="ImeNo"/>
+          <Item Value="ImeiNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

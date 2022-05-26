@@ -41,7 +41,7 @@
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
                                    action="ACT-ERP-WTY-0003-SEARCH"/>
                         <af:button text="Print" id="b7"
-                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCRefreshReport}"
+                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWBoxReport}"
                                    icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
                                    partialSubmit="true"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
@@ -227,26 +227,17 @@
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
                   <af:panelGridLayout id="pgl6">
                     <af:gridRow id="gr13">
-                      <af:gridCell id="gc22" width="30%" halign="stretch" valign="middle">
-                        <af:panelLabelAndMessage label="Scan Box Here" id="plam1" rendered="false"/>
-                      </af:gridCell>
-                      <af:gridCell id="gc23" width="70%" halign="stretch" valign="middle">
-                        <af:panelGroupLayout id="pgl1">
-                          <af:inputText id="it100" clientComponent="true" placeholder="Scan IMEI Heree"
-                                        disabled="#{bindings.Posted.inputValue=='Y'}" columns="15" maximumLength="17"
-                                        autoSubmit="true" rendered="false">
-                            <af:clientListener method="handleEnterEvent" type="keyPress"/>
-                            <af:serverListener type="EnterEvent"
-                                               method="#{pageFlowScope.ERPSolWCPPageFlowBean.handleEnterEvent}"/>
-                            <af:clientListener method="jserpKeyNextItemBoxNo" type="keyDown"/>
-                          </af:inputText>
-                        </af:panelGroupLayout>
-                        <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2" rendered="false">
+                      <af:gridCell id="gc22" width="100%" halign="stretch" valign="middle">
+                        <af:panelLabelAndMessage label="Scan IMEI Here" id="plam2">
                           <af:inputText label="pt1:it5" id="it7" autoSubmit="true"
-                                        value="#{bindings.Imei.inputValue}" simple="true" columns="15"
-                                        partialTriggers="it7" autoComplete="on" usage="text" maximumLength="15"/>
+                                        simple="true" columns="15"  
+                                        maximumLength="15" 
+                                        valueChangeListener="#{pageFlowScope.ERPSolWCPPageFlowBean.erpSolWarrantyIMEI}"
+                                        value="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolImeiStr}"
+                                        partialTriggers="it7"/>
                         </af:panelLabelAndMessage>
                       </af:gridCell>
+                      <af:gridCell id="gc23" width="0%" halign="stretch" valign="middle"/>
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr8">
                       <af:gridCell marginStart="5px" width="25%" id="gc20" halign="stretch">
@@ -272,18 +263,18 @@
                                       filterModel="#{bindings.InWarrantyBoxLinesDetCRUDQuery.queryDescriptor}"
                                       queryListener="#{bindings.InWarrantyBoxLinesDetCRUDQuery.processQuery}"
                                       filterVisible="true" varStatus="vs" id="t2" columnStretching="last"
-                                      partialTriggers="::b8" autoHeightRows="0">
-                              <af:column sortProperty="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.name}"
-                                         filterable="true"
-                                         headerText="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.label}" id="c1">
-                                <af:inputText value="#{row.bindings.ImeNo.inputValue}"
-                                              label="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.label}"
-                                              required="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.mandatory}"
-                                              columns="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.displayWidth}"
-                                              maximumLength="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.precision}"
-                                              shortDesc="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeNo.tooltip}"
-                                              id="it1" disabled="true">
-                                  <f:validator binding="#{row.bindings.ImeNo.validator}"/>
+                                      partialTriggers="::b8" autoHeightRows="20" scrollPolicy="page">
+                              <af:column headerText="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.label}" id="c2">
+                                <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
+                                              label="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.label}"
+                                              required="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.tooltip}"
+                                              id="it8" disabled="true">
+                                  <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.format}"/>
                                 </af:inputText>
                               </af:column>
                             </af:table>

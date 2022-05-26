@@ -24,13 +24,14 @@ public class InWarrantyBoxLinesImpl extends ERPSolGlobalsEntityImpl {
     public enum AttributesEnum {
         BoxLinesseq,
         Boxheaderseq,
-        ImeNo,
         CreatedDate,
         CreatedBy,
         ModifiedBy,
         ModifiedDate,
+        ImeiNo,
         InWarrantyBoxHeader;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -56,11 +57,11 @@ public class InWarrantyBoxLinesImpl extends ERPSolGlobalsEntityImpl {
 
     public static final int BOXLINESSEQ = AttributesEnum.BoxLinesseq.index();
     public static final int BOXHEADERSEQ = AttributesEnum.Boxheaderseq.index();
-    public static final int IMENO = AttributesEnum.ImeNo.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.ModifiedDate.index();
+    public static final int IMEINO = AttributesEnum.ImeiNo.index();
     public static final int INWARRANTYBOXHEADER = AttributesEnum.InWarrantyBoxHeader.index();
 
     /**
@@ -109,21 +110,6 @@ public class InWarrantyBoxLinesImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(BOXHEADERSEQ, value);
     }
 
-    /**
-     * Gets the attribute value for ImeNo, using the alias name ImeNo.
-     * @return the value of ImeNo
-     */
-    public String getImeNo() {
-        return (String) getAttributeInternal(IMENO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for ImeNo.
-     * @param value value to set the ImeNo
-     */
-    public void setImeNo(String value) {
-        setAttributeInternal(IMENO, value);
-    }
 
     /**
      * Gets the attribute value for CreatedDate, using the alias name CreatedDate.
@@ -187,6 +173,22 @@ public class InWarrantyBoxLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setModifiedDate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for ImeiNo, using the alias name ImeiNo.
+     * @return the value of ImeiNo
+     */
+    public Long getImeiNo() {
+        return (Long) getAttributeInternal(IMEINO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ImeiNo.
+     * @param value value to set the ImeiNo
+     */
+    public void setImeiNo(Long value) {
+        setAttributeInternal(IMEINO, value);
     }
 
     /**
