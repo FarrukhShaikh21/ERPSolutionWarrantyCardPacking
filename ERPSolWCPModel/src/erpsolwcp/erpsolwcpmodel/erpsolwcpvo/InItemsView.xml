@@ -776,4 +776,9 @@
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InItemsInSetPackingRepackItemIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InWarrantyBoxHeaderView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InItemsInWarrantyBoxHeaderItemIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

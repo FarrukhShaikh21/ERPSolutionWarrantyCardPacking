@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtItemName"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtItemName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsViewFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="InWarrantyBoxHeader"
     Entity="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader"/>
@@ -87,9 +115,43 @@
     EntityAttrName="Submit"
     EntityUsage="InWarrantyBoxHeader"
     AliasName="SUBMIT"/>
+  <ViewAttribute
+    Name="Locationid"
+    PrecisionRule="true"
+    EntityAttrName="Locationid"
+    EntityUsage="InWarrantyBoxHeader"
+    AliasName="LOCATIONID"/>
+  <ViewAttribute
+    Name="txtItemName"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="InWarrantyBoxHeader"
+    AliasName="TXT_ITEM_NAME"
+    IsQueriable="false"
+    IsPersistent="false"
+    LOVName="LovtxtItemName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="InWarrantyBoxHeader"
+    AliasName="REMARKS"/>
   <ViewLinkAccessor
     Name="InWarrantyBoxLinesView"
     ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.FkWtyLineBoxHeaderseqnoLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InItemsView"
+    ViewLink="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InItemsInWarrantyBoxHeaderItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

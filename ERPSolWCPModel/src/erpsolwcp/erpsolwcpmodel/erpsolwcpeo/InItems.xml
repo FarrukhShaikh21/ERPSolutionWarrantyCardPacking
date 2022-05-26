@@ -1317,6 +1317,13 @@
     AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingRepackItemIdAssoc.InItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="InWarrantyBoxHeader"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInWarrantyBoxHeaderItemIdAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInWarrantyBoxHeaderItemIdAssoc.InWarrantyBoxHeader"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInWarrantyBoxHeaderItemIdAssoc.InItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>

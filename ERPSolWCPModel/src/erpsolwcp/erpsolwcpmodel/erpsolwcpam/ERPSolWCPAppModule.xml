@@ -47,6 +47,12 @@
   <ViewUsage
     Name="VWDocumentForUnsubmitAutoSuggestRO"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpqvo.VWDocumentForUnsubmitQVO"/>
+  <ViewUsage
+    Name="InWarrantyBoxHeaderCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxHeaderView"/>
+  <ViewUsage
+    Name="InWarrantyBoxLinesDetCRUD"
+    ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxLinesView"/>
   <ViewLinkUsage
     Name="InSetPackingInSpBoxPackingSeqLink1"
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSetPackingInSpBoxPackingSeqLink"
@@ -70,5 +76,11 @@
     ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcplink.InSpBoxRepackInSpDetailRepackSpboxSeqLink"
     SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpboxRepackDetCRUD"
     DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InSpdetlRepackDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkWtyLineBoxHeaderseqnoLink1"
+    ViewLinkObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.FkWtyLineBoxHeaderseqnoLink"
+    SrcViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InWarrantyBoxHeaderCRUD"
+    DstViewUsageName="erpsolwcp.erpsolwcpmodel.erpsolwcpam.ERPSolWCPAppModule.InWarrantyBoxLinesDetCRUD"
     Reversed="false"/>
 </AppModule>
