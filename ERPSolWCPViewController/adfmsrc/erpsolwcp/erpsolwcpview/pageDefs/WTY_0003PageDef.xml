@@ -75,5 +75,10 @@
         <Item Value="Lineno"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="InWarrantyBoxHeaderCRUDIterator" id="Boxheaderseq">
+      <AttrNames>
+        <Item Value="Boxheaderseq"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

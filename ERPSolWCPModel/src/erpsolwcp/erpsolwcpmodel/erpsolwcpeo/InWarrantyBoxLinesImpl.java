@@ -30,8 +30,7 @@ public class InWarrantyBoxLinesImpl extends ERPSolGlobalsEntityImpl {
         ModifiedDate,
         ImeiNo,
         InWarrantyBoxHeader;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {

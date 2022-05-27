@@ -13,7 +13,9 @@
     Name="InWarrantyBoxHeader"
     Cardinality="1"
     Source="true"
-    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader">
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader"
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InWarrantyBoxHeader"/>
@@ -27,7 +29,8 @@
   <AssociationEnd
     Name="InWarrantyBoxLines"
     Cardinality="-1"
-    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLines">
+    Owner="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLines"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="InWarrantyBoxLines"/>

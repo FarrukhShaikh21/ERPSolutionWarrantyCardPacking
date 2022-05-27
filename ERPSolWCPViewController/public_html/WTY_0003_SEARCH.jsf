@@ -2,6 +2,146 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="WTY_0003_SEARCH.jsf" id="d1">
-        <af:form id="f1"></af:form>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="Warranty Card Packing Search" id="ph2">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button text="Back To Box Printing" id="b1" action="ACT-ERP-WTY-0003-SEARCH-BACK"
+                                   icon="#{resource['images:imgExitForm.png']}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:query id="qryId1" headerText="Search" disclosed="true"
+                          value="#{bindings.InWarrantyBoxHeaderFindVCQuery.queryDescriptor}"
+                          model="#{bindings.InWarrantyBoxHeaderFindVCQuery.queryModel}"
+                          queryListener="#{bindings.InWarrantyBoxHeaderFindVCQuery.processQuery}"
+                          queryOperationListener="#{bindings.InWarrantyBoxHeaderFindVCQuery.processQueryOperation}"
+                          maxColumns="2" rows="4" modeChangeVisible="false"/>
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:button text="Excel" id="b2">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                                       filename="Packing.xls" title="Packing"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.InWarrantyBoxHeaderCRUD.collectionModel}" var="row"
+                                  rows="#{bindings.InWarrantyBoxHeaderCRUD.rangeSize}"
+                                  emptyText="#{bindings.InWarrantyBoxHeaderCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.InWarrantyBoxHeaderCRUD.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.InWarrantyBoxHeaderCRUD.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.InWarrantyBoxHeaderCRUD.rangeSize}"
+                                  id="t3" columnStretching="last">
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentId.label}" id="c1"
+                                       width="150">
+                                <af:inputText value="#{row.bindings.DocumentId.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentId.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentId.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentId.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentId.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentId.tooltip}"
+                                              id="it1" readOnly="true" rendered="false">
+                                    <f:validator binding="#{row.bindings.DocumentId.validator}"/>
+                                </af:inputText>
+                                <af:link text="#{row.bindings.DocumentId.inputValue}" id="l1" action="ACT-ERP-WTY-0003-SEARCH-BACK"
+                                         partialSubmit="true"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentDate.label}"
+                                       id="c2">
+                                <af:inputDate value="#{row.bindings.DocumentDate.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentDate.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentDate.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentDate.displayWidth}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentDate.tooltip}"
+                                              id="id1" readOnly="true">
+                                    <f:validator binding="#{row.bindings.DocumentDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.InWarrantyBoxHeaderCRUD.hints.DocumentDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.Locationid.label}" id="c3">
+                                <af:inputText value="#{row.bindings.Locationid.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.Locationid.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.Locationid.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.Locationid.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxHeaderCRUD.hints.Locationid.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.Locationid.tooltip}"
+                                              id="it2" readOnly="true">
+                                    <f:validator binding="#{row.bindings.Locationid.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.txtItemName.label}" id="c4"
+                                       width="200">
+                                <af:inputComboboxListOfValues id="txtItemNameId"
+                                                              popupTitle="Search and Select: #{bindings.InWarrantyBoxHeaderCRUD.hints.txtItemName.label}"
+                                                              value="#{row.bindings.txtItemName.inputValue}"
+                                                              model="#{row.bindings.txtItemName.listOfValuesModel}"
+                                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.txtItemName.mandatory}"
+                                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.txtItemName.displayWidth}"
+                                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.txtItemName.tooltip}"
+                                                              readOnly="true">
+                                    <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                                </af:inputComboboxListOfValues>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.BoxNo.label}" id="c5"
+                                       width="200">
+                                <af:inputText value="#{row.bindings.BoxNo.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.BoxNo.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.BoxNo.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.BoxNo.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxHeaderCRUD.hints.BoxNo.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.BoxNo.tooltip}"
+                                              id="it3" readOnly="true">
+                                    <f:validator binding="#{row.bindings.BoxNo.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.label}" id="c6">
+                                <af:inputText value="#{row.bindings.Lineno.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.tooltip}"
+                                              id="it4" readOnly="true">
+                                    <f:validator binding="#{row.bindings.Lineno.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.InWarrantyBoxHeaderCRUD.hints.Lineno.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.Submit.label}" id="c8">
+                                <af:inputText value="#{row.bindings.Submit.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.Submit.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.Submit.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.Submit.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxHeaderCRUD.hints.Submit.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.Submit.tooltip}"
+                                              id="it6" readOnly="true">
+                                    <f:validator binding="#{row.bindings.Submit.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.InWarrantyBoxHeaderCRUD.hints.Remarks.label}" id="c7">
+                                <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                              label="#{bindings.InWarrantyBoxHeaderCRUD.hints.Remarks.label}"
+                                              required="#{bindings.InWarrantyBoxHeaderCRUD.hints.Remarks.mandatory}"
+                                              columns="#{bindings.InWarrantyBoxHeaderCRUD.hints.Remarks.displayWidth}"
+                                              maximumLength="#{bindings.InWarrantyBoxHeaderCRUD.hints.Remarks.precision}"
+                                              shortDesc="#{bindings.InWarrantyBoxHeaderCRUD.hints.Remarks.tooltip}"
+                                              id="it5" readOnly="true">
+                                    <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelGroupLayout>
+            </af:panelHeader>
+        </af:form>
     </af:document>
 </f:view>

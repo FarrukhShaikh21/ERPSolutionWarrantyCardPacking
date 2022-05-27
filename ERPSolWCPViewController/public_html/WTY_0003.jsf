@@ -18,7 +18,7 @@
             <f:facet name="toolbar"/>
             <f:facet name="legend"/>
             <f:facet name="info"/>                          
-            <af:panelGridLayout id="pgl3">
+            <af:panelGridLayout id="pgl3" partialTriggers="it7">
               <af:gridRow id="gr3">
                 <af:gridCell id="gc5" halign="stretch" valign="middle" styleClass="ERPSolFormEntryAreaHeader">
                   <af:panelGridLayout id="pgl4">
@@ -54,8 +54,9 @@
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.Submit.inputValue=='Y'}" id="b2"
                                    iconPosition="top" icon="#{resource['images:imgDelete.png']}"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                   text="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'|| bindings.DocumentId.inputValue==null}" id="b1"
-                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
+                                   text="New Box" id="b1"
+                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top"
+                                   disabled="#{bindings.Boxheaderseq.inputValue>0 and bindings.DocumentId.inputValue==null}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6"
                                    icon="#{resource['images:imgUndo.png']}" iconPosition="top">
@@ -88,6 +89,15 @@
                                         shortDesc="#{bindings.Submit.hints.tooltip}" id="it5" rendered="false">
                             <f:validator binding="#{bindings.Submit.validator}"/>
                           </af:inputText>
+                          <af:inputText value="#{bindings.Boxheaderseq.inputValue}"
+                                        label="#{bindings.Boxheaderseq.hints.label}"
+                                        required="#{bindings.Boxheaderseq.hints.mandatory}"
+                                        columns="#{bindings.Boxheaderseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Boxheaderseq.hints.precision}"
+                                        shortDesc="#{bindings.Boxheaderseq.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.Boxheaderseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Boxheaderseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.DocumentId.inputValue}"
                                         label="#{bindings.DocumentId.hints.label}"
                                         required="#{bindings.DocumentId.hints.mandatory}"
@@ -106,7 +116,8 @@
                                         label="#{bindings.DocumentDate.hints.label}"
                                         required="#{bindings.DocumentDate.hints.mandatory}"
                                         columns="#{bindings.DocumentDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id2" simple="true">
+                                        shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id2" simple="true"
+                                        disabled="#{bindings.BoxNo.inputValue!=null}">
                             <f:validator binding="#{bindings.DocumentDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
                           </af:inputDate>
@@ -164,7 +175,8 @@
                                                         required="#{bindings.txtItemName.hints.mandatory}"
                                                         columns="#{bindings.txtItemName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtItemName.hints.tooltip}" simple="true"
-                                                        contentStyle="width:100%" autoSubmit="true">
+                                                        contentStyle="width:100%" autoSubmit="true"
+                                                        disabled="#{bindings.BoxNo.inputValue!=null}">
                             <f:validator binding="#{bindings.txtItemName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                           </af:inputComboboxListOfValues>
@@ -175,7 +187,8 @@
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
                                      halign="stretch">
                           <af:selectOneChoice label="Label 1" value="#{bindings.Lineno.inputValue}" id="soc2"
-                                              simple="true" contentStyle="width:100px">
+                                              simple="true" contentStyle="width:100px" autoSubmit="true"
+                                              disabled="#{bindings.BoxNo.inputValue!=null}">
                             <af:selectItem label="1" value="1" id="si3"/>
                             <af:selectItem label="2" value="2" id="si4"/>
                             <af:selectItem label="3" value="3" id="si5"/>
@@ -199,7 +212,8 @@
                                         columns="#{bindings.Remarks.hints.displayWidth}"
                                         maximumLength="#{bindings.Remarks.hints.precision}"
                                         shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2" simple="true"
-                                        autoSubmit="true">
+                                        autoSubmit="true" readOnly="#{bindings.Submit.inputValue=='Y'}"
+                                        contentStyle="width:100%">
                             <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -234,7 +248,8 @@
                                         maximumLength="15" 
                                         valueChangeListener="#{pageFlowScope.ERPSolWCPPageFlowBean.erpSolWarrantyIMEI}"
                                         value="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolImeiStr}"
-                                        partialTriggers="it7"/>
+                                        partialTriggers="it7"
+                                        disabled="#{bindings.Submit.inputValue=='Y' || bindings.Boxheaderseq.inputValue==null}"/>
                         </af:panelLabelAndMessage>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="0%" halign="stretch" valign="middle"/>
@@ -263,7 +278,10 @@
                                       filterModel="#{bindings.InWarrantyBoxLinesDetCRUDQuery.queryDescriptor}"
                                       queryListener="#{bindings.InWarrantyBoxLinesDetCRUDQuery.processQuery}"
                                       filterVisible="true" varStatus="vs" id="t2" columnStretching="last"
-                                      partialTriggers="::b8" autoHeightRows="20" scrollPolicy="page">
+                                      partialTriggers="::b8" autoHeightRows="10" scrollPolicy="page">
+                              <af:column id="c1">
+                                <af:inputText label="Label 2" id="it9" value="#{vs.index+1}"/>
+                              </af:column>
                               <af:column headerText="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.label}" id="c2">
                                 <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
                                               label="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.label}"
@@ -271,7 +289,7 @@
                                               columns="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.displayWidth}"
                                               maximumLength="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.precision}"
                                               shortDesc="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.tooltip}"
-                                              id="it8" disabled="true">
+                                              id="it8" readOnly="true">
                                   <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
                                   <af:convertNumber groupingUsed="false"
                                                     pattern="#{bindings.InWarrantyBoxLinesDetCRUD.hints.ImeiNo.format}"/>

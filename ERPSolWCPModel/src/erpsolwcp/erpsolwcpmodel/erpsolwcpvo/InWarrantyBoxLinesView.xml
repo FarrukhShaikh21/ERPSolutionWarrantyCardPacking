@@ -59,4 +59,9 @@
     EntityAttrName="ImeiNo"
     EntityUsage="InWarrantyBoxLines"
     AliasName="IMEI_NO"/>
+  <SortCriteria>
+    <Sort
+      Attribute="BoxLinesseq"
+      Ascending="false"/>
+  </SortCriteria>
 </ViewObject>

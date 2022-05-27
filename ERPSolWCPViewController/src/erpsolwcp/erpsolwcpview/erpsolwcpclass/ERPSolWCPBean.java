@@ -280,6 +280,7 @@ public class ERPSolWCPBean {
         if (erpvce.getNewValue()==null) {
             return ;
         }
+       
         System.out.println("1so");
         DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("2so");
@@ -1204,6 +1205,10 @@ public class ERPSolWCPBean {
         System.out.println(pImeiBox+ "box");
         if (pImeiBox==null) {
             return ;
+        }
+        if (pImeiBox.length()!=15) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("IMEI Should Be 15 Digits Number Only"));
+            return;
         }
         DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=bc.findIteratorBinding("InWarrantyBoxLinesDetCRUDIterator");
