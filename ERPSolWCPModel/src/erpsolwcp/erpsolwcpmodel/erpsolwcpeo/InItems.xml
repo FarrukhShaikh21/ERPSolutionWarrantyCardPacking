@@ -1303,6 +1303,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="IN_ITEMS"/>
+  <Attribute
+    Name="WcpShortName"
+    Precision="10"
+    ColumnName="WCP_SHORT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="InSetPacking"
     Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InItemsInSetPackingItemIdAssoc"

@@ -10,7 +10,8 @@
   DBObjectName="IN_WARRANTY_BOX_LINES"
   AliasName="InWarrantyBoxLines"
   BindingStyle="OracleName"
-  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLinesImpl">
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
@@ -106,4 +107,8 @@
       <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxLines.Boxheaderseq"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwcp.erpsolwcpmodel.ERPSolWCPModelBundle"/>
+  </ResourceBundle>
 </Entity>

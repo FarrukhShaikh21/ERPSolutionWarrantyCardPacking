@@ -175,11 +175,15 @@
                                                         required="#{bindings.txtItemName.hints.mandatory}"
                                                         columns="#{bindings.txtItemName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtItemName.hints.tooltip}" simple="true"
-                                                        contentStyle="width:100%" autoSubmit="true"
-                                                        disabled="#{bindings.BoxNo.inputValue!=null}">
+                                                        contentStyle="width:100%"
+                                                        disabled="#{bindings.BoxNo.inputValue!=null}" autoSubmit="true">
                             <f:validator binding="#{bindings.txtItemName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                           </af:inputComboboxListOfValues>
+                          <af:spacer width="50" height="10" id="s1"/>
+                          <af:outputText value="#{bindings.txtWcpPrefix.inputValue}"
+                                         shortDesc="#{bindings.txtWcpPrefix.hints.tooltip}" id="ot2"
+                                         partialTriggers="txtItemNameId" inlineStyle="speak-as:normal;"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle">
                           <af:outputLabel value="#{bindings.Lineno.hints.label}" id="ol5"/>
@@ -249,7 +253,8 @@
                                         valueChangeListener="#{pageFlowScope.ERPSolWCPPageFlowBean.erpSolWarrantyIMEI}"
                                         value="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolImeiStr}"
                                         partialTriggers="it7"
-                                        disabled="#{bindings.Submit.inputValue=='Y' || bindings.Boxheaderseq.inputValue==null}"/>
+                                        disabled="#{bindings.Submit.inputValue=='Y' || bindings.Boxheaderseq.inputValue==null}"
+                                        inlineStyle="voice-rate:normal;"/>
                         </af:panelLabelAndMessage>
                       </af:gridCell>
                       <af:gridCell id="gc23" width="0%" halign="stretch" valign="middle"/>

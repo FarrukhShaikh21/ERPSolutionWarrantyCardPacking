@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
+import oracle.jbo.JboException;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
@@ -39,6 +40,7 @@ public class InWarrantyBoxHeaderImpl extends ERPSolGlobalsEntityImpl {
         Locationid,
         txtItemName,
         Remarks,
+        txtWcpPrefix,
         InWarrantyBoxLines,
         InItems;
         private static AttributesEnum[] vals = null;
@@ -79,6 +81,7 @@ public class InWarrantyBoxHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int LOCATIONID = AttributesEnum.Locationid.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
+    public static final int TXTWCPPREFIX = AttributesEnum.txtWcpPrefix.index();
     public static final int INWARRANTYBOXLINES = AttributesEnum.InWarrantyBoxLines.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
@@ -158,6 +161,11 @@ public class InWarrantyBoxHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setItemid(String value) {
         setAttributeInternal(ITEMID, value);
+        if (gettxtWcpPrefix()==null) {
+            setAttributeInternal(ITEMID, null);
+           setAttributeInternal(TXTITEMNAME, null);
+            throw new JboException("Please Enter Printing Prefix.");
+       }
     }
 
     /**
@@ -318,6 +326,22 @@ public class InWarrantyBoxHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setRemarks(String value) {
         setAttributeInternal(REMARKS, value);
+    }
+
+    /**
+     * Gets the attribute value for txtWcpPrefix, using the alias name txtWcpPrefix.
+     * @return the value of txtWcpPrefix
+     */
+    public String gettxtWcpPrefix() {
+        return (String) getAttributeInternal(TXTWCPPREFIX);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtWcpPrefix.
+     * @param value value to set the txtWcpPrefix
+     */
+    public void settxtWcpPrefix(String value) {
+        setAttributeInternal(TXTWCPPREFIX, value);
     }
 
     /**

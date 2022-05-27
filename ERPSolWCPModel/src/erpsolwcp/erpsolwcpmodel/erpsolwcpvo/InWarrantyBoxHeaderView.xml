@@ -149,6 +149,14 @@
     EntityAttrName="Remarks"
     EntityUsage="InWarrantyBoxHeader"
     AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="txtWcpPrefix"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtWcpPrefix"
+    EntityUsage="InWarrantyBoxHeader"
+    AliasName="TXT_WCP_PREFIX"/>
   <ViewCriteria
     Name="InWarrantyBoxHeaderFindVC"
     ViewObjectName="erpsolwcp.erpsolwcpmodel.erpsolwcpvo.InWarrantyBoxHeaderView"
@@ -180,31 +188,24 @@
         ViewAttribute="DocumentId"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="DocumentDate"
         ViewAttribute="DocumentDate"
         Operator="BETWEEN"
         Conjunction="AND"
-        Required="Optional">
-        <ViewCriteriaItemValue
-          Name="InWarrantyBoxHeaderViewCriteria_InWarrantyBoxHeaderViewCriteria_row_0_Boxheaderseq_vcval0"
-          Value=""/>
-      </ViewCriteriaItem>
+        Required="Optional"/>
       <ViewCriteriaItem
         Name="BoxNo"
         ViewAttribute="BoxNo"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Lineno"
         ViewAttribute="Lineno"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="InWarrantyBoxLinesView"
@@ -225,7 +226,6 @@
               ViewAttribute="ImeiNo"
               Operator="="
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
@@ -249,14 +249,12 @@
               ViewAttribute="Productid"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
             <ViewCriteriaItem
               Name="ModelNo"
               ViewAttribute="ModelNo"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>

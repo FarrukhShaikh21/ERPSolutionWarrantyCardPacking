@@ -10,7 +10,8 @@
   DBObjectName="IN_WARRANTY_BOX_HEADER"
   AliasName="InWarrantyBoxHeader"
   BindingStyle="OracleName"
-  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeaderImpl">
+  RowClass="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeaderImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
@@ -223,10 +224,10 @@
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.Locationid_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.Locationid_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -271,6 +272,26 @@
           Value="20"/>
         <LABEL
           ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.Remarks_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtWcpPrefix"
+    Precision="80"
+    ColumnName="TXT_WCP_PREFIX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems?.WcpShortName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InWarrantyBoxHeader.txtWcpPrefix_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
