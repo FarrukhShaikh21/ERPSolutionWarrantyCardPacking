@@ -7,5 +7,7 @@ import oracle.jbo.ViewObject;
 // ---------------------------------------------------------------------
 public interface InWarrantyBoxHeaderView extends ViewObject {
     void doSuperviseWarrantyBox();
+
+    void doERPCopyRow();
 }
 

@@ -53,6 +53,8 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Packing"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.Submit.inputValue=='Y'}" id="b2"
                                    iconPosition="top" icon="#{resource['images:imgDelete.png']}"/>
+                        <af:button actionListener="#{bindings.doERPCopyRow.execute}" text="Copy Record"
+                                   disabled="#{!bindings.doERPCopyRow.enabled}" id="b11"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}"
                                    text="New Box" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top"

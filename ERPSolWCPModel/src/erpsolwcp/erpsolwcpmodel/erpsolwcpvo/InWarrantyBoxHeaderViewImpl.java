@@ -55,6 +55,16 @@ public class InWarrantyBoxHeaderViewImpl extends ViewObjectImpl implements InWar
         }
             
     }     
+public void doERPCopyRow() {
+    String itemId=getCurrentRow().getAttribute("Itemid").toString() ;
+    String prefix=getCurrentRow().getAttribute("txtWcpPrefix").toString() ;
+    System.out.println(itemId + "itemid");
+    Row r=createRow();
+    r.setAttribute("Itemid", itemId);
+    r.setAttribute("txtWcpPrefix", prefix);
+    insertRow(r);
+    setCurrentRow(r);
     
+}
 }
 

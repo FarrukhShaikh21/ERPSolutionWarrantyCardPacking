@@ -85,5 +85,9 @@
         <Item Value="txtWcpPrefix"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doERPCopyRow" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doERPCopyRow"
+                  IsViewObjectMethod="true" DataControl="ERPSolWCPAppModuleDataControl"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.InWarrantyBoxHeaderCRUD"
+                  ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doERPCopyRow_ERPSolWCPAppModuleDataControl_InWarrantyBoxHeaderCRUD_doERPCopyRow_result"/>
   </bindings>
 </pageDefinition>
