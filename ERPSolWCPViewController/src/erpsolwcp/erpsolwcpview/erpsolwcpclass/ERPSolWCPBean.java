@@ -542,7 +542,8 @@ public class ERPSolWCPBean {
         vo.executeQuery();
         String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
         System.out.println(pReportPath);
-        pReportPath=pReportPath+"RPT_PACKING";
+//        pReportPath=pReportPath+"RPT_PACKING";
+        pReportPath=pReportPath+ERPSolReportName;//"RPT_PACKING";
         
     
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
