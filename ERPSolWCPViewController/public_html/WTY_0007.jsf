@@ -48,9 +48,25 @@
                         <af:button text="Search" id="b14" icon="#{resource['images:imgFind.png']}" iconPosition="top"
                                    action="ACT-ERP-SEARCH-WTY-0007"/>
                         <af:button text="Print" id="b7"
-                                   action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}"
                                    icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
-                                   partialSubmit="true"/>
+                                   partialSubmit="true">
+                          <f:facet name="popup">
+                            <af:panelGroupLayout id="pgl13" layout="vertical">
+                              <af:link text="Standard" id="l1" partialSubmit="true"
+                                       action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}">
+                                <af:setActionListener from="#{'RPT_PACKING'}"
+                                                      to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolReportName}"/>
+                              </af:link>
+                              <af:spacer width="10" height="10" id="s9"/>
+                              <af:link text="Gionee" id="l2"
+                                       action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}"
+                                       partialSubmit="true">
+                                <af:setActionListener from="#{'RPT_PACKING_GIONEE'}"
+                                                      to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolReportName}"/>
+                              </af:link>
+                            </af:panelGroupLayout>
+                          </f:facet>
+                        </af:button>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled || bindings.Pckid.inputValue==null}" partialSubmit="true" id="b4"
                                    iconPosition="top" icon="#{resource['images:imgPrevious.png']}"/>
