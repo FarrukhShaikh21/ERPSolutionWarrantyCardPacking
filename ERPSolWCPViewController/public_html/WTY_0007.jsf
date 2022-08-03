@@ -57,13 +57,21 @@
                                 <af:setActionListener from="#{'RPT_PACKING'}"
                                                       to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolReportName}"/>
                               </af:link>
-                              <af:spacer width="10" height="10" id="s9"/>
                               <af:link text="Gionee" id="l2"
                                        action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}"
                                        partialSubmit="true">
                                 <af:setActionListener from="#{'RPT_PACKING_GIONEE'}"
                                                       to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolReportName}"/>
                               </af:link>
+                              <af:link text="QSmall" id="l3"
+                                       action="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolExecuteWCPReport}"
+                                       partialSubmit="true">
+                                <af:setActionListener from="#{'PS1'}"
+                                                      to="#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolReportName}"/>
+                              </af:link>
+                              <f:facet name="separator">
+                                <af:spacer width="10" height="10" id="s9"/>
+                              </f:facet>
                             </af:panelGroupLayout>
                           </f:facet>
                         </af:button>
